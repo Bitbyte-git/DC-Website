@@ -278,7 +278,7 @@ export const RESIDENCY_MENU = {
         { name: 'Canada', sub: 'Startup Visa, Quebec Immigrant Investor', image: '/images/res-canada.png', link: '/residency/canada' },
         { name: 'Australia', sub: 'National Innovation Visa', image: '/images/res-australia.png', link: '/residency/australia' },
         { name: 'New Zealand', sub: 'Investor Visa', image: '/images/res-nz.png', link: '/residency/new-zealand' },
-{ name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/images/res-Cyprus.png', link: '/residency/cyprus' },
+{ name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/images/res-cyprus.png', link: '/residency/cyprus' },
         { name: 'Malta', sub: 'Malta Permanent Residence Program', image: '/images/res-malta.png', link: '/residency/malta' },
         { name: 'Portugal', sub: 'Golden Visa', image: '/images/res-portugal.png', link: '/residency/portugal' },
         { name: 'Latvia', sub: 'Golden Visa', image: '/images/res-latvia.png', link: '/residency/latvia' },
