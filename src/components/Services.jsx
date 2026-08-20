@@ -4,7 +4,7 @@ import { Icon } from './Icons.jsx';
 export default function Services() {
   return (
     <section className="section" id="services">
-      <div className="container">
+      <div className="container services-box">
         <p className="section-tag">OUR SERVICES</p>
         <h2 className="center">Solutions That Open Global Doors</h2>
 

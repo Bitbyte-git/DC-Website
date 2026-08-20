@@ -588,6 +588,13 @@ h2.center {
 
 /* ---------- Destinations ---------- */
 #destinations {
+.destinations-box,
+.services-box {
+  background: var(--bg-soft);
+  border-radius: 20px;
+  padding: 34px;
+}
+
   padding-bottom: 12px;
 }
 

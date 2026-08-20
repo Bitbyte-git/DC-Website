@@ -11,7 +11,7 @@ export default function Destinations() {
 
   return (
     <section className="section" id="destinations">
-      <div className="container">
+      <div className="container destinations-box">
         <p className="section-tag">RESIDENCY BY INVESTMENT</p>
         <div className="section-head">
           <h2>Explore Top Destinations</h2>
