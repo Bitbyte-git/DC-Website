@@ -16,7 +16,7 @@ export const NAV_LINKS = [
   { label: 'Citizenship', href: '/#services', dropdown: true },
   { label: 'Residency', href: '/#destinations', dropdown: true },
   { label: 'Real Estate', href: '/#properties', dropdown: true },
-  { label: 'Other Service', href: '/#services', dropdown: false },
+  { label: 'Other Service', href: '/#services', dropdown: true },
 ];
 
 // Images: hero-london.png (left), hero-dubai.png (right), world-map.png (bg)
@@ -30,25 +30,30 @@ export const HERO_PILLS = [
 // Residency destination artwork includes each country's landmark and flag.
 export const DESTINATIONS = [
   {
-    name: 'Germany',
-    price: 'from €250,000',
-    image: '/landing-img/re-germany.png',
-  },
-  {
     name: 'Canada',
-    price: 'from CAD 200,000',
     image: '/landing-img/re-canata.png',
+    price: 'from CAD 200,000',
   },
   {
-    name: 'UAE',
-    price: 'from AED 750,000',
-    image: '/landing-img/re-uae.png',
+    name: 'Australia',
+    price: 'from AUD 250,000',
+    image: '/landing-img/re-australia.png',
   },
   {
-    name: 'USA',
-    price: 'from $800,000',
-    image: '/landing-img/re-usa.png',
+    name: 'New Zealand',
+    price: 'from NZD 3M+',
+    image: '/landing-img/re-new zealand.png',
   },
+  {
+    name: 'Cyprus',
+    price: 'from 300,000',
+    image: '/landing-img/re-Cyprus.png',
+  },
+  { name: 'Malta', price: 'from 150,000', image: '/landing-img/re-Malta.png' },
+  { name: 'Portugal', price: 'from 250,000', image: '/landing-img/re-portugal.png' },
+  { name: 'Latvia', price: 'from 250,000', image: '/landing-img/re-Latvia.png' },
+  { name: 'Italy', price: 'from 250,000', image: '/landing-img/re-italy.png' },
+  { name: 'Spain', price: 'from 500,000', image: '/landing-img/re-spain.png' },
 ];
 
 export const SERVICES = [
@@ -123,27 +128,25 @@ export const TESTIMONIALS = [
   },
 ];
 
-// Images: team-arjun.jpg, team-meera.jpg, team-rahul.jpg, team-sneha.jpg
+// Leadership team profiles
 export const TEAM = [
   {
-    name: 'Arjun Malhotra',
-    role: 'Global Mobility Advisor',
-    image: '/images/team-arjun.png',
+    name: 'Ms. Usha',
+    role: 'Business Head',
+    image: '/landing-img/Ms. Usha.png',
+    description: 'Ms. Usha, the visionary behind Dream Country Visas, founded the company with a deep passion for helping individuals and families navigate complex immigration pathways. With a strong background in immigration law and a commitment to transparency, she ensures every client receives fair, honest and professional visa guidance.',
   },
   {
-    name: 'Meera Nair',
-    role: 'Investment Specialist',
-    image: '/images/team-meera.png',
+    name: 'Amanpreet Kaur',
+    role: 'Senior Immigration Counsellor',
+    image: '/landing-img/Amanpreet Kaur.png',
+    description: 'Amanpreet Kaur is an experienced Senior Immigration Counsellor who guides clients through every stage of their immigration journey. Known for her personalised approach and in-depth understanding of global visa processes, she delivers transparent, reliable and result-oriented solutions.',
   },
   {
-    name: 'Rahul Fernandes',
-    role: 'Real Estate Consultant',
-    image: '/images/team-rahul.png',
-  },
-  {
-    name: 'Sneha Iyer',
-    role: 'Client Relationship Manager',
-    image: '/images/team-sneha.png',
+    name: 'Mr. Mohhit',
+    role: 'Director',
+    image: '/landing-img/Mohhit.png',
+    description: 'Mr. Mohhit plays a key role in steering the strategic direction of Dream Country Visas. As Director, he brings leadership, operational expertise and a client-first mindset, helping build a strong team and expand the firm’s global outreach.',
   },
 ];
 
@@ -219,9 +222,10 @@ export const CITIZENSHIP_MENU = {
   ],
   offer: {
     tag: 'EXCLUSIVE OFFER',
-    title: 'Most Affordable EU Residency',
+    title: 'Malta Residency by Investment',
     subtitle: 'Greece Golden Visa from €250,000',
-    image: '/menu/menu-offer.png',
+    subtitle: 'Malta Permanent Residence Programme',
+    image: '/images/res-malta.png',
     button: 'Explore Offer',
   },
 };
@@ -236,21 +240,21 @@ export const REALESTATE_MENU = {
           name: 'Dubai',
           price: 'from AED 1.5M',
           time: 'ready to move',
-          image: '/menu/menu-dubai.png',
+          image: '/images/re-dubai.png',
           link: '/realestate/dubai',
         },
         {
           name: 'Greece Golden Visa',
           price: 'from €250,000',
           time: 'from 4 months',
-          image: '/menu/menu-greece.png',
+          image: '/images/re-greece.png',
           link: '/realestate/greece',
         },
         {
           name: 'Latvia',
           price: 'from €250,000',
           time: 'from 3 months',
-          image: '/menu/menu-latvia.png',
+          image: '/images/re-latvia.png',
           link: '/realestate/latvia',
         },
       ],
@@ -260,7 +264,7 @@ export const REALESTATE_MENU = {
     tag: 'EXCLUSIVE OFFER',
     title: 'High-ROI Dubai Properties',
     subtitle: 'Off-plan projects with 8-10% rental yield',
-    image: '/menu/menu-re-offer.png',
+    image: '/menu/menu-dubai.png',
     button: 'Explore Properties',
   },
 };
@@ -271,15 +275,15 @@ export const RESIDENCY_MENU = {
     {
       title: 'RESIDENCY PROGRAMS',
       items: [
-        { name: 'Canada', sub: 'Startup Visa, Quebec Immigrant Investor', image: '/menu/menu-canada.png', link: '/residency/canada' },
-        { name: 'Australia', sub: 'National Innovation Visa', image: '/menu/menu-australia.png', link: '/residency/australia' },
-        { name: 'New Zealand', sub: 'Investor Visa', image: '/menu/menu-nz.png', link: '/residency/new-zealand' },
-        { name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/menu/menu-cyprus.png', link: '/residency/cyprus' },
-        { name: 'Malta', sub: 'Malta Permanent Residence Program', image: '/menu/menu-malta.png', link: '/residency/malta' },
-        { name: 'Portugal', sub: 'Golden Visa', image: '/menu/menu-portugal.png', link: '/residency/portugal' },
-        { name: 'Latvia', sub: 'Golden Visa', image: '/menu/menu-latvia.png', link: '/residency/latvia' },
-        { name: 'Italy', sub: 'Golden Visa', image: '/menu/menu-italy.png', link: '/residency/italy' },
-        { name: 'Spain', sub: 'Golden Visa', image: '/menu/menu-spain.png', link: '/residency/spain' },
+        { name: 'Canada', sub: 'Startup Visa, Quebec Immigrant Investor', image: '/images/res-canada.png', link: '/residency/canada' },
+        { name: 'Australia', sub: 'National Innovation Visa', image: '/images/res-australia.png', link: '/residency/australia' },
+        { name: 'New Zealand', sub: 'Investor Visa', image: '/images/res-nz.png', link: '/residency/new-zealand' },
+{ name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/images/res-Cyprus.png', link: '/residency/cyprus' },
+        { name: 'Malta', sub: 'Malta Permanent Residence Program', image: '/images/res-malta.png', link: '/residency/malta' },
+        { name: 'Portugal', sub: 'Golden Visa', image: '/images/res-portugal.png', link: '/residency/portugal' },
+        { name: 'Latvia', sub: 'Golden Visa', image: '/images/res-latvia.png', link: '/residency/latvia' },
+        { name: 'Italy', sub: 'Golden Visa', image: '/images/res-italy.png', link: '/residency/italy' },
+        { name: 'Spain', sub: 'Golden Visa', image: '/images/res-spain.png', link: '/residency/spain' },
       ],
     },
   ],
