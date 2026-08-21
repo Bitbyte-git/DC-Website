@@ -132,16 +132,16 @@ export const TESTIMONIALS = [
 // Leadership team profiles
 export const TEAM = [
   {
-    name: 'Ms. Usha',
-    role: 'Business Head',
-    image: '/landing-img/Ms. Usha.png',
-    description: 'Ms. Usha, the visionary behind Dream Country Visas, founded the company with a deep passion for helping individuals and families navigate complex immigration pathways. With a strong background in immigration law and a commitment to transparency, she ensures every client receives fair, honest and professional visa guidance.',
-  },
-  {
     name: 'Amanpreet Kaur',
     role: 'Senior Immigration Counsellor',
     image: '/landing-img/Amanpreet Kaur.png',
     description: 'Amanpreet Kaur is an experienced Senior Immigration Counsellor who guides clients through every stage of their immigration journey. Known for her personalised approach and in-depth understanding of global visa processes, she delivers transparent, reliable and result-oriented solutions.',
+  },
+  {
+    name: 'Ms. Usha',
+    role: 'Business Head',
+    image: '/landing-img/Ms. Usha.png',
+    description: 'Ms. Usha, the visionary behind Dream Country Visas, founded the company with a deep passion for helping individuals and families navigate complex immigration pathways. With a strong background in immigration law and a commitment to transparency, she ensures every client receives fair, honest and professional visa guidance.',
   },
   {
     name: 'Mr. Mohhit',
