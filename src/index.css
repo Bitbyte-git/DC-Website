@@ -2873,7 +2873,7 @@ h2.center {
     display: none;
   }
 
-  /* Service country blocks — stack on mobile */
+   /* Service country blocks — stack on mobile */
   .svc-country,
   .svc-country.rev {
     grid-template-columns: 1fr;
@@ -2884,5 +2884,95 @@ h2.center {
   }
 
   
+}
+
+/* ---------- Book Free Consultation button ---------- */
+.nav-consult-btn {
+  padding: 9px 18px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ---------- Consultation Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 16, 50, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.modal-box {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 34px;
+  width: min(640px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(10, 16, 50, 0.3);
+}
+
+.modal-box h3 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.modal-sub {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 22px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: var(--bg-soft);
+  color: var(--navy);
+}
+
+.modal-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+.modal-form select:focus {
+  outline: 2px solid var(--navy-light);
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .nav-consult-btn {
+    display: none;
+  }
+
+  .modal-box {
+    padding: 24px;
+  }
 }
 

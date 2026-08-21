@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
@@ -14,8 +15,17 @@ import ResidencyPage from './Residency/ResidencyPage.jsx';
 import RealEstatePage from './Real Estate/RealEstatePage.jsx';
 import OtherservicePage from './OtherService/OtherservicePage.jsx';
 import PRPage from './PR/PR_page.jsx';
+import ConsultationModal from './components/ConsultationModal.jsx';
 
 function Home() {
+  const [showAutoPopup, setShowAutoPopup] = useState(false);
+
+  // Auto-open the consultation popup 7 seconds after landing on the
+  // home page. Only runs once per visit to this page.
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAutoPopup(true), 7000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <main>
       <Hero />
@@ -24,8 +34,12 @@ function Home() {
       <Properties />
       <About />
       <Testimonials />
-      <Team />
+            <Team />
       <Contact />
+      <ConsultationModal
+        open={showAutoPopup}
+        onClose={() => setShowAutoPopup(false)}
+      />
     </main>
   );
 }
