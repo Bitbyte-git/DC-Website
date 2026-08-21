@@ -5,8 +5,7 @@ import { Icon } from '../components/Icons.jsx';
 // =====================================================================
 // ALL other-service pages live in this ONE file.
 //
-// The 6 service URLs handled by this page:
-//   /services/pr-visas             ->  PR Visas
+// The 5 service URLs handled by this page:
 //   /services/work-visas           ->  Work Visas
 //   /services/business-visas       ->  Business Visas
 //   /services/study-visas          ->  Study Visas
@@ -18,80 +17,6 @@ import { Icon } from '../components/Icons.jsx';
 // Banner images go in public/images/ (e.g. svc-pr.jpg, 1600x500)
 // =====================================================================
 const SERVICES = {
-  'pr-visas': {
-    name: 'PR Visas',
-    tagline: 'Permanent Residency Solutions',
-    banner: '/images/svc-pr.png',
-    highlight: 'Australia • Canada • Germany',
-    time: 'from 2-3 months',
-    overview:
-      'Secure permanent residency in top destinations — Australia, Canada and Germany. We handle your complete PR journey: eligibility assessment, points optimization, documentation and application filing, from the first consultation to visa in hand.',
-    // Country photos: pr-australia.png, pr-canada.png, pr-germany.png
-    // Size: 800x600 px (4:3 landscape), public/images/
-    countries: [
-      {
-        name: 'Australia PR',
-        tagline: 'Skilled Migration — Subclass 189 / 190 / 491',
-        image: '/images/pr-australia.png',
-        cost: 'from AUD 4,640',
-        time: '6-12 months',
-        points: [
-          'Subclass 189 (Skilled Independent) — live & work anywhere in Australia, no sponsorship needed, points-based',
-          'Subclass 190 (Skilled Nominated) — state nomination with extra points; live in the nominating state',
-          'Subclass 491 (Regional, Provisional) — regional route; PR after 3 years of meeting conditions',
-          'Process — points check → EOI via SkillSelect → invitation → apply within 60 days',
-          'PR benefits — Medicare, social security and a clear path to citizenship',
-        ],
-      },
-      {
-        name: 'Canada PR',
-        tagline: 'Express Entry & Provincial Nominee Program (PNP)',
-        image: '/images/pr-canada.png',
-        cost: 'from CAD 1,365',
-        time: '6-12 months',
-        points: [
-          'Express Entry — CRS points-based system (age, education, experience, IELTS/CELPIP)',
-          'Provincial Nominee Program — +600 CRS points with a provincial nomination',
-          'Direct PR for the whole family — free healthcare and education',
-          'Process — ECA + language test → Express Entry profile → ITA → PR application',
-          'Citizenship eligibility after just 3 years of residence',
-        ],
-      },
-      {
-        name: 'Germany Opportunity Card',
-        tagline: 'Chancenkarte 2025 — Points-Based Job Seeker Visa',
-        image: '/images/pr-germany.png',
-        cost: '€100 – €150 (~₹8,500 – ₹13,500)',
-        time: '2-3 months',
-        points: [
-          'Points-based system — education, work experience and language (German or English)',
-          'Live in Germany and access the German job market & professional networks',
-          'Minimum age 18, clean criminal record, recognized degree recommended',
-          'Proof of funds to support your stay in Germany required',
-          'Process — online registration → documents → consulate interview (if required) → visa issued',
-        ],
-      },
-    ],
-    benefits: [
-      'Live, work and settle permanently abroad',
-      'Free healthcare and education access',
-      'Sponsor family members later',
-      'Pathway to citizenship',
-    ],
-    eligibility: [
-      'Skilled work experience in an in-demand occupation',
-      'Language proficiency (IELTS/PTE/TEF)',
-      'Educational qualification assessment',
-      'Age, adaptability and points criteria',
-    ],
-    documents: [
-      'Valid passport',
-      'Educational certificates and skill assessment',
-      'Language test results',
-      'Work experience letters',
-    ],
-  },
-
   'work-visas': {
     name: 'Work Visas',
     tagline: 'Global Employment Opportunities',

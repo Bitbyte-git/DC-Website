@@ -13,6 +13,7 @@ import CountryPage from './Citizenship/CitizenshipPage.jsx';
 import ResidencyPage from './Residency/ResidencyPage.jsx';
 import RealEstatePage from './Real Estate/RealEstatePage.jsx';
 import OtherservicePage from './OtherService/OtherservicePage.jsx';
+import PRPage from './PR/PR_page.jsx';
 
 function Home() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/residency/:slug" element={<ResidencyPage />} />
         <Route path="/realestate/:slug" element={<RealEstatePage />} />
         <Route path="/services/:slug" element={<OtherservicePage />} />
+        <Route path="/pr/:slug" element={<PRPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

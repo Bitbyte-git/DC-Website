@@ -16,6 +16,7 @@ export const NAV_LINKS = [
   { label: 'Citizenship', href: '/#services', dropdown: true },
   { label: 'Residency', href: '/#destinations', dropdown: true },
   { label: 'Real Estate', href: '/#properties', dropdown: true },
+  { label: 'Permanent Residency (PR)', href: '/#services', dropdown: true },
   { label: 'Other Service', href: '/#services', dropdown: true },
 ];
 
@@ -296,6 +297,41 @@ export const RESIDENCY_MENU = {
   },
 };
 
+// ----- Permanent Residency (PR) mega menu -----
+// ----- Permanent Residency (PR) mega menu -----
+export const PR_MENU = {
+  allLabel: 'All PR Programs',
+  groups: [
+    {
+      title: 'PR COUNTRIES',
+      items: [
+        {
+          name: 'Australia PR',
+          image: '/images/country-australia.png',
+          link: '/pr/australia',
+        },
+        {
+          name: 'Canada PR',
+          image: '/images/country-canada.png',
+          link: '/pr/canada',
+        },
+        {
+          name: 'Germany Opportunity Card Visa',
+          image: '/images/country-germany.png',
+          link: '/pr/germany',
+        },
+      ],
+    },
+  ],
+  offer: {
+    tag: 'EXCLUSIVE OFFER',
+    title: 'Germany Opportunity Card',
+    subtitle: 'Points-based work visa from EUR 100-150',
+    image: '/images/country-germany.png',
+    button: 'Explore Offer',
+  },
+};
+
 // ----- Other Services mega menu -----
 export const OTHERSERVICES_MENU = {
   allLabel: 'All Services',
@@ -303,7 +339,6 @@ export const OTHERSERVICES_MENU = {
     {
       title: 'WHAT WE SERVE',
       items: [
-        { name: 'PR Visas', image: '/menu/menu-pr-visa.png', link: '/services/pr-visas' },
         { name: 'Work Visas', image: '/menu/menu-work-visa.png', link: '/services/work-visas' },
         { name: 'Business Visas', image: '/menu/menu-business-visa.png', link: '/services/business-visas' },
         { name: 'Study Visas', image: '/menu/menu-study-visa.png', link: '/services/study-visas' },

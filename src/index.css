@@ -182,7 +182,6 @@ h2.center {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   min-height: 82px;
   padding: 10px 0;
@@ -196,8 +195,10 @@ h2.center {
 }
 
 .nav-links {
-  position: absolute;
-  right: calc(50% + 105px);
+  /* flex: 1 makes this side grow to fill the leftover space,
+     which auto-balances against .nav-right so the logo stays centered
+     no matter how many nav items are added */
+  flex: 1;
   display: flex;
   gap: 24px;
 }
@@ -217,9 +218,7 @@ h2.center {
 }
 
 .brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -251,10 +250,12 @@ h2.center {
 }
 
 .nav-right {
-  position: absolute;
-  left: calc(50% + 105px);
+  /* flex: 1 balances against .nav-links so the logo centers exactly,
+     justify-content pushes the content to the right edge */
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 16px;
 }
 
@@ -314,6 +315,7 @@ h2.center {
 .nav-item {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   /* expands the hover hit-area so the popup doesn't close
      while the mouse travels from the link down to the panel */
   padding: 22px 0;
@@ -2880,4 +2882,7 @@ h2.center {
   .svc-country.rev .svc-country-img {
     order: 0;
   }
+
+  
 }
+
