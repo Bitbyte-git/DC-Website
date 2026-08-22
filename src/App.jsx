@@ -5,6 +5,7 @@ import Hero from './components/Hero.jsx';
 import Destinations from './components/Destinations.jsx';
 import Services from './components/Services.jsx';
 import Properties from './components/Properties.jsx';
+import SuccessStory from './components/success_story.jsx';
 import About from './components/About.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import Team from './components/Team.jsx';
@@ -16,6 +17,7 @@ import RealEstatePage from './Real Estate/RealEstatePage.jsx';
 import OtherservicePage from './OtherService/OtherservicePage.jsx';
 import PRPage from './PR/PR_page.jsx';
 import ConsultationModal from './components/ConsultationModal.jsx';
+import PolicyPage from "./components/PolicyPage.jsx";
 
 function Home() {
   const [showAutoPopup, setShowAutoPopup] = useState(false);
@@ -32,7 +34,7 @@ function Home() {
       <Destinations />
       <Services />
       <Properties />
-      <About />
+      <SuccessStory />
       <Testimonials />
             <Team />
       <Contact />
@@ -50,11 +52,13 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/citizenship/:slug" element={<CountryPage />} />
         <Route path="/residency/:slug" element={<ResidencyPage />} />
         <Route path="/realestate/:slug" element={<RealEstatePage />} />
         <Route path="/services/:slug" element={<OtherservicePage />} />
         <Route path="/pr/:slug" element={<PRPage />} />
+        <Route path="/policies/:slug" element={<PolicyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

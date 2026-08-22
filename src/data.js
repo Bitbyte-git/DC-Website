@@ -12,12 +12,20 @@ export const CONTACT = {
 };
 
 // Images: logo.png (used in navbar + footer + favicon)
-export const NAV_LINKS = [
-  { label: 'Citizenship', href: '/#services', dropdown: true },
-  { label: 'Residency', href: '/#destinations', dropdown: true },
-  { label: 'Real Estate', href: '/#properties', dropdown: true },
+export const NAV_LINKS_LEFT = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about'},
   { label: 'Permanent Residency (PR)', href: '/#services', dropdown: true },
+  { label: 'Real Estate', href: '/#properties', dropdown: true },
+  { label: 'Residency', href: '/#destinations', dropdown: true },
+];
+
+export const NAV_LINKS_RIGHT = [
+  { label: 'Citizenship', href: '/#services', dropdown: true },
   { label: 'Other Service', href: '/#services', dropdown: true },
+  // temporary — points back to the home section until a real Media page exists
+  { label: 'Media', href: '/' },
+  { label: 'Contact Us', href: '/#contact' },
 ];
 
 // Images: hero-london.png (left), hero-dubai.png (right), world-map.png (bg)
