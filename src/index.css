@@ -182,7 +182,8 @@ h2.center {
 
 .navbar-inner {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 20px;
   min-height: 82px;
@@ -192,27 +193,33 @@ h2.center {
 .navbar > .container {
   width: 100%;
   max-width: none;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .nav-links {
-  /* flex: 1 makes this side grow to fill the leftover space,
-     which auto-balances against .nav-right so the logo stays centered
-     no matter how many nav items are added */
-  flex: 1;
   display: flex;
-  gap: 24px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 0;
+  padding-right: 32px;
 }
 
 .nav-links a {
-  font-size: 0.85rem;
+  font-size: 0.87rem;
   font-weight: 500;
   color: var(--ink);
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
+  padding: 6px 0;
   transition: color 0.2s;
+}
+
+.nav-links-right a:hover {
+  color: var(--navy);
 }
 
 .nav-links a:hover {
@@ -220,10 +227,10 @@ h2.center {
 }
 
 .brand {
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
 }
 
 .brand img {
@@ -252,18 +259,17 @@ h2.center {
 }
 
 .nav-right {
-  /* flex: 1 balances against .nav-links so the logo centers exactly,
-     justify-content pushes the content to the right edge */
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 16px;
+  min-width: 0;
 }
 
 .nav-links-right {
   display: flex;
-  gap: 16px;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 .nav-icons {
@@ -487,7 +493,8 @@ h2.center {
   padding: 22px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 8px;
   min-height: 330px;
 }
@@ -1075,6 +1082,16 @@ h2.center {
   object-position: center bottom;
 }
 
+.team-name-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 .team-card h4 {
   position: relative;
   z-index: 1;
@@ -1083,6 +1100,20 @@ h2.center {
   color: var(--navy);
   line-height: 1.2;
   margin-bottom: 10px;
+}
+
+.team-role-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.team-role-row .team-role {
+  margin: 0;
 }
 
 .team-role {

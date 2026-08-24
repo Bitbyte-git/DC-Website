@@ -80,7 +80,7 @@ const EMPTY_PR_FORM = {
 // PR Contact — a second, simpler popup opened from inside the main
 // consultation modal via the "PR Contact" button.
 // ---------------------------------------------------------------
-function PRContactModal({ open, onClose, onSwitchToMain }) {
+export function PRContactModal({ open, onClose, onSwitchToMain }) {
   const [form, setForm] = useState(EMPTY_PR_FORM);
   const [sent, setSent] = useState(false);
 

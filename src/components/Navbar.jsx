@@ -26,13 +26,27 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showConsultation, setShowConsultation] = useState(false);
 
+    // Smoothly scroll to a section when already on the home page,
+  // instead of relying on a plain hash-link (which jumps instantly).
+  const handleHashClick = (href) => (e) => {
+    setOpen(false);
+    if (href.startsWith('/#') && window.location.pathname === '/') {
+      const id = href.slice(2);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   // Shared renderer — plain links (Home, About Us, Media, Contact Us)
   // render as-is; links with a matching entry in MENUS get the hover
   // mega-menu attached.
   const renderLinks = (links) =>
     links.map((link) => (
       <div className="nav-item" key={link.label}>
-        <a href={link.href} onClick={() => setOpen(false)}>
+        <a href={link.href} onClick={handleHashClick(link.href)}>
           {link.label}
           {link.dropdown && <Icon name="chevron-down" size={12} />}
         </a>

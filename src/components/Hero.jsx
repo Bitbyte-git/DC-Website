@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { HERO_PILLS } from '../data.js';
 import { Icon } from './Icons.jsx';
+import ConsultationModal from './ConsultationModal.jsx';
 
 export default function Hero() {
+  const [showConsultation, setShowConsultation] = useState(false);
+
   return (
     <section className="hero" id="home">
       <div className="container hero-content">
@@ -32,11 +36,20 @@ export default function Hero() {
           <a href="#services" className="btn btn-primary">
             Explore Programs <Icon name="arrow" size={16} />
           </a>
-          <a href="#contact" className="btn btn-outline">
+          <button
+            type="button"
+            className="btn btn-outline"
+            onClick={() => setShowConsultation(true)}
+          >
             Book Consultation <Icon name="arrow" size={16} />
-          </a>
+          </button>
         </div>
       </div>
+
+      <ConsultationModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+      />
     </section>
   );
 }

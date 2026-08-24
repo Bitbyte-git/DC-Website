@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { CONTACT } from '../data.js';
+import ConsultationModal from '../components/ConsultationModal.jsx';
 
 // =====================================================================
 // ALL real estate location pages live in this ONE file.
@@ -184,6 +185,7 @@ const LOCATIONS = {
 export default function RealEstatePage() {
   const { slug } = useParams();
   const location = LOCATIONS[slug];
+  const [showConsultation, setShowConsultation] = useState(false);
 
   // Scroll to top whenever the location changes
   useEffect(() => {
@@ -369,9 +371,13 @@ export default function RealEstatePage() {
               <p>Get a free consultation with our property investment experts.</p>
             </div>
             <div className="cta-buttons">
-              <a href="/#contact" className="btn btn-primary">
+                            <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => setShowConsultation(true)}
+              >
                 Book Free Consultation <Icon name="arrow" size={16} />
-              </a>
+              </button>
               <Link to="/" className="btn btn-outline">
                 Back to Home
               </Link>
@@ -387,9 +393,13 @@ export default function RealEstatePage() {
               Talk to our experts and get a free investment assessment for{' '}
               {location.name}.
             </p>
-            <a href="/#contact" className="btn btn-light full">
+                        <button
+              type="button"
+              className="btn btn-light full"
+              onClick={() => setShowConsultation(true)}
+            >
               Book Free Consultation <Icon name="arrow" size={15} />
-            </a>
+            </button>
             <a
               href={CONTACT.whatsapp}
               className="btn btn-ghost full"
@@ -425,8 +435,13 @@ export default function RealEstatePage() {
               </li>
             </ul>
           </div>
-        </aside>
+                </aside>
       </div>
+
+      <ConsultationModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
+import ConsultationModal from '../components/ConsultationModal.jsx';
 
 // =====================================================================
 // ALL other-service pages live in this ONE file.
@@ -157,6 +158,7 @@ const SERVICES = {
 export default function OtherservicePage() {
   const { slug } = useParams();
   const service = SERVICES[slug];
+  const [showConsultation, setShowConsultation] = useState(false);
 
   // Scroll to top whenever the service changes
   useEffect(() => {
@@ -261,15 +263,24 @@ export default function OtherservicePage() {
           </ul>
         </section>
 
-        <div className="country-cta">
-          <a href="/#contact" className="btn btn-primary">
+                       <div className="country-cta">
+          <button
+            type="button"
+            className="btn btn-light"
+            onClick={() => setShowConsultation(true)}
+          >
             Book Free Consultation <Icon name="arrow" size={16} />
-          </a>
+          </button>
           <Link to="/" className="btn btn-outline">
             Back to Home
           </Link>
         </div>
       </div>
+
+      <ConsultationModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+      />
     </div>
   );
 }

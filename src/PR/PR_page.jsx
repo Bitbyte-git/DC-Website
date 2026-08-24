@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { CONTACT } from '../data.js';
+import { PRContactModal } from '../components/ConsultationModal.jsx';
 
 const COUNTRIES = {
   australia: {
@@ -133,6 +134,7 @@ const COUNTRIES = {
 export default function PRPage() {
   const { slug } = useParams();
   const country = COUNTRIES[slug];
+  const [showConsultation, setShowConsultation] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -296,9 +298,13 @@ export default function PRPage() {
               <p>Get a free consultation with our immigration experts.</p>
             </div>
             <div className="cta-buttons">
-              <a href="/#contact" className="btn btn-light">
+                            <button
+                type="button"
+                className="btn btn-light"
+                onClick={() => setShowConsultation(true)}
+              >
                 Book Free Consultation <Icon name="arrow" size={16} />
-              </a>
+              </button>
               <Link to="/" className="btn btn-ghost">
                 Back to Home
               </Link>
@@ -313,17 +319,21 @@ export default function PRPage() {
               Talk to our experts and get a free eligibility assessment for{' '}
               {country.name}.
             </p>
-            <a href="/#contact" className="btn btn-light full">
+                         <button
+              type="button"
+              className="btn btn-light full"
+              onClick={() => setShowConsultation(true)}
+            >
               Book Free Consultation <Icon name="arrow" size={15} />
-            </a>
-            
+            </button>
+            <a
               href={CONTACT.whatsapp}
               className="btn btn-ghost full"
               target="_blank"
               rel="noreferrer"
-            
+            >
               <Icon name="whatsapp" size={16} /> WhatsApp Us
-            
+            </a>
           </div>
 
           <div className="side-card">
@@ -351,8 +361,14 @@ export default function PRPage() {
               </li>
             </ul>
           </div>
-        </aside>
+                </aside>
       </div>
+
+            <PRContactModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+        onSwitchToMain={() => setShowConsultation(false)}
+      />
     </div>
   );
 }

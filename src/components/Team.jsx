@@ -1,4 +1,5 @@
 import { TEAM } from '../data.js';
+import { Icon } from './Icons.jsx';
 
 export default function Team() {
   return (
@@ -13,8 +14,17 @@ export default function Team() {
               <div className="team-photo-wrap">
                 <img className="team-photo" src={m.image} alt={m.name} />
               </div>
-              <h4>{m.name}</h4>
-              <p className="team-role">{m.role}</p>
+                              <h4>{m.name}</h4>
+              <div className="team-role-row">
+                <p className="team-role">{m.role}</p>
+                
+                 <a href="#"
+                  className="team-linkedin"
+                  aria-label={`${m.name} on LinkedIn`}
+                >
+                  <Icon name="linkedin" size={14} />
+                </a>
+              </div>
               <p className="team-description">{m.description}</p>
             </article>
           ))}

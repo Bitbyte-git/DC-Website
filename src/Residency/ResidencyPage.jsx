@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { CONTACT } from '../data.js';
+import ConsultationModal from '../components/ConsultationModal.jsx';
 
 // =====================================================================
 // ALL residency country pages live in this ONE file.
@@ -497,6 +498,7 @@ const COUNTRIES = {
 export default function ResidencyPage() {
   const { slug } = useParams();
   const country = COUNTRIES[slug];
+  const [showConsultation, setShowConsultation] = useState(false);
 
   // Scroll to top whenever the country changes
   useEffect(() => {
@@ -700,9 +702,13 @@ export default function ResidencyPage() {
               <p>Free eligibility assessment with our residency experts.</p>
             </div>
             <div className="cta-buttons">
-              <a href="/#contact" className="btn btn-primary">
-                Check My Eligibility <Icon name="arrow" size={16} />
-              </a>
+                            <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => setShowConsultation(true)}
+              >
+                Book Free Consultation <Icon name="arrow" size={16} />
+              </button>
               <Link to="/" className="btn btn-outline">
                 Back to Home
               </Link>
@@ -718,9 +724,13 @@ export default function ResidencyPage() {
               Talk to our experts and get a free residency assessment for{' '}
               {country.name}.
             </p>
-            <a href="/#contact" className="btn btn-light full">
+                        <button
+              type="button"
+              className="btn btn-light full"
+              onClick={() => setShowConsultation(true)}
+            >
               Book Free Consultation <Icon name="arrow" size={15} />
-            </a>
+            </button>
             <a
               href={CONTACT.whatsapp}
               className="btn btn-ghost full"
@@ -756,8 +766,13 @@ export default function ResidencyPage() {
               </li>
             </ul>
           </div>
-        </aside>
+                </aside>
       </div>
+
+      <ConsultationModal
+        open={showConsultation}
+        onClose={() => setShowConsultation(false)}
+      />
     </div>
   );
 }
