@@ -41,18 +41,19 @@ export default function MegaMenu({ data }) {
           </div>
         </div>
 
-                {offer && (
-          <div
+                                {offer && (
+          <Link
+            to={offer.link || '/#contact'}
             className="mega-offer"
             style={{ backgroundImage: `url(${offer.image})` }}
           >
             <p className="mega-offer-tag">{offer.tag}</p>
             <h4>{offer.title}</h4>
             <p className="mega-offer-sub">{offer.subtitle}</p>
-            <a href="#contact" className="btn btn-primary">
+            <span className="btn btn-primary">
               {offer.button}
-            </a>
-          </div>
+            </span>
+          </Link>
         )}
       </div>
     </div>

@@ -5,18 +5,19 @@ export default function SuccessStory() {
   return (
     <section className="section" id="about">
       <div className="container about-box">
-        <div className="about-intro">
-          <p className="section-tag left">ABOUT DREAM COUNTRY VISAS</p>
-          <h2>
-            Your Trusted Partner
+                        <div className="about-intro">
+          <p className="section-tag maroon-tag">SUCCESS STORY</p>
+          <h2 className="center">
+            Turning Visa Dreams
             <br />
-            in Global Mobility
+            Into Reality
           </h2>
-          <p className="about-text">
-            We provide end-to-end global mobility solutions to help you live,
-            work, invest and expand your future anywhere in the world.
+          <p className="about-text center">
+            From citizenship and residency to real estate and global
+            mobility — we've guided thousands of families to a new life
+            abroad with honesty, expertise and care.
           </p>
-          <a href="#contact" className="link-more">
+          <a href="#contact" className="link-more center">
             Learn More About Us <Icon name="arrow" size={14} />
           </a>
         </div>

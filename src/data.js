@@ -103,37 +103,33 @@ export const PROPERTIES = [
 
 // Image: globe-network.png (dotted globe illustration on right side)
 export const STATS = [
-  { icon: 'star', value: '4.8', label: 'on Google (Rating)' },
-  { icon: 'people', value: '35+', label: 'Years of Experience' },
-  { icon: 'people', value: '9K+', label: 'Happy Clients' },
-  { icon: 'globe', value: '50+', label: 'Countries Worldwide' },
+  { icon: 'people', value: '20+', label: 'Team Members' },
+  { icon: 'certificate', value: '6+', label: 'Winning Awards' },
+  { icon: 'passport', value: '50+', label: 'Completed Cases' },
+  { icon: 'star', value: '100+', label: 'Client Reviews' },
 ];
 
 // Images: client-rahul.jpg, client-priya.jpg, client-arjun.jpg, client-neha.jpg
 export const TESTIMONIALS = [
   {
-    text: 'The team at Dream Country Visas made our citizenship journey smooth and hassle-free. Highly recommended!',
+    text: 'Most important thing about this organisation is: You are not treated as a client, but you are treated as a family member. That says it all. Utmost care and professionalism are the hallmarks of leadership under Usha mam. Team is available whenever you need their assistance. Thank you for your help.',
     name: 'Rahul Mehta',
     place: 'Dubai, UAE',
-    image: '/images/client-rahul.png',
   },
   {
-    text: 'Excellent guidance and support throughout the residency process. Very professional and transparent service.',
-    name: 'Priya Sharma',
+    text: 'I had got my Canadian Visa application done from DreamCountry Visas Pvt. Ltd. I have found DreamCountry Visas Pvt. Ltd to be very responsive and flexible to my needs. DreamCountry Visas Pvt. Ltd helped me get through with my application without any worries, they followed up with me.',
+    name: 'Vishal Hawa',
     place: 'Toronto, Canada',
-    image: '/images/client-priya.png',
   },
   {
-    text: 'Their real estate investment advice helped us make the right choice. Great experience!',
-    name: 'Arjun Nair',
-    place: 'London, UK',
-    image: '/images/client-arjun.png',
+    text: 'My experience with Dream Visas has been exemplary. My heart felt gratitude goes especially to Usha who made sure that I reach Canada safe and quick. At the very beginning it was just a casual enquiry call that I made to her and within a years time we have become more like family. She stood by me during Covid and guided me to steer through difficult situations that came our way. She is smart and quick with action and the whole credit of me being in Canada goes to Usha. Not just me but my family trusts her too as she has helped many of my family members and friends turn their Canadian Dream into Reality.',
+    name: 'Priyanka Bhambra',
+    place: 'Canada',
   },
   {
-    text: 'From documentation to approval, everything was handled seamlessly. Thank you team!',
-    name: 'Neha Kapoor',
-    place: 'Sydney, Australia',
-    image: '/images/client-neha.png',
+    text: 'My experience with Dream Visas has been amazing. Usha\u2019s guidance made my journey to Canada smooth and fast. What started as a casual inquiry turned into a bond like family. She stood by me during COVID, helping me navigate challenges. Thanks to her quick action, I\u2019m in Canada today. My family and friends also trust her for making their Canadian dreams a reality!',
+    name: 'Harwinder Singh',
+    place: 'Canada',
   },
 ];
 
@@ -229,15 +225,16 @@ export const CITIZENSHIP_MENU = {
       ],
     },
   ],
-  offer: {
+    offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'Malta Residency by Investment',
-    subtitle: 'Greece Golden Visa from €250,000',
     subtitle: 'Malta Permanent Residence Programme',
     image: '/images/res-malta.png',
     button: 'Explore Offer',
+    link: '/citizenship/malta',
   },
 };
+
 
 // ----- Real Estate mega menu -----
 export const REALESTATE_MENU = {
@@ -269,12 +266,13 @@ export const REALESTATE_MENU = {
       ],
     },
   ],
-  offer: {
+    offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'High-ROI Dubai Properties',
     subtitle: 'Off-plan projects with 8-10% rental yield',
     image: '/menu/menu-dubai.png',
     button: 'Explore Properties',
+    link: '/realestate/dubai',
   },
 };
 
@@ -296,16 +294,16 @@ export const RESIDENCY_MENU = {
       ],
     },
   ],
-  offer: {
+    offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'Most Affordable EU Residency',
     subtitle: 'Portugal Golden Visa from €250,000',
     image: '/menu/menu-res-offer.png',
     button: 'Explore Offer',
+    link: '/residency/portugal',
   },
 };
 
-// ----- Permanent Residency (PR) mega menu -----
 // ----- Permanent Residency (PR) mega menu -----
 export const PR_MENU = {
   allLabel: 'All PR Programs',
@@ -323,20 +321,16 @@ export const PR_MENU = {
           image: '/images/country-canada.png',
           link: '/pr/canada',
         },
-        {
-          name: 'Germany Opportunity Card Visa',
-          image: '/images/country-germany.png',
-          link: '/pr/germany',
-        },
       ],
     },
   ],
-  offer: {
+      offer: {
     tag: 'EXCLUSIVE OFFER',
-    title: 'Germany Opportunity Card',
-    subtitle: 'Points-based work visa from EUR 100-150',
-    image: '/images/country-germany.png',
+    title: 'Fast-Track PR to Australia',
+    subtitle: 'Skilled Migration from AUD 4,640',
+    image: '/images/country-australia.png',
     button: 'Explore Offer',
+    link: '/pr/australia',
   },
 };
 
@@ -362,11 +356,10 @@ export const FOOTER = {
     'Your trusted partner in global citizenship, residency, real estate and global mobility solutions across the world.',
   quickLinks: ['Citizenship', 'Residency', 'Real Estate', 'Other Service', 'About Us', 'Contact Us'],
   services: [
-    'Citizenship by Investment',
-    'Residency by Investment',
-    'Real Estate Investment',
-    'Global Mobility Solutions',
-    'Other Services',
+    'Citizenship (Malta)',
+    'Residency (Portugal)',
+    'Real Estate (Dubai)',
+    'Permanent Residency (Australia)',
   ],
   destinations: ['UAE', 'Germany', 'Canada', 'USA', 'Australia'],
   copyright: '© 2026 Dream Country Visas. All Rights Reserved.',

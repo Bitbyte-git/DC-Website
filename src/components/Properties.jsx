@@ -1,5 +1,10 @@
+import { Link } from 'react-router-dom';
 import { PROPERTIES } from '../data.js';
 import { Icon } from './Icons.jsx';
+
+function slugify(name) {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
 
 export default function Properties() {
   return (
@@ -19,13 +24,17 @@ export default function Properties() {
 
         <div className="properties-grid">
           {PROPERTIES.map((p) => (
-            <div className="prop-card" key={p.name}>
+            <Link
+              to={`/realestate/${slugify(p.name)}`}
+              className="prop-card"
+              key={p.name}
+            >
               <img src={p.image} alt={p.name} />
               <div className="prop-info">
                 <h4>{p.name}</h4>
                 <p>{p.price}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

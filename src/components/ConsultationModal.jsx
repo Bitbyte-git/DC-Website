@@ -37,6 +37,8 @@ const ENGLISH_LEVELS = [
   'Very Poor (4 Band)',
 ];
 
+const PR_PROGRAMS = ['Australia PR', 'Canada PR'];
+
 const COUNTRY_OPTIONS = [
   'India', 'United States', 'United Kingdom', 'Canada', 'Australia',
   'United Arab Emirates', 'Germany', 'France', 'Italy', 'Spain',
@@ -63,6 +65,7 @@ const EMPTY_MAIN_FORM = {
 
 const EMPTY_PR_FORM = {
   englishLevel: '',
+  prProgram: '',
   salutation: '',
   firstName: '',
   lastName: '',
@@ -77,7 +80,7 @@ const EMPTY_PR_FORM = {
 // PR Contact — a second, simpler popup opened from inside the main
 // consultation modal via the "PR Contact" button.
 // ---------------------------------------------------------------
-function PRContactModal({ open, onClose }) {
+function PRContactModal({ open, onClose, onSwitchToMain }) {
   const [form, setForm] = useState(EMPTY_PR_FORM);
   const [sent, setSent] = useState(false);
 
@@ -105,7 +108,16 @@ function PRContactModal({ open, onClose }) {
           ×
         </button>
 
-        <h3>PR Eligibility Contact</h3>
+                <div className="modal-title-row">
+          <h3>PR Eligibility Contact</h3>
+          <button
+            type="button"
+            className="btn btn-outline modal-pr-btn"
+            onClick={onSwitchToMain}
+          >
+            Book Free Consultation
+          </button>
+        </div>
         <p className="modal-sub">
           Share a few details and our PR experts will assess your eligibility.
         </p>
@@ -117,7 +129,7 @@ function PRContactModal({ open, onClose }) {
           </p>
         ) : (
           <form className="contact-form contact-form-wide modal-form" onSubmit={handleSubmit}>
-            <label className="field-label">What is your English level?*</label>
+                        <label className="field-label">What is your English level?*</label>
             <select name="englishLevel" value={form.englishLevel} onChange={update} required>
               <option value="" disabled>
                 What is your English level?
@@ -125,6 +137,18 @@ function PRContactModal({ open, onClose }) {
               {ENGLISH_LEVELS.map((lvl) => (
                 <option key={lvl} value={lvl}>
                   {lvl}
+                </option>
+              ))}
+            </select>
+
+            <label className="field-label">PR Program*</label>
+            <select name="prProgram" value={form.prProgram} onChange={update} required>
+              <option value="" disabled>
+                Please select
+              </option>
+              {PR_PROGRAMS.map((p) => (
+                <option key={p} value={p}>
+                  {p}
                 </option>
               ))}
             </select>
@@ -271,7 +295,7 @@ export default function ConsultationModal({ open, onClose }) {
   // When PR Contact is open, render ONLY that modal — otherwise this
   // component's own overlay/box would also render underneath it,
   // stacking two backdrops on top of each other.
-  if (showPRContact) {
+    if (showPRContact) {
     return (
       <PRContactModal
         open={showPRContact}
@@ -279,6 +303,7 @@ export default function ConsultationModal({ open, onClose }) {
           setShowPRContact(false);
           onClose();
         }}
+        onSwitchToMain={() => setShowPRContact(false)}
       />
     );
   }

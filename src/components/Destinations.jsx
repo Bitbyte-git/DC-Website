@@ -1,17 +1,25 @@
+import { Link } from 'react-router-dom';
 import { DESTINATIONS } from '../data.js';
 import { Icon } from './Icons.jsx';
 
-export default function Destinations() {
-  const destinationCards = DESTINATIONS.map((d) => (
-    <div className="dest-card" key={d.name}>
+// Turns "New Zealand" into "new-zealand" to match the /residency/:slug routes
+function slugify(name) {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
+function DestCard({ d }) {
+  return (
+    <Link to={`/residency/${slugify(d.name)}`} className="dest-card">
       <div className="dest-img">
         <img src={d.image} alt={d.name} />
       </div>
       <h3>{d.name}</h3>
       <p>{d.price}</p>
-    </div>
-  ));
+    </Link>
+  );
+}
 
+export default function Destinations() {
   return (
     <section className="section" id="destinations">
       <div className="container destinations-box">
@@ -25,16 +33,14 @@ export default function Destinations() {
 
         <div className="carousel">
           <div className="dest-track" aria-label="Residency investment destinations">
-            <div className="dest-marquee">{destinationCards}</div>
+            <div className="dest-marquee">
+              {DESTINATIONS.map((d) => (
+                <DestCard d={d} key={d.name} />
+              ))}
+            </div>
             <div className="dest-marquee" aria-hidden="true">
               {DESTINATIONS.map((d) => (
-                <div className="dest-card" key={`${d.name}-duplicate`}>
-                  <div className="dest-img">
-                    <img src={d.image} alt="" />
-                  </div>
-                  <h3>{d.name}</h3>
-                  <p>{d.price}</p>
-                </div>
+                <DestCard d={d} key={`${d.name}-duplicate`} />
               ))}
             </div>
           </div>
