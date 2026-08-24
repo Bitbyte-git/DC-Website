@@ -19,7 +19,7 @@ import ConsultationModal from '../components/ConsultationModal.jsx';
 //   /citizenship/malta  ->  COUNTRIES['malta']
 // Banner images go in public/images/ (e.g. country-malta.jpg, 1600x500)
 // =====================================================================
-const COUNTRIES = {
+export const COUNTRIES = {
   'antigua-barbuda': {
     name: 'Antigua & Barbuda',
     tagline: 'Citizenship by Investment',

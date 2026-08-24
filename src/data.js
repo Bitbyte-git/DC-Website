@@ -70,6 +70,7 @@ export const SERVICES = [
     icon: 'passport',
     title: 'Citizenship by Investment',
     text: 'Gain a second citizenship and enjoy global freedom, security and lifelong benefits.',
+    link: '/citizenship',
   },
   {
     icon: 'building',

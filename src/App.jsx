@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import Destinations from './components/Destinations.jsx';
@@ -12,12 +12,24 @@ import Team from './components/Team.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import CountryPage from './Citizenship/CitizenshipPage.jsx';
+import CitizenshipOverview from './Citizenship/CitizenshipOverview.jsx';
 import ResidencyPage from './Residency/ResidencyPage.jsx';
 import RealEstatePage from './Real Estate/RealEstatePage.jsx';
 import OtherservicePage from './OtherService/OtherservicePage.jsx';
 import PRPage from './PR/PR_page.jsx';
 import ConsultationModal from './components/ConsultationModal.jsx';
 import PolicyPage from "./components/PolicyPage.jsx";
+
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function Home() {
   const [showAutoPopup, setShowAutoPopup] = useState(false);
@@ -48,12 +60,14 @@ function Home() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+        <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/citizenship/:slug" element={<CountryPage />} />
+        <Route path="/citizenship" element={<CitizenshipOverview />} />
         <Route path="/residency/:slug" element={<ResidencyPage />} />
         <Route path="/realestate/:slug" element={<RealEstatePage />} />
         <Route path="/services/:slug" element={<OtherservicePage />} />
