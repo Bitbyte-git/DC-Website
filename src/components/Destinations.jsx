@@ -24,11 +24,8 @@ export default function Destinations() {
     <section className="section" id="destinations">
       <div className="container destinations-box">
         <p className="section-tag">RESIDENCY BY INVESTMENT</p>
-        <div className="section-head">
+                <div className="section-head">
           <h2>Explore Top Destinations</h2>
-          <a href="#contact" className="link-more">
-            View All Programs <Icon name="arrow" size={14} />
-          </a>
         </div>
 
         <div className="carousel">

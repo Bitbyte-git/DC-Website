@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { CONTACT } from '../data.js';
-import { PRContactModal } from '../components/ConsultationModal.jsx';
+import ConsultationModal from '../components/ConsultationModal';
+import FAQ from '../components/FAQ.jsx';
 
 const COUNTRIES = {
   australia: {
@@ -364,11 +365,14 @@ export default function PRPage() {
                 </aside>
       </div>
 
-            <PRContactModal
+                        <ConsultationModal
         open={showConsultation}
         onClose={() => setShowConsultation(false)}
-        onSwitchToMain={() => setShowConsultation(false)}
       />
+
+       <FAQ />
     </div>
+
+    
   );
 }

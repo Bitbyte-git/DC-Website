@@ -2,6 +2,7 @@
   import { useParams, Link } from 'react-router-dom';
   import { Icon } from '../components/Icons.jsx';
   import ConsultationModal from '../components/ConsultationModal.jsx';
+  import FAQ from '../components/FAQ.jsx';
 
   // =====================================================================
   // ALL other-service pages live in this ONE file.
@@ -18,14 +19,55 @@
   // Banner images go in public/images/ (e.g. svc-pr.jpg, 1600x500)
   // =====================================================================
   const SERVICES = {
-    'work-visas': {
+        'work-visas': {
       name: 'Work Visas',
       tagline: 'Global Employment Opportunities',
       banner: '/images/svc-work.png',
-      highlight: 'UK • Germany • UAE • Singapore',
+      highlight: 'Sweden • Germany • Dubai',
       time: 'from 2 months',
       overview:
-        'Take your career global with our work visa services. From job-seeker visas to employer-sponsored permits, we guide you through every step for destinations including the UK, Germany, UAE and more.',
+        'Take your career global with our work visa services. From job-seeker visas to employer-sponsored permits, we guide you through every step for destinations including Sweden, Germany and Dubai.',
+      countries: [
+        {
+          name: 'Sweden',
+          tagline: 'Work Permit & Job-Seeker Visa',
+          image: '/images/country-sweden.png',
+          cost: 'from SEK 2,000',
+          time: 'from 2 months',
+          points: [
+            'Employer-sponsored work permit for skilled roles',
+            'Path to permanent residency after 4 years',
+            'Family members can join on dependent visas',
+            'Strong worker rights and social benefits',
+          ],
+        },
+        {
+          name: 'Germany Opportunity Card',
+          tagline: 'Chancenkarte — Points-Based Job Search Visa',
+          image: '/images/country-germany-work.png',
+          cost: 'from €100-150',
+          time: 'from 6-8 weeks',
+          points: [
+            'Points-based eligibility — no job offer required to apply',
+            'Up to 1 year to search for a job in Germany',
+            'Part-time work allowed while job-hunting',
+            'Converts to a full work visa once employed',
+          ],
+        },
+        {
+          name: 'Dubai',
+          tagline: 'UAE Employment Visa',
+          image: '/images/country-dubai-work.png',
+          cost: 'from AED 3,000',
+          time: 'from 2-4 weeks',
+          points: [
+            'Tax-free income and fast processing',
+            'Employer-sponsored, renewable residence visa',
+            'Family sponsorship available on approval',
+            'Access to a global business hub',
+          ],
+        },
+      ],
       benefits: [
         'Work legally in your dream destination',
         'Family dependent visas available',
@@ -127,7 +169,7 @@
       ],
     },
 
-    'family-spouse-visas': {
+        'family-spouse-visas': {
       name: 'Family & Spouse Visas',
       tagline: 'Reunite With Your Loved Ones',
       banner: '/images/svc-family.png',
@@ -151,6 +193,60 @@
         'Marriage / birth certificates',
         'Relationship evidence (photos, communication)',
         'Sponsor income and status documents',
+      ],
+    },
+
+    'company-setup': {
+      name: 'Company Setup',
+      tagline: 'Start Your Business Abroad',
+      banner: '/images/svc-company-setup.png',
+      highlight: 'UAE • UK • Singapore',
+      time: 'from 2-4 weeks',
+      overview:
+        'Launch your company in a leading global jurisdiction with our end-to-end company formation services — entity structuring, licensing, bank account setup and ongoing compliance support.',
+      benefits: [
+        'Fast company registration and licensing',
+        'Tax-efficient business structures',
+        'Corporate bank account assistance',
+        'Residence visa eligibility through ownership',
+      ],
+      eligibility: [
+        'Valid passport and clean background',
+        'Defined business activity',
+        'Sufficient share capital (jurisdiction-specific)',
+      ],
+      documents: [
+        'Valid passport copies',
+        'Business plan / activity description',
+        'Proof of address',
+        'Bank reference letter (if required)',
+      ],
+    },
+
+    'digital-nomad-visas': {
+      name: 'Digital Nomad Visas',
+      tagline: 'Work Remotely From Anywhere',
+      banner: '/images/svc-digital-nomad.png',
+      highlight: 'Portugal • Spain • UAE',
+      time: 'from 4-6 weeks',
+      overview:
+        'Live and work remotely from some of the world\u2019s most desirable destinations. Our digital nomad visa services cover eligibility assessment, documentation and end-to-end application support.',
+      benefits: [
+        'Legally live and work remotely abroad',
+        'No local employer sponsorship needed',
+        'Access to co-working hubs and nomad communities',
+        'Path to residency in several countries',
+      ],
+      eligibility: [
+        'Proof of remote employment or freelance income',
+        'Minimum monthly income requirement',
+        'Valid health insurance',
+      ],
+      documents: [
+        'Valid passport',
+        'Proof of remote income / employment contract',
+        'Bank statements',
+        'Health insurance documents',
       ],
     },
   };
@@ -198,7 +294,8 @@
           </div>
         </div>
 
-        <div className="container country-body">
+                <div className="container country-body no-sidebar">
+          <div className="country-main">
           <section className="country-section">
             <h2>Service Overview</h2>
             <p>{service.overview}</p>
@@ -236,34 +333,36 @@
             </section>
           )}
 
-          <section className="country-section">
-            <h2>Key Benefits</h2>
-            <ul className="country-list">
-              {service.benefits.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
+                              <section className="country-section svc-info-row">
+            <div className="svc-info-col">
+              <h2>Key Benefits</h2>
+              <ul className="country-list">
+                {service.benefits.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="svc-info-col">
+              <h2>Who Can Apply</h2>
+              <ul className="country-list">
+                {service.eligibility.map((e) => (
+                  <li key={e}>{e}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="svc-info-col">
+              <h2>Documents Required</h2>
+              <ul className="country-list">
+                {service.documents.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            </div>
           </section>
 
-          <section className="country-section">
-            <h2>Who Can Apply</h2>
-            <ul className="country-list">
-              {service.eligibility.map((e) => (
-                <li key={e}>{e}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="country-section">
-            <h2>Documents Required</h2>
-            <ul className="country-list">
-              {service.documents.map((d) => (
-                <li key={d}>{d}</li>
-              ))}
-            </ul>
-          </section>
-
-                        <div className="country-cta">
+                                  <div className="country-cta">
             <button
               type="button"
               className="btn btn-light"
@@ -275,12 +374,15 @@
               Back to Home
             </Link>
           </div>
+          </div>
         </div>
 
         <ConsultationModal
           open={showConsultation}
           onClose={() => setShowConsultation(false)}
         />
+
+        <FAQ />
       </div>
     );
   }

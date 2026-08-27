@@ -51,12 +51,18 @@ export default function Footer() {
           </div>
         ))}
 
-        <div className="footer-col">
+                <div className="footer-col">
           <h5>Contact Info</h5>
-          <ul className="footer-contact">
+                    <ul className="footer-contact">
             <li><Icon name="phone" size={13} /> {CONTACT.phone}</li>
             <li><Icon name="mail" size={13} /> {CONTACT.email}</li>
-            <li><Icon name="pin" size={13} /> {CONTACT.country}</li>
+            <li><Icon name="clock" size={13} /> {CONTACT.hours}</li>
+            {CONTACT.offices.map((office) => (
+              <li key={office.label}>
+                <Icon name="pin" size={13} />
+                <span><strong>{office.label}:</strong> {office.address}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

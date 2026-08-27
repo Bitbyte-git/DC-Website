@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { CONTACT } from '../data.js';
 import ConsultationModal from '../components/ConsultationModal.jsx';
+import FAQ from '../components/FAQ.jsx';
 
 // =====================================================================
 // ALL real estate location pages live in this ONE file.
@@ -442,6 +443,7 @@ export default function RealEstatePage() {
         open={showConsultation}
         onClose={() => setShowConsultation(false)}
       />
+      <FAQ />
     </div>
   );
 }

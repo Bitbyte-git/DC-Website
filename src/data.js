@@ -5,10 +5,23 @@
 // ---------------------------------------------------------------
 
 export const CONTACT = {
-  phone: '+91 9876543210',
+  phone: '+91 8595968122',
   email: 'info@dreamcountryvisas.com',
   country: 'India',
-  whatsapp: 'https://wa.me/919876543210',
+  hours: '9 am - 8 pm',
+  offices: [
+    {
+      label: 'Head Office',
+      address: 'Hemkunt Chambers, 310, 3rd Floor, Nehru Place, New Delhi, Delhi 110019',
+      mapLink: 'https://maps.app.goo.gl/BhD62mYck7xi5RcM6',
+    },
+    {
+      label: 'Second Office',
+      address: 'Office Number 507, DLF Corporate Greens, Tower-1, Sector 74A, Gurugram, Haryana 122004',
+      mapLink: 'https://maps.app.goo.gl/BhD62mYck7xi5RcM6',
+    },
+  ],
+  whatsapp: 'https://wa.me/918595968122',
 };
 
 // Images: logo.png (used in navbar + footer + favicon)
@@ -72,25 +85,29 @@ export const SERVICES = [
     text: 'Gain a second citizenship and enjoy global freedom, security and lifelong benefits.',
     link: '/citizenship',
   },
-  {
+    {
     icon: 'building',
     title: 'Real Estate Investment',
     text: 'Invest in premium properties worldwide and build lasting wealth for generations.',
+    link: '/realestate',
   },
   {
     icon: 'certificate',
     title: 'Residency by Investment',
     text: 'Secure your future with world-class residency programs in top global destinations.',
+    link: '/residency',
   },
-  {
+   {
     icon: 'globe',
-    title: 'Global Mobility Solutions',
-    text: 'Bespoke solutions for your global mobility, business expansion and tax efficiency.',
+    title: 'Permanent Residency (PR)',
+    text: 'Skilled migration and permanent residency pathways for long-term settlement abroad.',
+    link: '/pr',
   },
-  {
+    {
     icon: 'support',
     title: 'Other Services',
     text: 'Additional support for documentation, compliance and end-to-end assistance.',
+    link: '/other-services',
   },
 ];
 
@@ -347,10 +364,36 @@ export const OTHERSERVICES_MENU = {
         { name: 'Study Visas', image: '/menu/menu-study-visa.png', link: '/services/study-visas' },
         { name: 'Investor Visas', image: '/menu/menu-investor-visa.png', link: '/services/investor-visas' },
         { name: 'Family & Spouse Visas', image: '/menu/menu-family-visa.png', link: '/services/family-spouse-visas' },
+        { name: 'Company Setup', image: '/menu/menu-company-setup.png', link: '/services/company-setup' },
+        { name: 'Digital Nomad Visas', image: '/menu/menu-digital-nomad.png', link: '/services/digital-nomad-visas' },
       ],
     },
   ],
 };
+
+
+export const FAQ_ITEMS = [
+  {
+    q: 'Which countries can I apply for citizenship or residency by investment?',
+    a: 'We offer citizenship programs in Antigua & Barbuda, St. Kitts and Nevis, Malta, Vanuatu and Nauru, plus residency programs across Canada, Australia, New Zealand, Cyprus, Malta, Portugal, Latvia, Italy and Spain.',
+  },
+  {
+    q: 'How long does the citizenship or residency process take?',
+    a: 'Timelines vary by program — some Caribbean citizenship programs take as little as 3 months, while EU residency and citizenship programs can take 6 to 36 months depending on the country and route chosen.',
+  },
+  {
+    q: 'Can I include my family in the application?',
+    a: 'Yes. Most programs allow you to include your spouse, dependent children and, in several countries, parents or grandparents as part of the same application.',
+  },
+  {
+    q: 'Do you also help with real estate investment abroad?',
+    a: 'Yes, we assist with premium property investments in Dubai, Greece, Spain and Latvia — many of which also qualify for residency-by-investment programs.',
+  },
+  {
+    q: 'What support do you provide beyond visa approval?',
+    a: 'Our team offers end-to-end support — document preparation, due diligence guidance, application submission, and ongoing assistance with work visas, business visas, study visas and family/spouse visas.',
+  },
+];
 
 export const FOOTER = {
   about:
@@ -365,3 +408,5 @@ export const FOOTER = {
   destinations: ['UAE', 'Germany', 'Canada', 'USA', 'Australia'],
   copyright: '© 2026 Dream Country Visas. All Rights Reserved.',
 };
+
+

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   CONTACT,
-  CONTACT_FEATURES,
+  // CONTACT_FEATURES,
   CITIZENSHIP_MENU,
   RESIDENCY_MENU,
   REALESTATE_MENU,
@@ -32,6 +32,11 @@ function buildProgramOptions() {
 
 const PROGRAM_OPTIONS = buildProgramOptions();
 
+// Programs that require the extra "English Level" question.
+const PR_PROGRAMS_NEEDING_ENGLISH = ['Australia PR', 'Canada PR'];
+
+const ENGLISH_LEVELS = ['Competitive', 'Proficient', 'Superior'];
+
 const COUNTRY_OPTIONS = [
   'India', 'United States', 'United Kingdom', 'Canada', 'Australia',
   'United Arab Emirates', 'Germany', 'France', 'Italy', 'Spain',
@@ -46,6 +51,7 @@ const COUNTRY_OPTIONS = [
 
 const INITIAL = {
   program: '',
+  englishLevel: '',
   salutation: '',
   firstName: '',
   lastName: '',
@@ -60,9 +66,17 @@ export default function Contact() {
   const [form, setForm] = useState(INITIAL);
   const [sent, setSent] = useState(false);
 
+    const needsEnglishLevel = PR_PROGRAMS_NEEDING_ENGLISH.includes(form.program);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
+    setForm((prev) => {
+      const next = { ...prev, [name]: type === 'checkbox' ? checked : value };
+      if (name === 'program' && !PR_PROGRAMS_NEEDING_ENGLISH.includes(value)) {
+        next.englishLevel = '';
+      }
+      return next;
+    });
   };
 
   const handleSubmit = (e) => {
@@ -84,7 +98,7 @@ export default function Contact() {
             Take the Next Step
           </h2>
 
-          <ul className="contact-list">
+                    <ul className="contact-list">
             <li>
               <Icon name="phone" size={16} /> {CONTACT.phone}
             </li>
@@ -92,11 +106,19 @@ export default function Contact() {
               <Icon name="mail" size={16} /> {CONTACT.email}
             </li>
             <li>
-              <Icon name="pin" size={16} /> {CONTACT.country}
+              <Icon name="clock" size={16} /> {CONTACT.hours}
             </li>
+                        {CONTACT.offices.map((office) => (
+              <li key={office.label}>
+                <Icon name="pin" size={14} />{' '}
+                <a href={office.mapLink} target="_blank" rel="noreferrer">
+                  <strong>{office.label}:</strong> {office.address}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          <div className="socials">
+          {/* <div className="socials">
             <a href="#" aria-label="LinkedIn"><Icon name="linkedin" size={15} /></a>
             <a href="#" aria-label="Facebook"><Icon name="facebook" size={15} /></a>
             <a href="#" aria-label="Instagram"><Icon name="instagram" size={15} /></a>
@@ -115,6 +137,13 @@ export default function Contact() {
                 </div>
               </div>
             ))}
+          </div> */}
+
+          <div className="socials">
+            <a href="#" aria-label="LinkedIn"><Icon name="linkedin" size={15} /></a>
+            <a href="#" aria-label="Facebook"><Icon name="facebook" size={15} /></a>
+            <a href="#" aria-label="Instagram"><Icon name="instagram" size={15} /></a>
+            <a href="#" aria-label="YouTube"><Icon name="youtube" size={15} /></a>
           </div>
 
           <div className="mara-badge">
@@ -126,7 +155,7 @@ export default function Contact() {
                 <form className="contact-form contact-form-wide" onSubmit={handleSubmit}>
           <h3 className="contact-form-heading">Contact Information</h3>
 
-          <label className="field-label">Program of interest*</label>
+                    <label className="field-label">Program of interest*</label>
           <select
             name="program"
             value={form.program}
@@ -142,6 +171,27 @@ export default function Contact() {
               </option>
             ))}
           </select>
+
+          {needsEnglishLevel && (
+            <>
+              <label className="field-label">What is your English level?*</label>
+                           <select
+                name="englishLevel"
+                value={form.englishLevel}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Please select
+                </option>
+                {ENGLISH_LEVELS.map((lvl) => (
+                  <option key={lvl} value={lvl}>
+                    {lvl}
+                  </option>
+                ))}
+              </select>
+            </>
+          )}
 
           <label className="field-label">Salutation*</label>
           <select

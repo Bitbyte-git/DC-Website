@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { TEAM } from '../data.js';
+import FAQ from '../components/FAQ.jsx';
 
 const PILLARS = [
   {
@@ -12,11 +13,6 @@ const PILLARS = [
     icon: 'globe',
     title: 'Vision',
     text: 'To be the most trusted immigration consultant, providing honest, client-focused solutions that help individuals and families achieve their dream of living abroad.',
-  },
-  {
-    icon: 'clock',
-    title: 'Establishment',
-    text: 'Established in 2019, DreamCountry Visas has helped thousands of clients successfully achieve their immigration goals.',
   },
 ];
 
@@ -70,19 +66,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
+           {/* Story */}
       <section className="section">
-        <div className="container about-story">
-          <p className="about-story-text">
-            We carefully screen each application with honesty and expertise,
-            ensuring it has a strong and realistic chance of success. In
-            today's immigration industry, trust is often a concern. However,
-            we stand firm in our commitment to 99% assurance of delivering
-            positive outcomes and exceptional service. The remaining 1%
-            depends on external factors beyond our control. We never blindly
-            accept cases — every application must hold strong potential for
-            approval before we take it forward.
-          </p>
+        <div className="container story-block">
+          <div className="story-text-col">
+            <p className="story-lead">
+              We carefully screen every application with honesty and
+              expertise, ensuring it has a strong, realistic chance of
+              success.
+            </p>
+            <p className="story-body">
+              In today&rsquo;s immigration industry, trust is often a
+              concern. However, we stand firm in our commitment to
+              delivering positive outcomes and exceptional service. We
+              never blindly accept cases &mdash; every application must
+              hold strong potential for approval before we take it forward.
+            </p>
+          </div>
+          <div className="story-stat-card">
+            <span className="story-stat-value">99%</span>
+            <span className="story-stat-label">
+              Assurance of Delivering Positive Outcomes
+            </span>
+            <p className="story-stat-note">
+              The remaining 1% depends on external factors beyond our
+              control.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -105,23 +115,30 @@ export default function AboutPage() {
       </section>
 
       {/* Our Leadership */}
-      <section className="section">
+      <section className="section ldr-section">
         <div className="container">
           <p className="section-tag">OUR LEADERSHIP</p>
           <h2 className="center">Experts Who Guide, Support &amp; Deliver</h2>
-          <div className="team-track">
-            {TEAM.map((member) => (
-              <div className="team-card" key={member.name}>
-                <div className="team-photo-wrap">
+          <div className="ldr-list">
+            {TEAM.map((member, idx) => (
+              <div
+                className={`ldr-row ${idx % 2 === 1 ? 'rev' : ''}`}
+                key={member.name}
+              >
+                <div className="ldr-photo-wrap">
                   <img
-                    className="team-photo"
+                    className="ldr-photo"
                     src={member.image}
                     alt={member.name}
                   />
                 </div>
-                <h4>{member.name}</h4>
-                <p className="team-role">{member.role}</p>
-                <p className="team-description">{member.description}</p>
+                                <div className="ldr-info">
+                  <span className="ldr-quote">&rdquo;</span>
+                  <p className="ldr-role">{member.role}</p>
+                  <h3>{member.name}</h3>
+                  <div className="ldr-divider" />
+                  <p className="ldr-desc">{member.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -183,6 +200,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <FAQ />
     </div>
   );
 }
