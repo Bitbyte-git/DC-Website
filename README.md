@@ -9,7 +9,7 @@ npm run build    # production build (dist/)
 ```
 
 ## Images — put ALL of these inside `public/images/`
-
+hi
 | File name | Used for | Suggested size |
 |---|---|---|
 | logo.png | Navbar + footer + favicon (DC logo) | ~200x200, transparent PNG |
