@@ -127,10 +127,12 @@ export default function AboutPage() {
               >
                 <div className="ldr-photo-wrap">
                   <img
-                    className="ldr-photo"
-                    src={member.image}
-                    alt={member.name}
-                  />
+  className="ldr-photo"
+  src={member.image}
+  alt={member.name}
+  loading="lazy"
+  decoding="async"
+/>
                 </div>
                                 <div className="ldr-info">
                   <span className="ldr-quote">&rdquo;</span>

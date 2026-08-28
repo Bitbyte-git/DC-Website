@@ -30,8 +30,8 @@ export default function CitizenshipOverview() {
         {Object.entries(COUNTRIES).map(([slug, c]) => (
           <Link to={`/citizenship/${slug}`} className="cz-card" key={slug}>
             <div className="cz-card-img">
-              <img src={c.banner} alt={c.name} />
-            </div>
+  <img src={c.banner} alt={c.name} loading="lazy" decoding="async" />
+</div>
             <div className="cz-card-body">
               <p className="cz-card-tagline">{c.tagline}</p>
               <h3>{c.name}</h3>

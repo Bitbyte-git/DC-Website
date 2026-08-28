@@ -32,8 +32,8 @@ export default function RealEstateOverview() {
         {properties.map((p) => (
           <Link to={p.link} className="cz-card" key={p.name}>
             <div className="cz-card-img">
-              <img src={p.image} alt={p.name} />
-            </div>
+  <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+</div>
             <div className="cz-card-body">
               <p className="cz-card-tagline">Real Estate</p>
               <h3>{p.name}</h3>

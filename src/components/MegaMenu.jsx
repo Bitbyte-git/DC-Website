@@ -22,7 +22,7 @@ export default function MegaMenu({ data }) {
                   const props = c.link ? { to: c.link } : { href: '/#contact' };
                   return (
                   <Tag {...props} className="mega-item" key={c.name}>
-                    <img src={c.image} alt={c.name} />
+  <img src={c.image} alt={c.name} loading="lazy" decoding="async" />
                                         <div className="mega-item-info">
                       <strong>{c.name}</strong>
                       {c.sub && <span className="mega-sub">{c.sub}</span>}

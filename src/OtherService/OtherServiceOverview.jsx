@@ -32,8 +32,8 @@ export default function OtherServiceOverview() {
         {services.map((s) => (
           <Link to={s.link} className="cz-card" key={s.name}>
             <div className="cz-card-img">
-              <img src={s.image} alt={s.name} />
-            </div>
+  <img src={s.image} alt={s.name} loading="lazy" decoding="async" />
+</div>
             <div className="cz-card-body">
               <p className="cz-card-tagline">Visa Service</p>
               <h3>{s.name}</h3>

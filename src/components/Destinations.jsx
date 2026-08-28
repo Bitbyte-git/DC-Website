@@ -11,8 +11,8 @@ function DestCard({ d }) {
   return (
     <Link to={`/residency/${slugify(d.name)}`} className="dest-card">
       <div className="dest-img">
-        <img src={d.image} alt={d.name} />
-      </div>
+  <img src={d.image} alt={d.name} loading="lazy" decoding="async" />
+</div>
       <h3>{d.name}</h3>
       <p>{d.price}</p>
     </Link>

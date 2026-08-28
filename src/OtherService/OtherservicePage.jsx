@@ -22,7 +22,7 @@
         'work-visas': {
       name: 'Work Visas',
       tagline: 'Global Employment Opportunities',
-      banner: '/images/svc-work.png',
+      banner: '/images/svc-work.webp',
       highlight: 'Sweden • Germany • Dubai',
       time: 'from 2 months',
       overview:
@@ -31,7 +31,7 @@
         {
           name: 'Sweden',
           tagline: 'Work Permit & Job-Seeker Visa',
-          image: '/images/country-sweden.png',
+          image: '/images/country-sweden.webp',
           cost: 'from SEK 2,000',
           time: 'from 2 months',
           points: [
@@ -44,7 +44,7 @@
         {
           name: 'Germany Opportunity Card',
           tagline: 'Chancenkarte — Points-Based Job Search Visa',
-          image: '/images/country-germany-work.png',
+          image: '/images/country-germany-work.webp',
           cost: 'from €100-150',
           time: 'from 6-8 weeks',
           points: [
@@ -57,7 +57,7 @@
         {
           name: 'Dubai',
           tagline: 'UAE Employment Visa',
-          image: '/images/country-dubai-work.png',
+          image: '/images/country-dubai-work.webp',
           cost: 'from AED 3,000',
           time: 'from 2-4 weeks',
           points: [
@@ -90,7 +90,7 @@
     'business-visas': {
       name: 'Business Visas',
       tagline: 'Expand Your Business Globally',
-      banner: '/images/svc-business.png',
+      banner: '/images/country-sweden.webp',
       highlight: 'UAE • UK • USA • Europe',
       time: 'from 1 month',
       overview:
@@ -117,7 +117,7 @@
     'study-visas': {
       name: 'Study Visas',
       tagline: 'World-Class Education Abroad',
-      banner: '/images/svc-study.png',
+      banner: '/images/svc-study.webp',
       highlight: 'UK • Canada • Australia • USA',
       time: 'from 1 month',
       overview:
@@ -145,7 +145,7 @@
     'investor-visas': {
       name: 'Investor Visas',
       tagline: 'Residency & Citizenship Through Investment',
-      banner: '/images/svc-investor.png',
+      banner: '/images/svc-investor.webp',
       highlight: 'Europe • Caribbean • UAE',
       time: 'from 3 months',
       overview:
@@ -172,7 +172,7 @@
         'family-spouse-visas': {
       name: 'Family & Spouse Visas',
       tagline: 'Reunite With Your Loved Ones',
-      banner: '/images/svc-family.png',
+      banner: '/images/svc-family.webp',
       highlight: 'UK • Canada • Australia • USA',
       time: 'from 3 months',
       overview:
@@ -199,7 +199,7 @@
     'company-setup': {
       name: 'Company Setup',
       tagline: 'Start Your Business Abroad',
-      banner: '/images/svc-company-setup.png',
+      banner: '/images/svc-company-setup.webp',
       highlight: 'UAE • UK • Singapore',
       time: 'from 2-4 weeks',
       overview:
@@ -226,7 +226,7 @@
     'digital-nomad-visas': {
       name: 'Digital Nomad Visas',
       tagline: 'Work Remotely From Anywhere',
-      banner: '/images/svc-digital-nomad.png',
+      banner: '/images/svc-digital-nomad.webp',
       highlight: 'Portugal • Spain • UAE',
       time: 'from 4-6 weeks',
       overview:

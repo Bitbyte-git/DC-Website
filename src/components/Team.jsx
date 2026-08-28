@@ -12,7 +12,7 @@ export default function Team() {
           {TEAM.map((m) => (
             <article className="team-card" key={m.name}>
               <div className="team-photo-wrap">
-                <img className="team-photo" src={m.image} alt={m.name} />
+               <img className="team-photo" src={m.image} alt={m.name} loading="lazy" decoding="async" />
               </div>
                               <h4>{m.name}</h4>
               <div className="team-role-row">

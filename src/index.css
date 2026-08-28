@@ -553,7 +553,7 @@ h2.center {
 .hero {
   position: relative;
   padding: 25px 0 120px;
-  background: url('/landing-img/Hero-bg.png') center / cover no-repeat;
+  background: url('/landing-img/Hero-bg.webp') center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -3246,7 +3246,7 @@ h2.center {
 
 .about-hero {
   position: relative;
-  background: url('/landing-img/about-hero-bg.png') center / cover no-repeat;
+  background: url('/landing-img/about-hero-bg.webp') center / cover no-repeat;
   min-height: 68vh;
   display: flex;
   align-items: flex-end;

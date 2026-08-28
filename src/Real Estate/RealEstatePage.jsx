@@ -21,7 +21,7 @@ const LOCATIONS = {
   dubai: {
     name: 'Dubai',
     tagline: 'Property Investment & UAE Golden Visa',
-    banner: '/images/re-dubai.png',
+    banner: '/images/re-dubai.webp',
     price: 'from AED 1.5M',
     time: '1-4 months',
     residency: '10-year Golden Visa',
@@ -75,7 +75,7 @@ const LOCATIONS = {
   greece: {
     name: 'Greece Golden Visa',
     tagline: 'EU Residency Through Real Estate',
-    banner: '/images/re-greece.png',
+    banner: '/images/re-greece.webp',
     price: 'from €250,000',
     time: '4-6 months',
     residency: '5-year renewable permit',
@@ -130,7 +130,7 @@ const LOCATIONS = {
   latvia: {
     name: 'Latvia',
     tagline: 'Golden Visa — Investor Residence Permit',
-    banner: '/images/re-latvia.png',
+    banner: '/images/re-latvia.webp',
     price: 'from €250,000',
     time: '1-6 months',
     residency: '5-year renewable permit',

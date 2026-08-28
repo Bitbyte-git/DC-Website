@@ -18,7 +18,7 @@ const COUNTRIES = {
   canada: {
     name: 'Canada',
     tagline: 'Startup Visa & Quebec Immigrant Investor Program (QIIP)',
-    banner: '/images/res-canada.png',
+    banner: '/images/res-canada.webp',
     price: 'from CAD 75,000',
     time: '12-16 months',
     pr: 'Direct PR',
@@ -75,7 +75,7 @@ const COUNTRIES = {
   australia: {
     name: 'Australia',
     tagline: 'National Innovation Visa (Subclass 858)',
-    banner: '/images/res-australia.png',
+    banner: '/images/res-australia.webp',
     price: 'Talent-based',
     time: '3-6 months',
     pr: 'Direct PR',
@@ -128,7 +128,7 @@ const COUNTRIES = {
   'new-zealand': {
     name: 'New Zealand',
     tagline: 'Active Investor Plus Visa (NZ Golden Visa)',
-    banner: '/images/res-nz.png',
+    banner: '/images/res-nz.webp',
     price: 'from NZD 3M',
     time: '12-18 months',
     pr: 'PR after 4 years',
@@ -181,7 +181,7 @@ const COUNTRIES = {
   cyprus: {
     name: 'Cyprus',
     tagline: 'Work & Residence Permit for Non-EU Investors',
-    banner: '/images/res-cyprus.png',
+    banner: '/images/res-cyprus.webp',
     price: 'from €300,000',
     time: '2-3 months',
     pr: 'PR pathway',
@@ -231,7 +231,7 @@ const COUNTRIES = {
   malta: {
     name: 'Malta',
     tagline: 'Malta Permanent Residence Program (MPRP)',
-    banner: '/images/res-malta.png',
+    banner: '/images/res-malta.webp',
     price: 'from €100,000',
     time: '6-8 months',
     pr: 'Lifetime PR',
@@ -285,7 +285,7 @@ const COUNTRIES = {
   portugal: {
     name: 'Portugal',
     tagline: 'Golden Visa — Residency by Investment',
-    banner: '/images/res-portugal.png',
+    banner: '/images/res-portugal.webp',
     price: 'from €250,000',
     time: '6-12 months',
     pr: 'Citizenship in 5 years',
@@ -339,7 +339,7 @@ const COUNTRIES = {
   latvia: {
     name: 'Latvia',
     tagline: 'Golden Visa — Investor Residence Permit',
-    banner: '/images/res-latvia.png',
+    banner: '/images/res-latvia.webp',
     price: 'from €50,000',
     time: '1-6 months',
     pr: 'PR after 5 years',
@@ -393,7 +393,7 @@ const COUNTRIES = {
   italy: {
     name: 'Italy',
     tagline: 'Investor Visa for Italy (Golden Visa)',
-    banner: '/images/res-italy.png',
+    banner: '/images/res-italy.webp',
     price: 'from €250,000',
     time: '3-4 months',
     pr: 'PR after 5 years',
@@ -446,7 +446,7 @@ const COUNTRIES = {
   spain: {
     name: 'Spain',
     tagline: 'Golden Visa — Residency by Investment',
-    banner: '/images/res-spain.png',
+    banner: '/images/res-spain.webp',
     price: 'from €500,000',
     time: '2-3 months',
     pr: 'PR after 5 years',

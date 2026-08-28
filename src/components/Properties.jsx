@@ -24,13 +24,9 @@ export default function Properties() {
 
         <div className="properties-grid">
           {PROPERTIES.map((p) => (
-            <Link
-              to={`/realestate/${slugify(p.name)}`}
-              className="prop-card"
-              key={p.name}
-            >
-              <img src={p.image} alt={p.name} />
-              <div className="prop-info">
+            <Link to={`/realestate/${slugify(p.name)}`} className="prop-card" key={p.name}>
+  <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+  <div className="prop-info">
                 <h4>{p.name}</h4>
                 <p>{p.price}</p>
               </div>

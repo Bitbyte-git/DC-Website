@@ -61,7 +61,7 @@ export default function Navbar() {
         <nav className="nav-links">{renderLinks(NAV_LINKS_LEFT)}</nav>
 
         <a href="/" className="brand">
-          <img src="/landing-img/DC-log.png" alt="Dream Country Visas" />
+          <img src="/landing-img/DC-log.webp" alt="Dream Country Visas" />
         </a>
 
         {/* Desktop — right of logo */}

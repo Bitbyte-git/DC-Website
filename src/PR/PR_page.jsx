@@ -9,7 +9,7 @@ const COUNTRIES = {
   australia: {
     name: 'Australia',
     tagline: 'Permanent Residency Visa — Pathways to a New Life',
-    banner: '/images/country-australia.png',
+    banner:  '/images/country-australia.webp',
     price: 'from AUD 4,640',
     time: '6-12 months',
     residency: 'Permanent Residency',
@@ -49,7 +49,7 @@ const COUNTRIES = {
   canada: {
     name: 'Canada',
     tagline: 'Permanent Residency Through Express Entry & PNP',
-    banner: '/images/country-canada.png',
+    banner: '/images/country-canada.webp',
     price: 'from CAD 2,300',
     time: '6-8 months',
     residency: 'Permanent Residency',
@@ -91,7 +91,7 @@ const COUNTRIES = {
   germany: {
     name: 'Germany',
     tagline: 'The Germany Opportunity Card (Chancenkarte)',
-    banner: '/images/country-germany.png',
+    banner: '/images/country-germany.webp',
     price: 'EUR 100-150',
     time: '2-3 months',
     residency: 'Opportunity Card (points-based)',

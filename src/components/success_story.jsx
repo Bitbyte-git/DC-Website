@@ -34,9 +34,9 @@ export default function SuccessStory() {
           ))}
         </div>
 
-        <div className="about-globe">
-          <img src="/landing-img/Glob.png" alt="Global network" />
-        </div>
+       <div className="about-globe">
+  <img src="/landing-img/Glob.webp" alt="Global network" loading="lazy" decoding="async" />
+</div>
       </div>
     </section>
   );

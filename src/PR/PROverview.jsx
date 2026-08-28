@@ -32,8 +32,8 @@ export default function PROverview() {
         {countries.map((c) => (
           <Link to={c.link} className="cz-card" key={c.name}>
             <div className="cz-card-img">
-              <img src={c.image} alt={c.name} />
-            </div>
+  <img src={c.image} alt={c.name} loading="lazy" decoding="async" />
+</div>
             <div className="cz-card-body">
               <p className="cz-card-tagline">Permanent Residency</p>
               <h3>{c.name}</h3>

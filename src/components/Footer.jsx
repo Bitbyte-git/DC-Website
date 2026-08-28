@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="footer-map-bg" />
       <div className="container footer-grid">
         <div className="footer-brand">
-          <img src="/landing-img/DC-log.png" alt="Dream Country Visas" />
+          <img src="/landing-img/DC-log.webp" alt="Dream Country Visas" />
           <p className="footer-about-text">{FOOTER.about}</p>
           <div className="footer-socials">
             <a href="#" aria-label="LinkedIn"><Icon name="linkedin" size={15} /></a>

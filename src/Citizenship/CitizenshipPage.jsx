@@ -24,7 +24,7 @@ export const COUNTRIES = {
   'antigua-barbuda': {
     name: 'Antigua & Barbuda',
     tagline: 'Citizenship by Investment',
-    banner: '/images/country-antigua.png',
+    banner: '/images/country-antigua.webp',
     price: 'from $230,000',
     time: 'from 8 months',
     visaFree: '150+',
@@ -79,7 +79,7 @@ export const COUNTRIES = {
   'st-kitts-nevis': {
     name: 'St. Kitts and Nevis',
     tagline: 'Citizenship by Investment — Since 1984',
-    banner: '/images/country-stkitts.png',
+    banner: '/images/country-stkitts.webp',
     price: 'from $250,000',
     time: 'from 4-6 months',
     visaFree: '150+',
@@ -129,7 +129,7 @@ export const COUNTRIES = {
   malta: {
     name: 'Malta',
     tagline: 'Citizenship by Naturalisation for Exceptional Services (CES)',
-    banner: '/images/country-malta.png',
+    banner: '/images/country-malta.webp',
     price: 'from €600,000',
     time: '12-36 months',
     visaFree: '180+',
@@ -184,7 +184,7 @@ export const COUNTRIES = {
   vanuatu: {
     name: 'Vanuatu',
     tagline: 'Development Support Program (DSP)',
-    banner: '/images/country-vanuatu.png',
+    banner: '/images/country-vanuatu.webp',
     price: 'from $130,000',
     time: '2-3 months',
     visaFree: '100+',
@@ -233,7 +233,7 @@ export const COUNTRIES = {
   nauru: {
     name: 'Nauru',
     tagline: 'Exclusive Pacific Citizenship Program',
-    banner: '/images/country-nauru.png',
+    banner: '/images/country-nauru.webp',
     price: 'from $75,000',
     time: '3-6 months',
     visaFree: 'Pacific nations',
