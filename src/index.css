@@ -3195,6 +3195,10 @@ h2.center {
     background: var(--bg-soft);
     border-radius: 10px;
     margin: 10px 0 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .mega-menu.open {
@@ -3203,6 +3207,8 @@ h2.center {
 
   .mega-inner {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     box-shadow: none;
     border: none;
     border-radius: 10px;
@@ -3218,12 +3224,51 @@ h2.center {
     display: block;
   }
 
-  .mega-group:only-child {
-    display: block;
-  }
-
   .mega-group {
     margin-bottom: 14px;
+  }
+
+  /* Country/service cards — 2-per-row grid, image-on-top compact style */
+  .mega-group,
+  .mega-group:only-child {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .mega-group-title,
+  .mega-group:only-child .mega-group-title {
+    grid-column: 1 / -1;
+  }
+
+  .mega-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 6px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .mega-item img {
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .mega-item-info {
+    align-items: center;
+  }
+
+  .mega-item-info strong {
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .mega-price,
+  .mega-time {
+    font-size: 0.62rem;
   }
 
   .mega-offer {
