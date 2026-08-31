@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { ABOUT_TEAM } from '../data.js';
@@ -50,6 +51,112 @@ const ABOUT_STATS = [
   { value: '20', label: 'Support Members' },
 ];
 
+
+function TypewriterTagline() {
+  const firstText = 'Your Aspiration Is';
+  const secondText = 'Our Ambition';
+
+  const [firstTyped, setFirstTyped] = useState('');
+  const [secondTyped, setSecondTyped] = useState('');
+  const [phase, setPhase] = useState('typing-first');
+
+  useEffect(() => {
+    let timeout;
+
+    // Type first line smoothly
+    if (phase === 'typing-first') {
+      if (firstTyped.length < firstText.length) {
+        timeout = setTimeout(() => {
+          setFirstTyped(
+            firstText.slice(0, firstTyped.length + 1)
+          );
+        }, 95);
+      } else {
+        timeout = setTimeout(() => {
+          setPhase('typing-second');
+        }, 500);
+      }
+    }
+
+    // Type second line smoothly
+    else if (phase === 'typing-second') {
+      if (secondTyped.length < secondText.length) {
+        timeout = setTimeout(() => {
+          setSecondTyped(
+            secondText.slice(0, secondTyped.length + 1)
+          );
+        }, 110);
+      } else {
+        timeout = setTimeout(() => {
+          setPhase('pause');
+        }, 2500);
+      }
+    }
+
+    // Pause after complete text
+    else if (phase === 'pause') {
+      timeout = setTimeout(() => {
+        setPhase('deleting-second');
+      }, 800);
+    }
+
+    // Delete second line smoothly
+    else if (phase === 'deleting-second') {
+      if (secondTyped.length > 0) {
+        timeout = setTimeout(() => {
+          setSecondTyped(
+            secondTyped.slice(0, -1)
+          );
+        }, 65);
+      } else {
+        timeout = setTimeout(() => {
+          setPhase('deleting-first');
+        }, 300);
+      }
+    }
+
+    // Delete first line smoothly
+    else if (phase === 'deleting-first') {
+      if (firstTyped.length > 0) {
+        timeout = setTimeout(() => {
+          setFirstTyped(
+            firstTyped.slice(0, -1)
+          );
+        }, 65);
+      } else {
+        timeout = setTimeout(() => {
+          setPhase('typing-first');
+        }, 800);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+
+  }, [firstTyped, secondTyped, phase]);
+
+  return (
+    <h2 className="tagline-text">
+      <span className="tagline-navy">
+        {firstTyped}
+
+        {(phase === 'typing-first' ||
+          phase === 'deleting-first') && (
+          <span className="typing-cursor">|</span>
+        )}
+      </span>
+
+      <span className="tagline-gold">
+        {secondTyped}
+
+        {(phase === 'typing-second' ||
+          phase === 'deleting-second') && (
+          <span className="typing-cursor">|</span>
+        )}
+      </span>
+    </h2>
+  );
+}
+
 export default function AboutPage() {
   return (
     <div className="about-page">
@@ -95,6 +202,15 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+{/* Tagline */}
+<section className="section tagline-section">
+  <div className="container">
+    <div className="tagline-line" />
+
+    <TypewriterTagline />
+  </div>
+</section>
 
       {/* Mission / Vision / Establishment */}
       <section className="section about-pillars-section">

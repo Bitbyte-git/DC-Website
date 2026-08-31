@@ -3164,15 +3164,82 @@ h2.center {
     gap: 14px;
     border-bottom: 1px solid var(--line);
     display: none;
+    z-index: 150;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
   }
 
   .nav-links-mobile.open {
     display: flex;
   }
 
-  /* mega menu is desktop-only; mobile uses the hamburger menu */
+  .nav-links-mobile .nav-item {
+    width: 100%;
+  }
+
+  .nav-links-mobile a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* On mobile, the mega-menu becomes an inline accordion under its link */
   .mega-menu {
+    position: static;
     display: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    padding: 0;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    margin: 10px 0 0;
+  }
+
+  .mega-menu.open {
+    display: block;
+  }
+
+  .mega-inner {
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    display: block;
+  }
+
+  .mega-inner.no-offer {
+    display: block;
+  }
+
+  .mega-groups {
+    display: block;
+  }
+
+  .mega-group:only-child {
+    display: block;
+  }
+
+  .mega-group {
+    margin-bottom: 14px;
+  }
+
+  .mega-offer {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+
+  .nav-chevron-mobile {
+    display: inline-flex;
+    padding: 6px;
+    margin-left: 6px;
   }
 
   .nav-item {
@@ -3329,7 +3396,24 @@ h2.center {
     order: 0;
   }
 
-  
+  /* Section headings — center align on mobile */
+  .section-tag.left {
+    text-align: center;
+  }
+
+  .properties-intro,
+  .destinations-box .section-head {
+    text-align: center;
+  }
+
+  .destinations-box .section-head {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-intro h2 {
+    text-align: center;
+  }
 }
 
 /* ---------- Book Free Consultation button ---------- */
@@ -4117,22 +4201,26 @@ h2.center {
    .footer-bottom-inner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
   }
 
   .footer-bottom-copyright {
     order: 3;
-    text-align: left;
+    text-align: center;
   }
 
   .footer-company-number {
     order: 1;
-    text-align: left;
+    text-align: center;
   }
 
   .footer-legal-links {
     order: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
   }
 
   .footer-map-bg {
@@ -4371,7 +4459,7 @@ h2.center {
   }
 }
 
-/* ---------- FAQ section ---------- */
+
 /* ---------- FAQ section ---------- */
 .faq-box {
   background: var(--bg-soft);
@@ -4714,6 +4802,166 @@ h2.center {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+}
+
+
+/* ========================================
+   ABOUT PAGE TYPEWRITER TAGLINE
+======================================== */
+
+.tagline-section {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 60px 0;
+  background: #f8f8f8;
+}
+
+/* Background gold glow */
+.tagline-section::before {
+  content: "";
+  position: absolute;
+
+  width: 800px;
+  height: 400px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(245, 179, 1, 0.20) 0%,
+    rgba(245, 179, 1, 0.08) 40%,
+    transparent 75%
+  );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content above glow */
+.tagline-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Top small gold line */
+.tagline-line {
+  width: 70px;
+  height: 3px;
+
+  margin: 0 auto 35px;
+
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+/* Main tagline */
+.tagline-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 220px;
+
+  margin: 0;
+
+  font-family: var(--serif);
+  line-height: 1;
+}
+
+/* First typing line */
+.tagline-navy {
+  display: block;
+
+  min-height: 100px;
+
+  color: var(--navy);
+
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* Second typing line */
+.tagline-gold {
+  display: block;
+
+  min-height: 100px;
+
+  color: var(--gold);
+
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 600;
+  font-style: italic;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 5px 20px rgba(237, 166, 0, 0.15);
+}
+
+/* Blinking typing cursor */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 300;
+
+  animation: cursorBlink 0.9s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .tagline-section {
+    padding: 45px 0;
+  }
+
+  .tagline-section::before {
+    width: 500px;
+    height: 280px;
+  }
+
+  .tagline-text {
+    min-height: 160px;
+  }
+
+  .tagline-navy {
+    min-height: 70px;
+
+    font-size: clamp(2.2rem, 9vw, 4rem);
+
+    white-space: normal;
+  }
+
+  .tagline-gold {
+    min-height: 70px;
+
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+
+    white-space: normal;
+  }
+
 }
 
 
