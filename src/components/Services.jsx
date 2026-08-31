@@ -10,23 +10,23 @@ export default function Services() {
         <h2 className="center">Solutions That Open Global Doors</h2>
 
         <div className="services-grid">
-          {SERVICES.map((s) => {
-            const Tag = s.link ? Link : 'a';
-            const props = s.link ? { to: s.link } : { href: '#contact' };
-            return (
-              <div className="service-card" key={s.title}>
-                <span className="service-icon">
-                  <Icon name={s.icon} size={24} />
-                </span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <Tag {...props} className="link-more small">
-                  Learn More <Icon name="arrow" size={13} />
-                </Tag>
-              </div>
-            );
-          })}
-        </div>
+  {SERVICES.map((s) => {
+    const Tag = s.link ? Link : 'a';
+    const props = s.link ? { to: s.link } : { href: '#contact' };
+    return (
+      <Tag {...props} className="service-card" key={s.title}>
+        <span className="service-icon">
+          <Icon name={s.icon} size={24} />
+        </span>
+        <h3>{s.title}</h3>
+        <p>{s.text}</p>
+        <span className="link-more small">
+          Learn More <Icon name="arrow" size={13} />
+        </span>
+      </Tag>
+    );
+  })}
+</div>
       </div>
     </section>
   );

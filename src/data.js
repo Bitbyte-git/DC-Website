@@ -6,7 +6,7 @@
 
 export const CONTACT = {
   phone: '+91 8595968122',
-  email: 'info@dreamcountryvisas.com',
+  email: 'consult@dreamcountryvisas.com',
   country: 'India',
   hours: '9 am - 8 pm',
   offices: [
@@ -28,17 +28,16 @@ export const CONTACT = {
 export const NAV_LINKS_LEFT = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about'},
-  { label: 'Permanent Residency (PR)', href: '/#services', dropdown: true },
-  { label: 'Real Estate', href: '/#properties', dropdown: true },
-  { label: 'Residency', href: '/#destinations', dropdown: true },
+  { label: 'Permanent Residency (PR)', href: '/pr', dropdown: true },
+  { label: 'Real Estate', href: '/realestate', dropdown: true },
+  { label: 'Residency', href: '/residency', dropdown: true },
 ];
 
 export const NAV_LINKS_RIGHT = [
-  { label: 'Citizenship', href: '/#services', dropdown: true },
-  { label: 'Other Service', href: '/#services', dropdown: true },
-  // temporary — points back to the home section until a real Media page exists
+  { label: 'Citizenship', href: '/citizenship', dropdown: true },
+  { label: 'Other Service', href: '/other-services', dropdown: true },
   { label: 'Media', href: '/' },
-  { label: 'Contact Us', href: '/#contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 // Images: hero-london.png (left), hero-dubai.png (right), world-map.png (bg)
@@ -159,19 +158,22 @@ export const TEAM = [
     image: '/landing-img/Amanpreet Kaur.webp',
     description: 'Amanpreet Kaur is an experienced Senior Immigration Counsellor who guides clients through every stage of their immigration journey. Known for her personalised approach and in-depth understanding of global visa processes, she delivers transparent, reliable and result-oriented solutions.',
   },
-  {
+   {
     name: 'Ms. Usha',
-    role: 'Business Head',
+    role: 'Founder',
     image: '/landing-img/Ms. Usha.webp',
-    description: 'Ms. Usha, the visionary behind Dream Country Visas, founded the company with a deep passion for helping individuals and families navigate complex immigration pathways. With a strong background in immigration law and a commitment to transparency, she ensures every client receives fair, honest and professional visa guidance.',
+    description: "As <strong>Founder</strong> at DreamCountry Visas Pvt Ltd, Usha leads with a commitment to simplifying global mobility. With expertise in filling all category applications, and a self-made professional journey backed by education from Delhi University and a diploma in travel and tourism, she possesses over <strong>25 years</strong> of experience in the immigration industry. Being from an immigration background, she finds fulfilment in being part of clients' dream journeys — delivering <strong>clear, compliant and efficient visa solutions</strong> tailored to each client's unique needs, whether for work or permanent migration.",
   },
-  {
+      {
     name: 'Mr. Mohhit',
     role: 'Director',
     image: '/landing-img/Mohhit.webp',
-    description: 'Mr. Mohhit plays a key role in steering the strategic direction of Dream Country Visas. As Director, he brings leadership, operational expertise and a client-first mindset, helping build a strong team and expand the firm’s global outreach.',
+    description: "I help individuals and businesses navigate global visa processes with ease and clarity. With over <strong>10 years</strong> in immigration and investment migration consulting, I specialize in <strong>Residency and Citizenship by Investment (RCBI)</strong> — working with HNIs, founders, and senior executives on second residency and citizenship programs across the UAE, New Zealand, and select global options, including due diligence, program selection, and long-term planning. I also work extensively with professionals on <strong>PR and work visa pathways</strong> — Canada, Australia, Germany's Opportunity Card, and Sweden's Job Seeker Visa — bringing the same level of rigor and personal attention to every case, regardless of pathway or investment size. What a decade in this space has taught me: the visa or investment process itself is rarely the hardest part. The hardest part is knowing which pathway genuinely fits your profile — and avoiding the misinformation and scams that flood this industry at every price point.",
   },
 ];
+
+// About page Leadership section — Amanpreet Kaur excluded here on purpose
+export const ABOUT_TEAM = TEAM.filter((m) => m.name !== 'Amanpreet Kaur');
 
 export const CONTACT_FEATURES = [
   {
@@ -395,6 +397,7 @@ export const FOOTER = {
   ],
   destinations: ['UAE', 'Germany', 'Canada', 'USA', 'Australia'],
   copyright: '© 2026 Dream Country Visas. All Rights Reserved.',
+  companyNumber: 'Company Incorporation Number: U74999DL2019PTC355485',
 };
 
 

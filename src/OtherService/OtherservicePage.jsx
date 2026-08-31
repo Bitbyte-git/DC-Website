@@ -90,7 +90,7 @@
     'business-visas': {
       name: 'Business Visas',
       tagline: 'Expand Your Business Globally',
-      banner: '/images/country-sweden.webp',
+      banner: '/images/svc-business.webp',
       highlight: 'UAE • UK • USA • Europe',
       time: 'from 1 month',
       overview:
@@ -311,7 +311,7 @@
                     className={`svc-country ${i % 2 === 1 ? 'rev' : ''}`}
                     key={c.name}
                   >
-                    <img className="svc-country-img" src={c.image} alt={c.name} />
+                    <img className="svc-country-img" src={c.image} alt={c.name} loading="lazy" decoding="async" />
                     <div className="svc-country-info">
                       <h3>{c.name}</h3>
                       <p className="svc-country-tag">{c.tagline}</p>
@@ -363,13 +363,9 @@
           </section>
 
                                   <div className="country-cta">
-            <button
-              type="button"
-              className="btn btn-light"
-              onClick={() => setShowConsultation(true)}
-            >
+                        <Link to="/contact" className="btn btn-light">
               Book Free Consultation <Icon name="arrow" size={16} />
-            </button>
+            </Link>
             <Link to="/" className="btn btn-outline">
               Back to Home
             </Link>

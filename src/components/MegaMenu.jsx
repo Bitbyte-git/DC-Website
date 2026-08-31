@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Icon } from './Icons.jsx';
 
-export default function MegaMenu({ data }) {
+export default function MegaMenu({ data, overviewLink = '/', open = false, onNavigate }) {
   const { groups, offer, allLabel } = data;
 
   return (
-    <div className="mega-menu">
+    <div className={`mega-menu ${open ? 'open' : ''}`}>
       <div className={`mega-inner ${offer ? '' : 'no-offer'}`}>
         <div className="mega-left">
-                    <a href="#services" className="mega-all">
+          <Link to={overviewLink} className="mega-all" onClick={onNavigate}>
             {allLabel || 'All Programs'} <Icon name="arrow" size={15} />
-          </a>
+          </Link>
 
           <div className="mega-groups">
             {groups.map((g) => (
@@ -21,7 +21,7 @@ export default function MegaMenu({ data }) {
                   const Tag = c.link ? Link : 'a';
                   const props = c.link ? { to: c.link } : { href: '/#contact' };
                   return (
-                  <Tag {...props} className="mega-item" key={c.name}>
+                  <Tag {...props} className="mega-item" key={c.name} onClick={onNavigate}>
   <img src={c.image} alt={c.name} loading="lazy" decoding="async" />
                                         <div className="mega-item-info">
                       <strong>{c.name}</strong>
@@ -43,10 +43,11 @@ export default function MegaMenu({ data }) {
 
                                 {offer && (
           <Link
-            to={offer.link || '/#contact'}
-            className="mega-offer"
-            style={{ backgroundImage: `url(${offer.image})` }}
-          >
+  to={offer.link || '/#contact'}
+  className="mega-offer"
+  style={{ backgroundImage: `url(${offer.image})` }}
+  onClick={onNavigate}
+>
             <p className="mega-offer-tag">{offer.tag}</p>
             <h4>{offer.title}</h4>
             <p className="mega-offer-sub">{offer.subtitle}</p>

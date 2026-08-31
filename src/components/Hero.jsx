@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { HERO_PILLS } from '../data.js';
 import { Icon } from './Icons.jsx';
 import ConsultationModal from './ConsultationModal.jsx';
@@ -36,13 +37,9 @@ export default function Hero() {
           <a href="#services" className="btn btn-primary">
             Explore Programs <Icon name="arrow" size={16} />
           </a>
-          <button
-            type="button"
-            className="btn btn-outline"
-            onClick={() => setShowConsultation(true)}
-          >
+                    <Link to="/contact" className="btn btn-outline">
             Book Consultation <Icon name="arrow" size={16} />
-          </button>
+          </Link>
         </div>
       </div>
 

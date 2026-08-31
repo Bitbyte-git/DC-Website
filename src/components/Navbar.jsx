@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   NAV_LINKS_LEFT,
   NAV_LINKS_RIGHT,
@@ -24,12 +25,14 @@ const MENUS = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   const [showConsultation, setShowConsultation] = useState(false);
 
-    // Smoothly scroll to a section when already on the home page,
+  // Smoothly scroll to a section when already on the home page,
   // instead of relying on a plain hash-link (which jumps instantly).
   const handleHashClick = (href) => (e) => {
     setOpen(false);
+    setOpenMenu(null);
     if (href.startsWith('/#') && window.location.pathname === '/') {
       const id = href.slice(2);
       const el = document.getElementById(id);
@@ -40,19 +43,50 @@ export default function Navbar() {
     }
   };
 
+  // Closes the mobile menu + any open mega-menu — called whenever a
+  // real navigation happens (clicking the label or any submenu item).
+  const closeMenus = () => {
+    setOpen(false);
+    setOpenMenu(null);
+  };
+
   // Shared renderer — plain links (Home, About Us, Media, Contact Us)
   // render as-is; links with a matching entry in MENUS get the hover
-  // mega-menu attached.
+  // mega-menu attached and also navigate straight to the overview page.
   const renderLinks = (links) =>
-    links.map((link) => (
-      <div className="nav-item" key={link.label}>
-        <a href={link.href} onClick={handleHashClick(link.href)}>
-          {link.label}
-          {link.dropdown && <Icon name="chevron-down" size={12} />}
-        </a>
-        {MENUS[link.label] && <MegaMenu data={MENUS[link.label]} />}
-      </div>
-    ));
+    links.map((link) => {
+      const isHashLink = link.href.startsWith('/#');
+      const hasMenu = !!MENUS[link.label];
+
+      return (
+        <div
+          className="nav-item"
+          key={link.label}
+          onMouseEnter={() => hasMenu && setOpenMenu(link.label)}
+          onMouseLeave={() => hasMenu && setOpenMenu(null)}
+        >
+          {isHashLink ? (
+            <a href={link.href} onClick={handleHashClick(link.href)}>
+              {link.label}
+              {link.dropdown && <Icon name="chevron-down" size={12} />}
+            </a>
+          ) : (
+            <Link to={link.href} onClick={closeMenus}>
+              {link.label}
+              {link.dropdown && <Icon name="chevron-down" size={12} />}
+            </Link>
+          )}
+          {hasMenu && (
+            <MegaMenu
+              data={MENUS[link.label]}
+              overviewLink={link.href}
+              open={openMenu === link.label}
+              onNavigate={closeMenus}
+            />
+          )}
+        </div>
+      );
+    });
 
   return (
     <header className="navbar">
@@ -84,12 +118,9 @@ export default function Navbar() {
             <a href="#" className="nav-circle linkedin" aria-label="LinkedIn">
               <Icon name="linkedin" size={16} />
             </a>
-            <button
-              className="btn btn-primary nav-consult-btn"
-              onClick={() => setShowConsultation(true)}
-            >
+                       <Link to="/contact" className="btn btn-primary nav-consult-btn">
               Book Free Consultation
-            </button>
+            </Link>
           </div>
         </div>
 

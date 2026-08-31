@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { TEAM } from '../data.js';
+import { ABOUT_TEAM } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 
 const PILLARS = [
@@ -119,8 +119,8 @@ export default function AboutPage() {
         <div className="container">
           <p className="section-tag">OUR LEADERSHIP</p>
           <h2 className="center">Experts Who Guide, Support &amp; Deliver</h2>
-          <div className="ldr-list">
-            {TEAM.map((member, idx) => (
+                    <div className="ldr-list">
+            {ABOUT_TEAM.map((member, idx) => (
               <div
                 className={`ldr-row ${idx % 2 === 1 ? 'rev' : ''}`}
                 key={member.name}
@@ -139,7 +139,7 @@ export default function AboutPage() {
                   <p className="ldr-role">{member.role}</p>
                   <h3>{member.name}</h3>
                   <div className="ldr-divider" />
-                  <p className="ldr-desc">{member.description}</p>
+                 <p className="ldr-desc" dangerouslySetInnerHTML={{ __html: member.description }} />
                 </div>
               </div>
             ))}
@@ -192,9 +192,9 @@ export default function AboutPage() {
               <p>Get a free consultation with our expert case managers.</p>
             </div>
             <div className="cta-buttons">
-              <a href="/#contact" className="btn btn-light">
+                           <Link to="/contact" className="btn btn-light">
                 Book Free Consultation <Icon name="arrow" size={16} />
-              </a>
+              </Link>
               <Link to="/" className="btn btn-ghost">
                 Back to Home
               </Link>

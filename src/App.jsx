@@ -20,6 +20,7 @@ import OtherservicePage from './OtherService/OtherservicePage.jsx';
 import PRPage from './PR/PR_page.jsx';
 import ConsultationModal from './components/ConsultationModal.jsx';
 import PolicyPage from "./components/PolicyPage.jsx";
+import ContactPage from './components/ContactPage.jsx';
 import PROverview from './PR/PROverview.jsx';
 import RealEstateOverview from './Real Estate/RealEstateOverview.jsx';
 import ResidencyOverview from './Residency/ResidencyOverview.jsx';
@@ -83,6 +84,7 @@ export default function App() {
         <Route path="/pr/:slug" element={<PRPage />} />
         <Route path="/pr" element={<PROverview />} />
         <Route path="/policies/:slug" element={<PolicyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
 
       </Routes>
       <Footer />

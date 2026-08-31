@@ -25,7 +25,7 @@ export default function Team() {
                   <Icon name="linkedin" size={14} />
                 </a>
               </div>
-              <p className="team-description">{m.description}</p>
+              <p className="team-description" dangerouslySetInnerHTML={{ __html: m.description }} />
             </article>
           ))}
         </div>

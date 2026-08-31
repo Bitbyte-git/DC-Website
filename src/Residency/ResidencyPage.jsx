@@ -703,13 +703,9 @@ export default function ResidencyPage() {
               <p>Free eligibility assessment with our residency experts.</p>
             </div>
             <div className="cta-buttons">
-                            <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => setShowConsultation(true)}
-              >
+                           <Link to="/contact" className="btn btn-primary">
                 Book Free Consultation <Icon name="arrow" size={16} />
-              </button>
+              </Link>
               <Link to="/" className="btn btn-outline">
                 Back to Home
               </Link>
@@ -725,13 +721,9 @@ export default function ResidencyPage() {
               Talk to our experts and get a free residency assessment for{' '}
               {country.name}.
             </p>
-                        <button
-              type="button"
-              className="btn btn-light full"
-              onClick={() => setShowConsultation(true)}
-            >
+                       <Link to="/contact" className="btn btn-light full">
               Book Free Consultation <Icon name="arrow" size={15} />
-            </button>
+            </Link>
             <a
               href={CONTACT.whatsapp}
               className="btn btn-ghost full"
