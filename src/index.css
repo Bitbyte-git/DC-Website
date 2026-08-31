@@ -505,7 +505,7 @@ h2.center {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(7, 19, 58, 0.58), rgba(7, 19, 58, 0.2) 62%, rgba(7, 19, 58, 0.7));
+  background: linear-gradient(180deg, rgba(7, 19, 58, 0.72), rgba(7, 19, 58, 0.32) 62%, rgba(7, 19, 58, 0.8));
 }
 
 .mega-offer > * {
@@ -538,6 +538,66 @@ h2.center {
   width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+
+/* ---------- Per-menu offer card alignment (independent per card) ---------- */
+.mega-offer.offer-citizenship {
+  justify-content: flex-start;
+  padding-top: 22px;
+  padding-bottom: 30px;
+}
+
+.mega-offer.offer-citizenship h4 {
+  min-height: 2.6em;
+}
+
+.mega-offer.offer-citizenship .mega-offer-sub {
+  margin-top: -22px;
+}
+
+.mega-offer.offer-realestate {
+  justify-content: flex-start;
+  padding-top: 22px;
+  padding-bottom: 30px;
+}
+
+.mega-offer.offer-realestate h4 {
+  min-height: 2.6em;
+}
+
+.mega-offer.offer-realestate .mega-offer-sub {
+  margin-top: -18px;
+}
+
+.mega-offer.offer-residency {
+  justify-content: flex-start;
+  padding-top: 22px;
+  padding-bottom: 30px;
+}
+
+.mega-offer.offer-residency h4 {
+  min-height: 2.6em;
+  margin-top: 5px;
+}
+
+.mega-offer.offer-residency .mega-offer-sub {
+  margin-top: -18px;
+}
+
+
+.mega-offer.offer-pr {
+  justify-content: flex-start;
+  padding-top: 22px;
+  padding-bottom: 30px;
+}
+
+.mega-offer.offer-pr h4 {
+  min-height: 2.6em;
+}
+
+.mega-offer.offer-pr .mega-offer-sub {
+  margin-top: -18px;
 }
 
 .mega-offer-sub {

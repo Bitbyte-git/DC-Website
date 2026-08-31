@@ -240,6 +240,7 @@ export const CITIZENSHIP_MENU = {
     image: '/images/res-malta.webp',
     button: 'Explore Offer',
     link: '/citizenship/malta',
+    variant: 'offer-citizenship',
   },
 };
 
@@ -281,6 +282,7 @@ export const REALESTATE_MENU = {
     image: '/menu/menu-dubai.webp',
     button: 'Explore Properties',
     link: '/realestate/dubai',
+    variant: 'offer-realestate',
   },
 };
 
@@ -309,6 +311,7 @@ export const RESIDENCY_MENU = {
     image: '/menu/menu-res-offer.webp',
     button: 'Explore Offer',
     link: '/residency/portugal',
+    variant: 'offer-residency',
   },
 };
 
@@ -334,11 +337,12 @@ export const PR_MENU = {
   ],
       offer: {
     tag: 'EXCLUSIVE OFFER',
-    title: 'Fast-Track PR to Australia',
-    subtitle: 'Skilled Migration from AUD 4,640',
-    image: '/images/country-australia.webp',
+    title: 'Fast-Track PR to Canada',
+    subtitle: 'Express Entry & PNP Pathways',
+    image: '/menu/menu-pr-canada-offer.webp',
     button: 'Explore Offer',
-    link: '/pr/australia',
+    link: '/pr/canada',
+    variant: 'offer-pr',
   },
 };
 
