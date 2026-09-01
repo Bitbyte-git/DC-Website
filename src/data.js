@@ -111,10 +111,10 @@ export const SERVICES = [
 ];
 
 // Real Estate destination artwork
+// Real Estate destination artwork
 export const PROPERTIES = [
   { name: 'Dubai', price: 'from AED 5M+', image: '/landing-img/Real-Dubai.webp' },
   { name: 'Greece', price: 'from €600K+', image: '/landing-img/Real-Greece.webp' },
-  { name: 'Spain', price: 'from €500K+', image: '/landing-img/Real-Spain.webp'  },
   { name: 'Latvia', price: 'from €250K+', image: '/landing-img/Real-latvia.webp' },
 ];
 
@@ -381,7 +381,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Do you also help with real estate investment abroad?',
-    a: 'Yes, we assist with premium property investments in Dubai, Greece, Spain and Latvia — many of which also qualify for residency-by-investment programs.',
+    a: 'Yes, we assist with premium property investments in Dubai, Greece and Latvia — many of which also qualify for residency-by-investment programs.',
   },
   {
     q: 'What support do you provide beyond visa approval?',

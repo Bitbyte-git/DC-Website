@@ -1039,27 +1039,33 @@ h2.center {
 
 .properties-intro h2 {
   margin: 8px 0 18px;
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  line-height: 1.25;
 }
 
 .properties-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
 .prop-card {
   position: relative;
+  isolation: isolate;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: clip;
   box-shadow: var(--shadow);
   aspect-ratio: 3 / 4;
   background: #dfe3f0;
 }
 
 .prop-card img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 7px);
+  height: calc(100% + 2px);
   object-fit: cover;
+  border-radius: inherit;
   transition: transform 0.35s;
 }
 
@@ -3312,7 +3318,7 @@ h2.center {
   }
 
   .properties-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .form-fields {
@@ -3459,27 +3465,88 @@ h2.center {
   .contact-intro h2 {
     text-align: center;
   }
-}
 
-/* ---------- Book Free Consultation button ---------- */
-.nav-consult-btn {
-  padding: 9px 18px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-}
+    /* Offer cards — compact on mobile */
+    .mega-offer {
+      min-height: 50px;
+      padding: 16px;
+      background-size: cover;
+      background-position: center;
+    }
 
-/* ---------- Consultation Modal ---------- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 16, 50, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  padding: 20px;
-  animation: modal-overlay-fade 0.3s ease-out;
+    .mega-offer-tag {
+      font-size: 0.6rem;
+      padding: 3px 9px;
+    }
+
+    .mega-offer h4 {
+      font-size: 0.92rem;
+      min-height: auto;
+    }
+
+    .mega-offer-sub {
+      font-size: 0.72rem;
+    }
+
+    .mega-offer .btn,
+    .mega-offer span.btn {
+      padding: 9px 18px;
+      font-size: 0.8rem;
+    }
+
+      /* Reset the desktop per-menu offset so content settles naturally on mobile */
+    .mega-offer.offer-citizenship,
+    .mega-offer.offer-realestate,
+    .mega-offer.offer-residency,
+    .mega-offer.offer-pr {
+      justify-content: center;
+      /* padding-top: 16px; */
+      padding-bottom: 16px;
+    }
+
+    .mega-offer.offer-citizenship h4,
+    .mega-offer.offer-realestate h4,
+    .mega-offer.offer-residency h4,
+    .mega-offer.offer-pr h4 {
+      margin-top: 8px;
+    }
+
+    .mega-offer.offer-citizenship .mega-offer-sub,
+    .mega-offer.offer-realestate .mega-offer-sub,
+    .mega-offer.offer-residency .mega-offer-sub,
+    .mega-offer.offer-pr .mega-offer-sub {
+      margin-top: 10px;
+    }
+
+  /* Offer card subtitles — independent from button position */
+  .mega-offer.offer-citizenship .mega-offer-sub,
+  .mega-offer.offer-realestate .mega-offer-sub,
+  .mega-offer.offer-residency .mega-offer-sub,
+  .mega-offer.offer-pr .mega-offer-sub {
+    position: relative;
+    top: -20px;
+    margin-top: 0;
+  }
+}
+  /* ---------- Book Free Consultation button ---------- */
+  .nav-consult-btn {
+    padding: 9px 18px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- Consultation Modal ---------- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 16, 50, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+    animation: modal-overlay-fade 0.3s ease-out;
 }
 
 @keyframes modal-overlay-fade {
@@ -5009,6 +5076,88 @@ h2.center {
 
 }
 
+
+/* ---------- About page — Certification / Trust badge ---------- */
+.cert-box {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--bg-soft);
+  border-radius: 20px;
+  padding: 64px;
+  min-height: 320px;
+}
+
+.cert-img-wrap {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.35s ease;
+}
+
+.cert-img-wrap:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 22px 46px rgba(20, 32, 90, 0.2);
+}
+
+.cert-img-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cert-img-wrap:hover::after {
+  left: 130%;
+}
+
+.cert-img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+}
+
+.cert-text .section-tag.left {
+  font-size: 0.85rem;
+}
+
+.cert-text h3 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin: 10px 0 18px;
+}
+
+.cert-text p:not(.section-tag) {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 620px;
+}
+
+@media (max-width: 768px) {
+  .cert-box {
+    grid-template-columns: 1fr;
+    padding: 26px;
+    text-align: center;
+  }
+
+  .cert-img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
 
 /* ---------- Footer utility bar (Follow Us / language / disclaimer) — very bottom ---------- */
 .footer-utility {
