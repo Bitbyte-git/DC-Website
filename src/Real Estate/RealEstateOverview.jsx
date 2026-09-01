@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { REALESTATE_MENU } from '../data.js';
+import { REALESTATE_MENU, REALESTATE_OVERVIEW_FAQ } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 
 export default function RealEstateOverview() {
@@ -50,7 +50,7 @@ export default function RealEstateOverview() {
           </Link>
         ))}
       </div>
-      <FAQ />
+      <FAQ items={REALESTATE_OVERVIEW_FAQ} />
     </div>
   );
 }

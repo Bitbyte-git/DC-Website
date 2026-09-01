@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { CONTACT } from '../data.js';
+import { CONTACT, PR_FAQ } from '../data.js';
 import ConsultationModal from '../components/ConsultationModal';
 import FAQ from '../components/FAQ.jsx';
 
@@ -362,7 +362,7 @@ export default function PRPage() {
         onClose={() => setShowConsultation(false)}
       />
 
-       <FAQ />
+       <FAQ items={PR_FAQ[slug]} />
     </div>
 
     

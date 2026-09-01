@@ -1,22 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { CONTACT } from '../data.js';
+import { CONTACT, REALESTATE_FAQ } from '../data.js';
 import ConsultationModal from '../components/ConsultationModal.jsx';
 import FAQ from '../components/FAQ.jsx';
 
-// =====================================================================
-// ALL real estate location pages live in this ONE file.
-//
-// The 3 location URLs handled by this page:
-//   /realestate/dubai    ->  Dubai (UAE Golden Visa)
-//   /realestate/greece   ->  Greece Golden Visa
-//   /realestate/latvia   ->  Latvia Golden Visa
-//
-// To add a new location: copy any object below, change the key (slug)
-// and the content, then add its `link` in data.js REALESTATE_MENU.
-// Banner images go in public/images/ (e.g. re-dubai.png, 1920x1080)
-// =====================================================================
+
 const LOCATIONS = {
   dubai: {
     name: 'Dubai',
@@ -435,7 +424,7 @@ export default function RealEstatePage() {
         open={showConsultation}
         onClose={() => setShowConsultation(false)}
       />
-      <FAQ />
+      <FAQ items={REALESTATE_FAQ[slug]} />
     </div>
   );
 }

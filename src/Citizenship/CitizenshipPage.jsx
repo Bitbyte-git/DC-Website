@@ -1,25 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { CONTACT } from '../data.js';
+import { CONTACT, CITIZENSHIP_FAQ } from '../data.js';
 import ConsultationModal from '../components/ConsultationModal.jsx';
 import FAQ from '../components/FAQ.jsx';
 
-// =====================================================================
-// ALL citizenship country pages live in this ONE file.
-//
-// The 5 country URLs handled by this page:
-//   /citizenship/antigua-barbuda   ->  Antigua & Barbuda
-//   /citizenship/st-kitts-nevis    ->  St. Kitts and Nevis
-//   /citizenship/malta             ->  Malta
-//   /citizenship/vanuatu           ->  Vanuatu
-//   /citizenship/nauru             ->  Nauru
-//
-// To add a new country: copy any object below, change the key (slug)
-// and the content. The slug is what comes in the URL:
-//   /citizenship/malta  ->  COUNTRIES['malta']
-// Banner images go in public/images/ (e.g. country-malta.jpg, 1600x500)
-// =====================================================================
+
 export const COUNTRIES = {
   'antigua-barbuda': {
     name: 'Antigua & Barbuda',
@@ -529,7 +515,7 @@ export default function CitizenshipPage() {
         onClose={() => setShowConsultation(false)}
       />
 
-      <FAQ />
+      <FAQ items={CITIZENSHIP_FAQ[slug]} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { ABOUT_TEAM } from '../data.js';
+import { ABOUT_TEAM, ABOUT_FAQ_ITEMS } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 
 const PILLARS = [
@@ -342,7 +342,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <FAQ />
+      <FAQ items={ABOUT_FAQ_ITEMS} />
     </div>
   );
 }

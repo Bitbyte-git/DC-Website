@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
 import { COUNTRIES } from './CitizenshipPage.jsx';
+import { CITIZENSHIP_OVERVIEW_FAQ } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 
 export default function CitizenshipOverview() {
@@ -49,7 +50,7 @@ export default function CitizenshipOverview() {
         ))}
       </div>
 
-      <FAQ />
+      <FAQ items={CITIZENSHIP_OVERVIEW_FAQ} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { CONTACT } from '../data.js';
+import { CONTACT, RESIDENCY_FAQ } from '../data.js';
 import ConsultationModal from '../components/ConsultationModal.jsx';
 import FAQ from '../components/FAQ.jsx';
 
@@ -767,7 +767,7 @@ export default function ResidencyPage() {
         onClose={() => setShowConsultation(false)}
       />
 
-       <FAQ />
+       <FAQ items={RESIDENCY_FAQ[slug]} />
     </div>
   );
 }
