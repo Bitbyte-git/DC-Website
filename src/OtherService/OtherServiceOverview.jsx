@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icons.jsx';
-import { OTHERSERVICES_MENU } from '../data.js';
+import { OTHERSERVICES_MENU, OTHERSERVICES_OVERVIEW_FAQ } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 
 export default function OtherServiceOverview() {
@@ -44,7 +44,7 @@ export default function OtherServiceOverview() {
           </Link>
         ))}
       </div>
-      <FAQ />
+      <FAQ items={OTHERSERVICES_OVERVIEW_FAQ} />
     </div>
   );
 }

@@ -1,23 +1,10 @@
   import { useEffect, useState } from 'react';
   import { useParams, Link } from 'react-router-dom';
   import { Icon } from '../components/Icons.jsx';
+  import { OTHERSERVICES_FAQ } from '../data.js';
   import ConsultationModal from '../components/ConsultationModal.jsx';
   import FAQ from '../components/FAQ.jsx';
 
-  // =====================================================================
-  // ALL other-service pages live in this ONE file.
-  //
-  // The 5 service URLs handled by this page:
-  //   /services/work-visas           ->  Work Visas
-  //   /services/business-visas       ->  Business Visas
-  //   /services/study-visas          ->  Study Visas
-  //   /services/investor-visas       ->  Investor Visas
-  //   /services/family-spouse-visas  ->  Family & Spouse Visas
-  //
-  // To add a new service: copy any object below, change the key (slug)
-  // and the content, then add its `link` in data.js OTHERSERVICES_MENU.
-  // Banner images go in public/images/ (e.g. svc-pr.jpg, 1600x500)
-  // =====================================================================
   const SERVICES = {
         'work-visas': {
       name: 'Work Visas',
@@ -378,7 +365,7 @@
           onClose={() => setShowConsultation(false)}
         />
 
-        <FAQ />
+        <FAQ items={OTHERSERVICES_FAQ[slug]} />
       </div>
     );
   }

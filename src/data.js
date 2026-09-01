@@ -952,6 +952,198 @@ export const PR_FAQ = {
 };
 
 
+// Per-service FAQ content for Other Service country pages
+export const OTHERSERVICES_FAQ = {
+  'work-visas': [
+    {
+      q: 'Do I need a job offer to apply for the Germany Opportunity Card?',
+      a: 'No — the Germany Opportunity Card uses a points-based system, so you can apply and search for work in Germany for up to a year without first securing a job offer.',
+    },
+    {
+      q: 'Can my family join me on a work visa?',
+      a: 'Yes, dependent visas are available for family members across Sweden, Germany, and Dubai work permit routes.',
+    },
+    {
+      q: "Is Dubai's work visa income tax-free?",
+      a: 'Yes, the UAE Employment Visa offers tax-free income, along with fast processing typically completed in 2–4 weeks.',
+    },
+    {
+      q: 'Can a work visa lead to permanent residency?',
+      a: "Yes, for example Sweden's work permit offers a path to permanent residency after 4 years of continuous employment, and several other destinations offer similar long-term routes.",
+    },
+    {
+      q: 'What documents do I need to apply for a work visa?',
+      a: "Yes, you'll typically need a valid passport, a job offer letter or employment contract, educational and experience certificates, and language test results if required by the destination country.",
+    },
+  ],
+
+  'business-visas': [
+    {
+      q: 'Do I need an existing company to apply for a business visa?',
+      a: 'No — a viable business plan is often enough to qualify, even without an existing operating business, though having one can strengthen your application.',
+    },
+    {
+      q: 'Can a business visa lead to a residence permit?',
+      a: 'Yes, several of our business visa routes include a path to a residence permit through business ownership, not just a temporary stay.',
+    },
+    {
+      q: 'Do you help with company formation, banking, and compliance?',
+      a: 'Yes, our service covers complete company formation support alongside the visa application, including guidance on business banking and regulatory compliance.',
+    },
+    {
+      q: 'Is 1 month the fastest processing time for a business visa?',
+      a: 'Yes, some business visa routes across the UAE, UK, USA, and Europe can be processed in as little as 1 month, though timelines vary by country and business type.',
+    },
+    {
+      q: 'Do I need prior business experience to qualify?',
+      a: 'Yes, relevant business experience is generally expected as part of the eligibility criteria, alongside sufficient investment capital and a credible business plan.',
+    },
+  ],
+
+  'study-visas': [
+    {
+      q: 'Do I need an admission offer before applying for a student visa?',
+      a: "Yes, you'll need a confirmed admission offer from a recognized institution before your student visa application can be submitted.",
+    },
+    {
+      q: 'Can I work part-time while studying abroad?',
+      a: 'Yes, most study destinations allow part-time work during term time and full-time work during scheduled breaks, subject to visa-specific hour limits.',
+    },
+    {
+      q: 'Does a study visa offer a path to permanent residency?',
+      a: 'Yes, several destinations — particularly Canada and Australia — offer a pathway to PR after graduation through post-study work visas and points-based immigration systems.',
+    },
+    {
+      q: 'Do I need an IELTS or TOEFL score to study abroad?',
+      a: 'Yes, most English-taught programs require an IELTS, TOEFL, or PTE score as part of the admission and visa application process, with minimum scores set by each institution.',
+    },
+    {
+      q: 'Can I get help with scholarships or education loans?',
+      a: 'Yes, our service includes scholarship and education loan assistance alongside university selection, SOP guidance, and visa filing support.',
+    },
+  ],
+
+  'investor-visas': [
+    {
+      q: 'Is 3 months the fastest processing time for an investor visa?',
+      a: 'Yes, some Caribbean citizenship-by-investment programs can process in as little as 3 months, while European golden visas and residency permits typically take longer.',
+    },
+    {
+      q: 'Can I include my family in a single investor visa application?',
+      a: 'Yes, most investor visa programs allow you to include your spouse and dependent children under one application, with some countries also permitting parents or grandparents.',
+    },
+    {
+      q: 'Do I need to prove the source of my investment funds?',
+      a: 'Yes, all investor visa programs require documented proof of funds and a clean, verifiable source of wealth as part of the due diligence process.',
+    },
+    {
+      q: 'Does an investor visa offer visa-free travel benefits?',
+      a: 'Yes, many investor visa and citizenship programs grant visa-free or visa-on-arrival access to a significant number of countries, depending on the specific program chosen.',
+    },
+    {
+      q: 'Is a clean criminal record required for all investor visa programs?',
+      a: 'Yes, a clean criminal record is a standard eligibility requirement across virtually all golden visa, citizenship by investment, and investor residence programs.',
+    },
+  ],
+
+  'family-spouse-visas': [
+    {
+      q: 'Can my spouse work while on a dependent visa?',
+      a: 'Yes, spouses gain work rights in many destination countries under family/spouse visa categories, though specific work permissions vary by country.',
+    },
+    {
+      q: 'Do I need to prove my relationship is genuine?',
+      a: 'Yes, applicants must provide relationship evidence — such as photos, communication records, and shared documentation — to demonstrate a genuine relationship to immigration authorities.',
+    },
+    {
+      q: 'Can dependents eventually get permanent residency or citizenship?',
+      a: "Yes, in many countries, dependents on a family or spouse visa have a path to permanent residency and citizenship, often aligned with the sponsor's own status progression.",
+    },
+    {
+      q: 'Does the sponsor need to meet a minimum income requirement?',
+      a: 'Yes, most family and spouse visa categories include a country-specific financial requirement that the sponsor must meet to demonstrate they can support their dependents.',
+    },
+    {
+      q: 'Can I sponsor my parents to join me abroad?',
+      a: 'Yes, several countries allow parent sponsorship as part of family reunification programs, alongside spouse and dependent child visas.',
+    },
+  ],
+
+  'digital-nomad-visas': [
+    {
+      q: 'Do I need a local employer to qualify for a digital nomad visa?',
+      a: 'No — digital nomad visas are specifically designed for remote workers and freelancers, so no local employer sponsorship is needed, as long as you can prove remote income.',
+    },
+    {
+      q: 'Is there a minimum income requirement for digital nomad visas?',
+      a: 'Yes, all three destinations (Portugal, Spain, UAE) require proof of a minimum monthly income from remote employment or freelance work, with thresholds varying by country.',
+    },
+    {
+      q: 'Do I need health insurance to apply?',
+      a: 'Yes, valid health insurance covering your stay is a standard requirement across Portugal, Spain, and UAE digital nomad visa applications.',
+    },
+    {
+      q: 'Can a digital nomad visa lead to permanent residency?',
+      a: 'Yes, several countries — including Portugal and Spain — offer a path to residency for digital nomad visa holders who maintain their status over time.',
+    },
+    {
+      q: 'How long does it take to get a digital nomad visa approved?',
+      a: 'Yes, processing typically takes 4–6 weeks across Portugal, Spain, and UAE, though timelines can vary based on documentation completeness.',
+    },
+  ],
+
+  'company-setup': [
+    {
+      q: 'Can I get a residence visa through company ownership?',
+      a: 'Yes, in jurisdictions like the UAE, setting up and owning a company can make you eligible for a residence visa tied to your business.',
+    },
+    {
+      q: 'Do I need a local partner to set up a company in the UAE?',
+      a: 'No — most UAE free zones allow 100% foreign ownership without requiring a local partner, though mainland company structures may have different requirements depending on the business activity.',
+    },
+    {
+      q: 'Does company setup include help opening a corporate bank account?',
+      a: 'Yes, our service includes corporate bank account assistance alongside entity structuring, licensing, and ongoing compliance support.',
+    },
+    {
+      q: 'Is Singapore a tax-efficient jurisdiction for company formation?',
+      a: 'Yes, Singapore is widely regarded as a tax-efficient jurisdiction, and our formation services help structure your entity to take advantage of applicable benefits.',
+    },
+    {
+      q: 'How long does company registration typically take?',
+      a: 'Yes, most jurisdictions we serve (UAE, UK, Singapore) can complete registration and licensing in as little as 2–4 weeks, though timelines vary by business activity and structure.',
+    },
+  ],
+};
+
+// FAQ shown on the Other Services Overview page (/other-services)
+export const OTHERSERVICES_OVERVIEW_FAQ = [
+  {
+    q: 'Not sure which visa service is right for me?',
+    a: "Yes, our team offers a free consultation to assess your goals — whether that's working abroad, studying, starting a business, or reuniting with family — and points you to the right service.",
+  },
+  {
+    q: 'Can I need more than one service at once?',
+    a: 'Yes, many clients combine services — for example, a business visa alongside company setup, or a work visa alongside a family/spouse visa for dependents.',
+  },
+];
+
+// FAQ shown on the Contact page (/contact)
+export const CONTACT_FAQ_ITEMS = [
+  {
+    q: 'Is the initial consultation free?',
+    a: 'Yes, we offer a free initial consultation to assess your eligibility before any paid service begins.',
+  },
+  {
+    q: 'How quickly will someone respond to my inquiry?',
+    a: 'Yes, our team typically responds to inquiries within 24 to 48 hours during business hours.',
+  },
+  {
+    q: 'Can I visit your office in person?',
+    a: "Yes, you're welcome to visit either our New Delhi (Nehru Place) or Gurugram (Sector 74A) office — we'd recommend booking an appointment first to ensure the right advisor is available.",
+  },
+];
+
 export const FOOTER = {
   about:
     'Your trusted partner in global citizenship, residency, real estate and global mobility solutions across the world.',

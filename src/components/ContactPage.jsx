@@ -9,7 +9,9 @@ import {
   REALESTATE_MENU,
   PR_MENU,
   OTHERSERVICES_MENU,
+  CONTACT_FAQ_ITEMS,
 } from '../data.js';
+import FAQ from '../components/FAQ.jsx';
 
 // Builds the "Program of interest" dropdown from every service category —
 // same list used in the Consultation Modal.
@@ -394,6 +396,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <FAQ items={CONTACT_FAQ_ITEMS} />
     </div>
   );
 }
