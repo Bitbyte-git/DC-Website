@@ -27,7 +27,7 @@ export const CONTACT = {
 // Images: logo.png (used in navbar + footer + favicon)
 export const NAV_LINKS_LEFT = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about'},
+  { label: 'About Us', href: '/about' },
   { label: 'Permanent Residency (PR)', href: '/pr', dropdown: true },
   { label: 'Real Estate', href: '/realestate', dropdown: true },
   { label: 'Residency', href: '/residency', dropdown: true },
@@ -36,7 +36,6 @@ export const NAV_LINKS_LEFT = [
 export const NAV_LINKS_RIGHT = [
   { label: 'Citizenship', href: '/citizenship', dropdown: true },
   { label: 'Other Service', href: '/other-services', dropdown: true },
-  { label: 'Media', href: '/' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
@@ -84,7 +83,7 @@ export const SERVICES = [
     text: 'Gain a second citizenship and enjoy global freedom, security and lifelong benefits.',
     link: '/citizenship',
   },
-    {
+  {
     icon: 'building',
     title: 'Real Estate Investment',
     text: 'Invest in premium properties worldwide and build lasting wealth for generations.',
@@ -96,13 +95,13 @@ export const SERVICES = [
     text: 'Secure your future with world-class residency programs in top global destinations.',
     link: '/residency',
   },
-   {
+  {
     icon: 'globe',
     title: 'Permanent Residency (PR)',
     text: 'Skilled migration and permanent residency pathways for long-term settlement abroad.',
     link: '/pr',
   },
-    {
+  {
     icon: 'support',
     title: 'Other Services',
     text: 'Additional support for documentation, compliance and end-to-end assistance.',
@@ -131,49 +130,43 @@ export const TESTIMONIALS = [
   {
     text: 'Most important thing about this organisation is: You are not treated as a client, but you are treated as a family member. That says it all. Utmost care and professionalism are the hallmarks of leadership under Usha mam. Team is available whenever you need their assistance. Thank you for your help.',
     name: 'Rahul Mehta',
-    place: 'Dubai, UAE',
   },
   {
     text: 'I had got my Canadian Visa application done from DreamCountry Visas Pvt. Ltd. I have found DreamCountry Visas Pvt. Ltd to be very responsive and flexible to my needs. DreamCountry Visas Pvt. Ltd helped me get through with my application without any worries, they followed up with me.',
     name: 'Vishal Hawa',
-    place: 'Toronto, Canada',
   },
   {
     text: 'My experience with Dream Visas has been exemplary. My heart felt gratitude goes especially to Usha who made sure that I reach Canada safe and quick. At the very beginning it was just a casual enquiry call that I made to her and within a years time we have become more like family. She stood by me during Covid and guided me to steer through difficult situations that came our way. She is smart and quick with action and the whole credit of me being in Canada goes to Usha. Not just me but my family trusts her too as she has helped many of my family members and friends turn their Canadian Dream into Reality.',
     name: 'Priyanka Bhambra',
-    place: 'Canada',
   },
   {
     text: 'My experience with Dream Visas has been amazing. Usha\u2019s guidance made my journey to Canada smooth and fast. What started as a casual inquiry turned into a bond like family. She stood by me during COVID, helping me navigate challenges. Thanks to her quick action, I\u2019m in Canada today. My family and friends also trust her for making their Canadian dreams a reality!',
     name: 'Harwinder Singh',
-    place: 'Canada',
   },
 ];
 
 // Leadership team profiles
 export const TEAM = [
   {
-    name: 'Amanpreet Kaur',
-    role: 'Senior Immigration Counsellor',
-    image: '/landing-img/Amanpreet Kaur.webp',
-    description: 'Amanpreet Kaur is an experienced Senior Immigration Counsellor who guides clients through every stage of their immigration journey. Known for her personalised approach and in-depth understanding of global visa processes, she delivers transparent, reliable and result-oriented solutions.',
-  },
-   {
     name: 'Ms. Usha',
     role: 'Founder',
+    experience: '25+ Years Experience',
+    tags: ['25+ Years Experience', 'Policy Specialist', 'Global Migration'],
     image: '/landing-img/Ms. Usha.webp',
-    description: "As <strong>Founder</strong> at DreamCountry Visas Pvt Ltd, Usha leads with a commitment to simplifying global mobility. With expertise in filling all category applications, and a self-made professional journey backed by education from Delhi University and a diploma in travel and tourism, she possesses over <strong>25 years</strong> of experience in the immigration industry. Being from an immigration background, she finds fulfilment in being part of clients' dream journeys — delivering <strong>clear, compliant and efficient visa solutions</strong> tailored to each client's unique needs, whether for work or permanent migration.",
+    description: "As <strong>Founder</strong> at DreamCountry Visas Pvt Ltd, Usha leads with a steadfast commitment to simplifying global mobility. With expertise in managing all category applications, and a professional journey backed by education from Delhi University and a diploma in travel and tourism, she possesses over <strong>25 years</strong> of experience in the immigration industry. She delivers <strong>clear, compliant and efficient visa solutions</strong> tailored to each client's unique needs, ensuring total transparency, personal guidance, and high approval rates for work and permanent migration.",
   },
-      {
+  {
     name: 'Mr. Mohhit',
     role: 'Director',
+    experience: '10+ Years Experience',
+    tags: ['10+ Years Experience', 'RCBI Specialist', 'PR Pathways'],
     image: '/landing-img/Mohhit.webp',
-    description: "I help individuals and businesses navigate global visa processes with ease and clarity. With over <strong>10 years</strong> in immigration and investment migration consulting, I specialize in <strong>Residency and Citizenship by Investment (RCBI)</strong> — working with HNIs, founders, and senior executives on second residency and citizenship programs across the UAE, New Zealand, and select global options, including due diligence, program selection, and long-term planning. I also work extensively with professionals on <strong>PR and work visa pathways</strong> — Canada, Australia, Germany's Opportunity Card, and Sweden's Job Seeker Visa — bringing the same level of rigor and personal attention to every case, regardless of pathway or investment size. What a decade in this space has taught me: the visa or investment process itself is rarely the hardest part. The hardest part is knowing which pathway genuinely fits your profile — and avoiding the misinformation and scams that flood this industry at every price point.",
+    description: "As <strong>Director</strong> at DreamCountry Visas Pvt Ltd, Mohhit specializes in <strong>Residency and Citizenship by Investment (RCBI)</strong> — advising HNIs, founders, and senior executives on global citizenship and residency programs across the UAE, New Zealand, Canada, and Europe. Bringing over <strong>10 years</strong> of immigration consulting experience, he guides clients through <strong>PR and work visa pathways</strong> (Canada, Australia, Germany Opportunity Card) with rigorous due diligence, transparent assessments, and result-oriented solutions tailored to every client.",
   },
 ];
 
-// About page Leadership section — Amanpreet Kaur excluded here on purpose
-export const ABOUT_TEAM = TEAM.filter((m) => m.name !== 'Amanpreet Kaur');
+// About page Leadership section
+export const ABOUT_TEAM = TEAM;
 
 export const CONTACT_FEATURES = [
   {
@@ -233,7 +226,7 @@ export const CITIZENSHIP_MENU = {
       ],
     },
   ],
-    offer: {
+  offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'Malta Residency by Investment',
     subtitle: 'Malta Permanent Residence Programme',
@@ -275,7 +268,7 @@ export const REALESTATE_MENU = {
       ],
     },
   ],
-    offer: {
+  offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'High-ROI Dubai Properties',
     subtitle: 'Off-plan projects with 8-10% rental yield',
@@ -295,7 +288,7 @@ export const RESIDENCY_MENU = {
         { name: 'Canada', sub: 'Startup Visa, Quebec Immigrant Investor', image: '/images/res-canada.webp', link: '/residency/canada' },
         { name: 'Australia', sub: 'National Innovation Visa', image: '/images/res-australia.webp', link: '/residency/australia' },
         { name: 'New Zealand', sub: 'Investor Visa', image: '/images/res-nz.webp', link: '/residency/new-zealand' },
-{ name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/images/res-cyprus.webp', link: '/residency/cyprus' },
+        { name: 'Cyprus', sub: 'Work and Residence Permit for Non-EU Investors', image: '/images/res-cyprus.webp', link: '/residency/cyprus' },
         { name: 'Malta', sub: 'Malta Permanent Residence Program', image: '/images/res-malta.webp', link: '/residency/malta' },
         { name: 'Portugal', sub: 'Golden Visa', image: '/images/res-portugal.webp', link: '/residency/portugal' },
         { name: 'Latvia', sub: 'Golden Visa', image: '/images/res-latvia.webp', link: '/residency/latvia' },
@@ -304,7 +297,7 @@ export const RESIDENCY_MENU = {
       ],
     },
   ],
-    offer: {
+  offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'Most Affordable EU Residency',
     subtitle: 'Portugal Golden Visa from €250,000',
@@ -335,7 +328,7 @@ export const PR_MENU = {
       ],
     },
   ],
-      offer: {
+  offer: {
     tag: 'EXCLUSIVE OFFER',
     title: 'Fast-Track PR to Canada',
     subtitle: 'Express Entry & PNP Pathways',
@@ -369,7 +362,7 @@ export const OTHERSERVICES_MENU = {
 export const FAQ_ITEMS = [
   {
     q: 'Does Dream Country Visas help with more than just Canada and Australia?',
-    a: 'Yes, beyond Canada and Australia PR, we assist with Golden Visas, Citizenship by Investment, and Residency by Investment programs across the UAE, Europe, and the Caribbean.',
+    a: 'Absolutely! We help clients explore opportunities beyond Canada and Australia, including Golden Visa, Citizenship by Investment, and Residency by Investment programs across the UAE, Europe, and the Caribbean.',
   },
   {
     q: 'Is a free initial consultation available?',
@@ -381,7 +374,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'Is Dream Country Visas a licensed and registered immigration consultancy?',
-    a: 'Yes, our advisors operate under recognized professional registration (MARA, MARN 0100178) and follow country-specific regulatory guidelines.',
+    a: 'Yes, our advisors are professionally registered with MARA (MARN 0100178) and follow the required country-specific guidelines.',
   },
   {
     q: "Can Dream Country Visas help even if I'm not sure which visa is right for me?",
@@ -392,7 +385,7 @@ export const FAQ_ITEMS = [
 export const ABOUT_FAQ_ITEMS = [
   {
     q: 'Is Dream Country Visas a licensed immigration consultancy?',
-    a: 'Yes, our advisors operate under recognized professional registration (MARA, MARN 0100178) and follow country-specific regulatory guidelines.',
+    a: 'Yes, our advisors are professionally registered with MARA (MARN 0100178) and follow the required country-specific guidelines.',
   },
   {
     q: 'Has Dream Country Visas helped clients since before 2020?',
@@ -409,11 +402,11 @@ export const CITIZENSHIP_FAQ = {
   'antigua-barbuda': [
     {
       q: 'How much does Antigua and Barbuda Citizenship by Investment cost?',
-      a: 'The minimum investment for Antigua and Barbuda Citizenship by Investment starts from USD 230,000 through the National Development Fund contribution route. Alternative options include approved real estate investments from USD 300,000, investments in approved businesses, and contributions to the University of the West Indies Fund. Government processing, due diligence, and passport fees are payable in addition to the investment amount.',
+      a: 'The minimum investment for Antigua and Barbuda Citizenship by Investment starts from USD 230,000 through the National Development Fund contribution route. Other options include approved real estate investments from USD 300,000, investments in approved businesses, and contributions to the University of the West Indies Fund. Government processing, due diligence, and passport fees are payable in addition to the investment amount.',
     },
     {
       q: 'How long does it take to get Antigua and Barbuda citizenship by investment?',
-      a: 'Antigua and Barbuda offers one of the fastest citizenship-by-investment programs in the Caribbean. After submitting a complete application and successfully passing due diligence checks, applicants can receive approval and citizenship within a few months, depending on the complexity of their case and document verification process.',
+      a: 'Antigua and Barbuda offers one of the faster citizenship-by-investment programs in the Caribbean. Once you submit a complete application and pass the required due diligence checks, you can receive approval and citizenship within a few months. The exact timeline depends on your case and the time needed to verify your documents.',
     },
     {
       q: 'Can family members be included in an Antigua and Barbuda citizenship application?',
@@ -501,7 +494,7 @@ export const CITIZENSHIP_FAQ = {
   nauru: [
     {
       q: 'Does Nauru allow dual citizenship?',
-      a: 'Yes, Nauru permits dual citizenship, so Indian and other applicants can retain their existing passport while holding Nauruan citizenship.',
+      a: 'Yes, Nauru permits dual citizenship, allowing eligible applicants to hold Nauruan citizenship alongside another nationality, subject to the laws of their current country of citizenship.',
     },
     {
       q: "Is Nauru's investment threshold lower than most Caribbean CBI programs?",
@@ -528,7 +521,7 @@ export const RESIDENCY_FAQ = {
   canada: [
     {
       q: 'Does the Canada Startup Visa lead directly to permanent residency?',
-      a: 'Yes, unlike temporary work visas, the Startup Visa gives you, your spouse, and dependent children direct permanent residency once your application is approved.',
+      a: 'Yes. Unlike temporary work visas, the Canada Startup Visa is a pathway to permanent residency for you, your spouse, and dependent children once your application is approved.',
     },
     {
       q: 'Can I apply for the Canada Startup Visa without a university degree?',
@@ -540,30 +533,30 @@ export const RESIDENCY_FAQ = {
     },
     {
       q: 'Can my spouse and children move to Canada with me on this visa?',
-      a: 'Yes, family inclusion is built into the program — your spouse and dependent children receive permanent residency alongside you.',
+      a: 'Yes, family inclusion is built into the program — your spouse and dependent children can be included in your application and can obtain permanent residency alongside you, subject to eligibility requirements.',
     },
     {
       q: 'Can I become a Canadian citizen after getting PR through the Startup Visa?',
-      a: "Yes, after holding permanent residency and meeting Canada's residency requirements, Startup Visa PR holders become eligible to apply for Canadian citizenship after about 3 years.",
+      a: "Yes, after getting permanent residency through the Startup Visa and meeting Canada's residency requirements, you can apply for Canadian citizenship after about 3 years of physical presence in Canada.",
     },
   ],
 
   australia: [
     {
-      q: 'Does the Global Talent Visa lead to permanent residency?',
-      a: 'Yes, the Global Talent Visa (Subclass 858) is a direct pathway to Australian PR, and eventually citizenship, for highly skilled professionals with international recognition.',
+      q: 'Does the National Innovation Visa lead to permanent residency?',
+      a: 'Yes, the National Innovation Visa (Subclass 858) is a direct pathway to Australian PR, and eventually citizenship, for highly skilled professionals with international recognition.',
     },
     {
-      q: 'Do I need a nomination to apply for the Global Talent Visa?',
-      a: 'Yes, applicants must be nominated by an Australian individual or organization with a national reputation in their field before applying.',
+      q: 'Do I need a nomination to apply for the National Innovation Visa?',
+      a: 'Yes, applicants need a nomination from an eligible Australian nominator before applying for the National Innovation Visa (Subclass 858).',
     },
     {
-      q: 'Is there an age limit for the Global Talent Visa?',
-      a: 'Yes, applicants are generally expected to be under 55, though those older can still qualify by demonstrating exceptional, internationally recognized achievements.',
+      q: 'Is there an age limit for the National Innovation Visa (Subclass 858)?',
+      a: 'Yes, applicants aged 55 or older can still be considered if they can demonstrate exceptional circumstances and significant benefit to Australia.',
     },
     {
-      q: 'Can my spouse and children move to Australia with me on this visa?',
-      a: 'Yes, the Global Talent Visa includes family inclusion, allowing your spouse and dependent children to gain permanent residency alongside you.',
+      q: 'Can my spouse and children move to Australia with me on the National Innovation Visa (Subclass 858)?',
+      a: 'Yes, eligible family members can be included in the application and may receive permanent residency alongside the primary applicant.',
     },
     {
       q: 'Is the Global Talent Visa one of the fastest PR pathways in Australia?',
@@ -574,23 +567,23 @@ export const RESIDENCY_FAQ = {
   'new-zealand': [
     {
       q: 'Does the New Zealand Golden Visa lead to permanent residency?',
-      a: 'Yes, after maintaining your investment and meeting residency requirements for 4 years, you become eligible to apply for permanent residency.',
+      a: 'Yes, after maintaining the required investment for 3 years under the Growth category or 5 years under the Balanced category, you can apply for permanent residency.',
     },
     {
       q: 'Do I need to live in New Zealand to keep this visa valid?',
-      a: 'Yes, you must spend a minimum of 44 to 88 days per year in New Zealand, depending on your chosen investment pathway.',
+      a: 'Yes, you must meet the New Zealand residence requirements — at least 21 days over the investment period under the Growth category or 105 days under the Balanced category.',
     },
     {
       q: 'Can my family be included in my New Zealand Golden Visa application?',
-      a: 'Yes, you can include your spouse or partner and dependent children, with dependent parents considered on a case-by-case basis.',
+      a: 'Yes, you can include your spouse or partner and dependent children in your New Zealand Golden Visa application.',
     },
     {
       q: 'Is NZD 3 million the minimum investment required?',
-      a: 'Yes, applicants must have a minimum of NZD 3 million available to invest in approved assets like managed funds, bonds, equities, or startups over a 4-year period.',
+      a: 'Yes, applicants must invest at least NZD 5 million under the Growth category or NZD 10 million under the Balanced category in acceptable New Zealand investments.',
     },
     {
       q: 'Does the application process take over a year?',
-      a: 'Yes, the total timeline typically runs 12 to 18 months, covering document preparation, investment transfer, and government processing.',
+      a: 'Yes, the process includes document preparation, investment transfer, and government processing, but the processing time can vary depending on the application.',
     },
   ],
 
@@ -640,7 +633,7 @@ export const RESIDENCY_FAQ = {
     },
   ],
 
-   cyprus: [
+  cyprus: [
     {
       q: 'Is €300,000 the minimum investment for Cyprus residency?',
       a: 'Yes, the minimum is €300,000 plus VAT for a new residential property, or alternatively you can qualify through company formation with active local business operations.',
@@ -709,26 +702,26 @@ export const RESIDENCY_FAQ = {
     },
   ],
 
-    spain: [
+  spain: [
     {
       q: 'Is €500,000 the minimum investment for the Spain Golden Visa?',
       a: 'Yes, real estate investment starts at €500,000, with alternative routes available through €1,000,000 in Spanish company shares or bank deposits, or €2,000,000 in government bonds.',
     },
     {
       q: 'Can I include my parents in a Spain Golden Visa application?',
-      a: "Yes, Spain's program allows you to include your spouse, dependent children, and dependent parents all under one application — a wider family scope than most other Golden Visa countries.",
+      a: 'The Spain Golden Visa programme was abolished on 3 April 2025. Therefore, the previous Golden Visa family-inclusion rules are no longer available for new applications.',
     },
     {
       q: 'Do I need to live in Spain to keep my Golden Visa valid?',
-      a: "Yes, there's no minimum stay requirement to renew the visa, making it one of the more flexible EU residency options for investors who travel frequently.",
+      a: 'The Spain Golden Visa programme was officially abolished on 3 April 2025, so the previous rules about minimum stay and visa renewal are no longer applicable to new Golden Visa applications.',
     },
     {
       q: 'Can I work and study in Spain with the Golden Visa?',
-      a: 'Yes, the visa allows you to live, work, and study anywhere in Spain, not just reside there.',
+      a: 'The Spain Golden Visa programme was officially abolished on 3 April 2025. Therefore, the previous rules allowing Golden Visa holders to live, work, and study in Spain are no longer applicable to new Golden Visa applications.',
     },
     {
       q: 'Does the Spain Golden Visa lead to citizenship?',
-      a: 'Yes, holders become eligible for permanent residency after 5 years, and full Spanish citizenship after 10 years of continuous residence.',
+      a: 'The Spain Golden Visa programme was officially abolished on 3 April 2025. Therefore, the statement about permanent residency and citizenship through the Golden Visa is no longer applicable to new applicants.',
     },
   ],
 };
@@ -761,7 +754,7 @@ export const RESIDENCY_OVERVIEW_FAQ = [
 export const CITIZENSHIP_OVERVIEW_FAQ = [
   {
     q: 'Is Nauru the cheapest citizenship by investment program you offer?',
-    a: "Yes, Nauru's Exclusive Pacific Citizenship Program starts from $75,000, making it the most affordable option in our current portfolio, followed by Vanuatu at $130,000.",
+    a: "Yes, Nauru's Exclusive Pacific Citizenship Program starts from USD 75,000, making it our most affordable option, followed by Vanuatu at USD 130,000.",
   },
   {
     q: 'Is Vanuatu the fastest citizenship by investment program you offer?',
@@ -1123,7 +1116,7 @@ export const OTHERSERVICES_OVERVIEW_FAQ = [
     a: "Yes, our team offers a free consultation to assess your goals — whether that's working abroad, studying, starting a business, or reuniting with family — and points you to the right service.",
   },
   {
-    q: 'Can I need more than one service at once?',
+    q: 'Can I use more than one service at once?',
     a: 'Yes, many clients combine services — for example, a business visa alongside company setup, or a work visa alongside a family/spouse visa for dependents.',
   },
 ];
@@ -1147,7 +1140,7 @@ export const CONTACT_FAQ_ITEMS = [
 export const FOOTER = {
   about:
     'Your trusted partner in global citizenship, residency, real estate and global mobility solutions across the world.',
-  quickLinks: ['Citizenship', 'Residency', 'Real Estate', 'Other Service', 'About Us', 'Contact Us'],
+  quickLinks: ['Citizenship', 'Residency', 'Real Estate', 'Other Service', 'Licenses', 'About Us', 'Contact Us'],
   services: [
     'Citizenship (Malta)',
     'Residency (Portugal)',

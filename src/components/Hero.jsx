@@ -1,48 +1,126 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HERO_PILLS } from '../data.js';
 import { Icon } from './Icons.jsx';
 import ConsultationModal from './ConsultationModal.jsx';
+
+const HERO_SERVICES = [
+  {
+    icon: 'passport',
+    label: 'Residency by Investment',
+    desc: 'EU & Golden Visas',
+    link: '/residency',
+  },
+  {
+    icon: 'certificate',
+    label: 'Citizenship by Investment',
+    desc: 'Direct CBI & Passport',
+    link: '/citizenship',
+  },
+  {
+    icon: 'building',
+    label: 'Real Estate Investment',
+    desc: 'High-Yield Assets',
+    link: '/realestate',
+  },
+  {
+    icon: 'globe',
+    label: 'Permanent Residency (PR)',
+    desc: 'Australia & Canada',
+    link: '/pr',
+  },
+];
 
 export default function Hero() {
   const [showConsultation, setShowConsultation] = useState(false);
 
   return (
     <section className="hero" id="home">
+      {/* Background ambient lighting orbs */}
+      <div className="hero-ambient-glow hero-ambient-glow-1" />
+      <div className="hero-ambient-glow hero-ambient-glow-2" />
+
+      {/* Floating Trust Metrics */}
+      <div className="hero-float-chip hero-float-left" title="Verified Track Record">
+        <span className="float-chip-icon green">✓</span>
+        <div className="float-chip-text">
+          <strong>99% Assurance</strong>
+          <span>Positive Outcome Rate</span>
+        </div>
+      </div>
+
+      <div className="hero-float-chip hero-float-right" title="Global Coverage">
+        <span className="float-chip-icon gold">
+          <Icon name="globe" size={16} />
+        </span>
+        <div className="float-chip-text">
+          <strong>50+ Destinations</strong>
+          <span>Visa-Free Mobility</span>
+        </div>
+      </div>
+
       <div className="container hero-content">
-        <p className="hero-tag">— GLOBAL MOBILITY SOLUTIONS —</p>
-        <h1>
+        {/* Animated Pill Badge */}
+        <div className="hero-badge-wrap">
+          <span className="hero-tag">
+            <span className="hero-badge-dot" />
+            GLOBAL MOBILITY &amp; CITIZENSHIP ADVISORY
+          </span>
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="hero-headline">
           Your Gateway to
           <br />
           Global Mobility
         </h1>
+
+        {/* Subtitle */}
         <p className="hero-desc">
-          Helping individuals, families and investors secure Residency <br />,
-          Citizenship and Global Expansion opportunities <br /> across leading
+          Helping individuals, families, and investors secure verified{' '}
+          <strong>Residency</strong>, <strong>Citizenship</strong>, and{' '}
+          <strong>Permanent Residency</strong> opportunities across top global
           destinations.
         </p>
 
-        <div className="hero-pills">
-          {HERO_PILLS.map((pill) => (
-            <div className="hero-pill" key={pill.label}>
-              <span className="pill-icon">
-                <Icon name={pill.icon} size={28} />
+        {/* 4 Interactive Service Cards */}
+        <div className="hero-pills-grid">
+          {HERO_SERVICES.map((item) => (
+            <Link
+              to={item.link}
+              className="hero-pill-card"
+              key={item.label}
+              title={`Explore ${item.label}`}
+            >
+              <div className="pill-icon-box">
+                <Icon name={item.icon} size={22} />
+              </div>
+              <div className="pill-text-content">
+                <strong>{item.label}</strong>
+                <span className="pill-subtext">{item.desc}</span>
+              </div>
+              <span className="pill-arrow-hover">
+                <Icon name="arrow" size={14} />
               </span>
-              {pill.label}
-            </div>
+            </Link>
           ))}
         </div>
 
+        {/* Action Buttons */}
         <div className="hero-cta">
-          <a href="#services" className="btn btn-primary">
+          <a href="#services" className="btn btn-primary hero-btn-main">
             Explore Programs <Icon name="arrow" size={16} />
           </a>
-                    <Link to="/contact" className="btn btn-outline">
-            Book Consultation <Icon name="arrow" size={16} />
-          </Link>
+          <button
+            type="button"
+            className="btn btn-outline hero-btn-secondary"
+            onClick={() => setShowConsultation(true)}
+          >
+            <Icon name="mail" size={15} /> Book Free Consultation
+          </button>
         </div>
       </div>
 
+      {/* Interactive Consultation Modal */}
       <ConsultationModal
         open={showConsultation}
         onClose={() => setShowConsultation(false)}

@@ -65,12 +65,12 @@ export default function Navbar() {
           onMouseEnter={() => hasMenu && setOpenMenu(link.label)}
           onMouseLeave={() => hasMenu && setOpenMenu(null)}
         >
-                 {isHashLink ? (
+          {isHashLink ? (
             <a href={link.href} onClick={handleHashClick(link.href)}>
               {link.label}
               {link.dropdown && (
                 <span
-                  className="nav-chevron-mobile"
+                  className="nav-chevron"
                   onClick={(e) => {
                     if (window.innerWidth <= 1024) {
                       e.preventDefault();
@@ -78,7 +78,7 @@ export default function Navbar() {
                     }
                   }}
                 >
-                  <Icon name="chevron-down" size={12} />
+                  <Icon name="chevron-down" size={11} />
                 </span>
               )}
             </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
               {link.label}
               {link.dropdown && (
                 <span
-                  className="nav-chevron-mobile"
+                  className="nav-chevron"
                   onClick={(e) => {
                     if (window.innerWidth <= 1024) {
                       e.preventDefault();
@@ -96,7 +96,7 @@ export default function Navbar() {
                     }
                   }}
                 >
-                  <Icon name="chevron-down" size={12} />
+                  <Icon name="chevron-down" size={11} />
                 </span>
               )}
             </Link>

@@ -156,6 +156,21 @@ export function Icon({ name, size = 22 }) {
           <path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.2c0-.8.2-1.4 1.4-1.4h1.5V5.2c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.2H8v2.9h2.5v7z" />
         </svg>
       );
+    case 'target':
+    case 'mission':
+      return (
+        <svg {...p}>
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        </svg>
+      );
+    case 'check':
+      return (
+        <svg {...p}>
+          <path d="M20 6 9 17l-5-5" strokeWidth="2.2" />
+        </svg>
+      );
     case 'youtube':
       return (
         <svg {...p}>

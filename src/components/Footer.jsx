@@ -47,13 +47,20 @@ export default function Footer() {
                   <Link to={item.link}>{item.name}</Link>
                 </li>
               ))}
+              {cat.title === 'Citizenship' && (
+                <li className="footer-licenses-item">
+                  <Link to="/licenses" className="footer-licenses-link">
+                    Licenses &amp; Accreditations
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         ))}
 
-                <div className="footer-col">
+        <div className="footer-col">
           <h5>Contact Info</h5>
-                    <ul className="footer-contact">
+          <ul className="footer-contact">
             <li><Icon name="phone" size={13} /> {CONTACT.phone}</li>
             <li><Icon name="mail" size={13} /> {CONTACT.email}</li>
             <li><Icon name="clock" size={13} /> {CONTACT.hours}</li>
@@ -68,22 +75,21 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-
-               <div className="footer-disclaimer-wrap">
-        <p className="footer-disclaimer">
-          Information made available on this website in any form is for
-          information purposes only. It is not, and should not be taken as
-          advice. You should not rely on, or take or fail to take any
-          action based upon this information. Please do not disregard
-          professional advice or delay in seeking advice because of
-          something you have read on this website. Dream Country Visas
-          professionals will be pleased to discuss any specific questions
-          you have.
-        </p>
-      </div>
-               <div className="container footer-bottom-inner">
+        <div className="footer-disclaimer-wrap">
+          <p className="footer-disclaimer">
+            Information made available on this website in any form is for
+            information purposes only. It is not, and should not be taken as
+            advice. You should not rely on, or take or fail to take any
+            action based upon this information. Please do not disregard
+            professional advice or delay in seeking advice because of
+            something you have read on this website. Dream Country Visas
+            professionals will be pleased to discuss any specific questions
+            you have.
+          </p>
+        </div>
+        <div className="container footer-bottom-inner">
           <p className="copyright footer-bottom-copyright">{FOOTER.copyright}</p>
-          <p className="footer-company-number">{FOOTER.companyNumber}</p>
+          <Link to="/licenses" className="footer-company-number" title="View Official Licenses & Accreditations">{FOOTER.companyNumber}</Link>
           <div className="footer-legal-links">
             <Link to="/policies/privacy-policy">Privacy Policy</Link>
             <span>|</span>
@@ -92,8 +98,6 @@ export default function Footer() {
             <Link to="/policies/refund-policy">Refund Policy</Link>
           </div>
         </div>
-      </div>
-          <div className="footer-disclaimer-wrap">
       </div>
     </footer>
   );
