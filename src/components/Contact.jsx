@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import {
   CONTACT,
-  // CONTACT_FEATURES,
+  COUNTRY_DIAL_CODES,
+  ALL_COUNTRIES_LIST,
   CITIZENSHIP_MENU,
   RESIDENCY_MENU,
   REALESTATE_MENU,
@@ -9,6 +10,15 @@ import {
   OTHERSERVICES_MENU,
 } from '../data.js';
 import { Icon } from './Icons.jsx';
+import ThankYouModal from './ThankYouModal.jsx';
+import CustomSelect from './CustomSelect.jsx';
+import {
+  validateForm,
+  sanitizePhoneInput,
+  submitContactForm,
+  isValidPhone,
+  isValidEmail,
+} from '../utils/formValidation.js';
 
 // Builds the "Program of interest" dropdown from every service category,
 // so it always stays in sync with data.js without manual duplication.
@@ -37,24 +47,13 @@ const PR_PROGRAMS_NEEDING_ENGLISH = ['Australia PR', 'Canada PR'];
 
 const ENGLISH_LEVELS = ['Competitive', 'Proficient', 'Superior'];
 
-const COUNTRY_OPTIONS = [
-  'India', 'United States', 'United Kingdom', 'Canada', 'Australia',
-  'United Arab Emirates', 'Germany', 'France', 'Italy', 'Spain',
-  'Portugal', 'Malta', 'Cyprus', 'Latvia', 'Greece', 'Singapore',
-  'New Zealand', 'South Africa', 'Nigeria', 'Saudi Arabia', 'Qatar',
-  'Kuwait', 'Bahrain', 'Oman', 'Bangladesh', 'Pakistan', 'Sri Lanka',
-  'Nepal', 'Philippines', 'Malaysia', 'Indonesia', 'China', 'Japan',
-  'South Korea', 'Brazil', 'Mexico', 'Netherlands', 'Switzerland',
-  'Sweden', 'Ireland', 'Poland', 'Turkey', 'Egypt', 'Kenya',
-  'Other',
-];
-
 const INITIAL = {
   program: '',
   englishLevel: '',
   salutation: '',
   firstName: '',
   lastName: '',
+  phoneCode: '+91',
   phone: '',
   email: '',
   nationality: '',
@@ -64,27 +63,93 @@ const INITIAL = {
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL);
-  const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
+  const [showThankYou, setShowThankYou] = useState(false);
 
-    const needsEnglishLevel = PR_PROGRAMS_NEEDING_ENGLISH.includes(form.program);
+  const needsEnglishLevel = PR_PROGRAMS_NEEDING_ENGLISH.includes(form.program);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+    const finalValue =
+      name === 'phone'
+        ? sanitizePhoneInput(value)
+        : type === 'checkbox'
+        ? checked
+        : value;
+
     setForm((prev) => {
-      const next = { ...prev, [name]: type === 'checkbox' ? checked : value };
-      if (name === 'program' && !PR_PROGRAMS_NEEDING_ENGLISH.includes(value)) {
+      const next = { ...prev, [name]: finalValue };
+      if (name === 'program' && !PR_PROGRAMS_NEEDING_ENGLISH.includes(finalValue)) {
         next.englishLevel = '';
       }
       return next;
     });
+
+    // Clear error dynamically as the user corrects it
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        if (name === 'phone' || name === 'phoneCode') {
+          const currentCode = name === 'phoneCode' ? finalValue : prev.phoneCode;
+          const currentPhone = name === 'phone' ? finalValue : prev.phone;
+          if (isValidPhone(currentPhone, currentCode)) delete next.phone;
+        } else if (name === 'email') {
+          if (isValidEmail(finalValue)) delete next.email;
+        } else if (finalValue) {
+          delete next[name];
+        }
+        return next;
+      });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+
+    if (name === 'phone') {
+      if (!value.trim()) {
+        setErrors((prev) => ({ ...prev, phone: 'Please enter your phone number.' }));
+      } else if (!isValidPhone(value, form.phoneCode)) {
+        setErrors((prev) => ({ ...prev, phone: 'Please enter a valid phone number.' }));
+      }
+    } else if (name === 'email') {
+      if (!value.trim()) {
+        setErrors((prev) => ({ ...prev, email: 'Please enter your e-mail address.' }));
+      } else if (!isValidEmail(value)) {
+        setErrors((prev) => ({
+          ...prev,
+          email: 'Please enter a valid email address.',
+        }));
+      }
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // No backend connected — just confirm receipt to the user for now.
+
+    const validation = validateForm(form, needsEnglishLevel);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      const allTouched = {};
+      Object.keys(validation.errors).forEach((k) => (allTouched[k] = true));
+      setTouched((prev) => ({ ...prev, ...allTouched }));
+      return;
+    }
+
+    setIsSubmitting(true);
+    // Send form data to SendGrid backend API
+    await submitContactForm(form);
+    setIsSubmitting(false);
+
+    setSubmittedData({ ...form });
+    setShowThankYou(true);
     setForm(INITIAL);
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setErrors({});
+    setTouched({});
   };
 
   return (
@@ -95,20 +160,26 @@ export default function Contact() {
           <h2>
             We&rsquo;re Here to Help You
             <br />
-            Take the Next Step
+            Every Step of the Way
           </h2>
+          <p>
+            Speak to a certified consultant today. We guarantee full
+            confidentiality and a response within 24 hours.
+          </p>
 
-                    <ul className="contact-list">
+          <ul className="contact-list">
             <li>
-              <Icon name="phone" size={16} /> {CONTACT.phone}
+              <Icon name="phone" size={16} />{' '}
+              <a href={`tel:${CONTACT.phone}`}>{CONTACT.phone}</a>
             </li>
             <li>
-              <Icon name="mail" size={16} /> {CONTACT.email}
+              <Icon name="mail" size={16} />{' '}
+              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             </li>
             <li>
               <Icon name="clock" size={16} /> {CONTACT.hours}
             </li>
-                        {CONTACT.offices.map((office) => (
+            {(CONTACT.offices || []).map((office) => (
               <li key={office.label}>
                 <Icon name="pin" size={14} />{' '}
                 <a href={office.mapLink} target="_blank" rel="noreferrer">
@@ -118,26 +189,6 @@ export default function Contact() {
             ))}
           </ul>
 
-          {/* <div className="socials">
-            <a href="#" aria-label="LinkedIn"><Icon name="linkedin" size={15} /></a>
-            <a href="#" aria-label="Facebook"><Icon name="facebook" size={15} /></a>
-            <a href="#" aria-label="Instagram"><Icon name="instagram" size={15} /></a>
-            <a href="#" aria-label="YouTube"><Icon name="youtube" size={15} /></a>
-          </div>
-
-                    <div className="contact-features">
-            {CONTACT_FEATURES.map((f) => (
-              <div className="feature" key={f.title}>
-                <span className="feature-icon">
-                  <Icon name={f.icon} size={20} />
-                </span>
-                <div>
-                  <strong>{f.title}</strong>
-                  <p>{f.text}</p>
-                </div>
-              </div>
-            ))}
-          </div> */}
 
           <div className="socials">
             <a href="#" aria-label="LinkedIn"><Icon name="linkedin" size={15} /></a>
@@ -152,148 +203,156 @@ export default function Contact() {
           </div>
         </div>
 
-                <form className="contact-form contact-form-wide" onSubmit={handleSubmit}>
+        <form className="contact-form contact-form-wide" onSubmit={handleSubmit} noValidate>
           <h3 className="contact-form-heading">Contact Information</h3>
 
-                    <label className="field-label">Program of interest*</label>
-          <select
-            name="program"
-            value={form.program}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Please select
-            </option>
-            {PROGRAM_OPTIONS.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
+          <div className={`form-group ${errors.program ? 'has-error' : ''}`}>
+            <label className="field-label">Program of interest*</label>
+            <CustomSelect
+              name="program"
+              value={form.program}
+              onChange={handleChange}
+              options={PROGRAM_OPTIONS}
+              placeholder="Please select program"
+              required
+            />
+            {errors.program && <span className="field-error-msg">{errors.program}</span>}
+          </div>
 
           {needsEnglishLevel && (
-            <>
+            <div className={`form-group ${errors.englishLevel ? 'has-error' : ''}`}>
               <label className="field-label">What is your English level?*</label>
-                           <select
+              <CustomSelect
                 name="englishLevel"
                 value={form.englishLevel}
                 onChange={handleChange}
+                options={ENGLISH_LEVELS}
+                placeholder="Please select English level"
                 required
-              >
-                <option value="" disabled>
-                  Please select
-                </option>
-                {ENGLISH_LEVELS.map((lvl) => (
-                  <option key={lvl} value={lvl}>
-                    {lvl}
-                  </option>
-                ))}
-              </select>
-            </>
+              />
+              {errors.englishLevel && (
+                <span className="field-error-msg">{errors.englishLevel}</span>
+              )}
+            </div>
           )}
 
-          <label className="field-label">Salutation*</label>
-          <select
-            name="salutation"
-            value={form.salutation}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Please select
-            </option>
-            <option value="Mr.">Mr.</option>
-            <option value="Ms.">Ms.</option>
-            <option value="Mrs.">Mrs.</option>
-            <option value="Dr.">Dr.</option>
-          </select>
-
-          <div className="form-row-2">
-            <div>
+          <div className="form-row-3">
+            <div className={`form-group col-salutation ${errors.salutation ? 'has-error' : ''}`}>
+              <label className="field-label">Salutation*</label>
+              <CustomSelect
+                name="salutation"
+                value={form.salutation}
+                onChange={handleChange}
+                options={['Mr.', 'Ms.', 'Mrs.', 'Dr.']}
+                placeholder="Select"
+                required
+              />
+              {errors.salutation && (
+                <span className="field-error-msg">{errors.salutation}</span>
+              )}
+            </div>
+            <div className={`form-group ${errors.firstName ? 'has-error' : ''}`}>
               <label className="field-label">First name*</label>
               <input
                 type="text"
                 name="firstName"
-                placeholder="Enter first name"
+                placeholder="First name"
                 value={form.firstName}
                 onChange={handleChange}
+                className={errors.firstName ? 'input-error' : ''}
                 required
               />
+              {errors.firstName && (
+                <span className="field-error-msg">{errors.firstName}</span>
+              )}
             </div>
-            <div>
+            <div className={`form-group ${errors.lastName ? 'has-error' : ''}`}>
               <label className="field-label">Last name*</label>
               <input
                 type="text"
                 name="lastName"
-                placeholder="Enter last name"
+                placeholder="Last name"
                 value={form.lastName}
                 onChange={handleChange}
+                className={errors.lastName ? 'input-error' : ''}
                 required
               />
+              {errors.lastName && (
+                <span className="field-error-msg">{errors.lastName}</span>
+              )}
             </div>
           </div>
 
           <div className="form-row-2">
-            <div>
-              <label className="field-label">Telephone number</label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="+91 81234 56789"
-                value={form.phone}
-                onChange={handleChange}
-              />
+            <div className={`form-group ${errors.phone ? 'has-error' : ''}`}>
+              <label className="field-label">Phone Number*</label>
+              <div className="phone-input-group">
+                <CustomSelect
+                  name="phoneCode"
+                  value={form.phoneCode}
+                  onChange={handleChange}
+                  options={COUNTRY_DIAL_CODES}
+                  isPhoneCode={true}
+                  placeholder="+91"
+                  ariaLabel="Country Dial Code"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="81234 56789"
+                  value={form.phone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`phone-number-input ${errors.phone ? 'input-error' : ''}`}
+                  required
+                />
+              </div>
+              {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
             </div>
-            <div>
+            <div className={`form-group ${errors.email ? 'has-error' : ''}`}>
               <label className="field-label">E-mail address*</label>
               <input
                 type="email"
                 name="email"
-                placeholder="Enter e-mail address"
+                placeholder="name@example.com"
                 value={form.email}
                 onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.email ? 'input-error' : ''}
                 required
               />
+              {errors.email && <span className="field-error-msg">{errors.email}</span>}
             </div>
           </div>
 
           <div className="form-row-2">
-            <div>
+            <div className={`form-group ${errors.nationality ? 'has-error' : ''}`}>
               <label className="field-label">Nationality*</label>
-              <select
+              <CustomSelect
                 name="nationality"
                 value={form.nationality}
                 onChange={handleChange}
+                options={ALL_COUNTRIES_LIST}
+                placeholder="Select nationality"
                 required
-              >
-                <option value="" disabled>
-                  Please select
-                </option>
-                {COUNTRY_OPTIONS.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+              />
+              {errors.nationality && (
+                <span className="field-error-msg">{errors.nationality}</span>
+              )}
             </div>
-            <div>
+            <div className={`form-group ${errors.residence ? 'has-error' : ''}`}>
               <label className="field-label">Country you currently reside in*</label>
-              <select
+              <CustomSelect
                 name="residence"
                 value={form.residence}
                 onChange={handleChange}
+                options={ALL_COUNTRIES_LIST}
+                placeholder="Select residence"
                 required
-              >
-                <option value="" disabled>
-                  Please select
-                </option>
-                {COUNTRY_OPTIONS.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+              />
+              {errors.residence && (
+                <span className="field-error-msg">{errors.residence}</span>
+              )}
             </div>
           </div>
 
@@ -311,11 +370,21 @@ export default function Contact() {
             </span>
           </label>
 
-          <button type="submit" className="btn btn-primary">
-            {sent ? 'Thank You ✓' : 'Submit'}
+          <button
+            type="submit"
+            className="btn btn-primary form-submit-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending Request...' : 'Submit'}
           </button>
         </form>
       </div>
+
+      <ThankYouModal
+        isOpen={showThankYou}
+        onClose={() => setShowThankYou(false)}
+        data={submittedData || {}}
+      />
     </section>
   );
 }

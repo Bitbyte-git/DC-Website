@@ -252,10 +252,25 @@ export default function AboutPage() {
                 </div>
                                 <div className="ldr-info">
                   <span className="ldr-quote">&rdquo;</span>
-                  <p className="ldr-role">{member.role}</p>
-                  <h3>{member.name}</h3>
+                  <div className="ldr-header-flex" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+                    <div>
+                      <p className="ldr-role">{member.role}</p>
+                      <h3>{member.name}</h3>
+                    </div>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="team-linkedin"
+                        aria-label={`${member.name} on LinkedIn`}
+                      >
+                        <Icon name="linkedin" size={15} />
+                      </a>
+                    )}
+                  </div>
                   <div className="ldr-divider" />
-                 <p className="ldr-desc" dangerouslySetInnerHTML={{ __html: member.description }} />
+                  <p className="ldr-desc" dangerouslySetInnerHTML={{ __html: member.description }} />
                 </div>
               </div>
             ))}
@@ -284,28 +299,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-           {/* Certification / Trust badge */}
-      <section className="section cert-section">
-        <div className="container cert-box">
-                   <div className="cert-img-wrap">
-            <img
-              className="cert-img"
-              src="/landing-img/DC-certification.webp"
-              alt="Dream Country Visas Certification"
-              loading="lazy"
-            />
-          </div>
-          <div className="cert-text">
-            <p className="section-tag left">CERTIFIED &amp; TRUSTED</p>
-            <h3>Recognised for Excellence in Immigration Services</h3>
-            <p>
-              Our certification reflects our commitment to ethical,
-              transparent and result-driven immigration consulting —
-              giving you confidence at every step of your journey.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* We have helped many — stats strip */}
       <section className="about-stats-strip">

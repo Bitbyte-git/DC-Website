@@ -42,10 +42,11 @@ export default function MegaMenu({ data, overviewLink = '/', open = false, onNav
         </div>
 
                 {offer && (
-          <Link
+                <Link
             to={offer.link || '/#contact'}
             className={`mega-offer ${offer.variant || ''}`}
             style={{ backgroundImage: `url(${offer.image})` }}
+            onClick={onNavigate}
           >
             <p className="mega-offer-tag">{offer.tag}</p>
             <h4>{offer.title}</h4>

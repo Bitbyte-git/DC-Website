@@ -15,13 +15,6 @@ function flattenMenu(menu) {
   return menu.groups.flatMap((g) => g.items);
 }
 
-const FOOTER_CATEGORIES = [
-  { title: 'Citizenship', items: flattenMenu(CITIZENSHIP_MENU) },
-  { title: 'Residency', items: flattenMenu(RESIDENCY_MENU) },
-  { title: 'Real Estate', items: flattenMenu(REALESTATE_MENU) },
-  { title: 'Permanent Residency (PR)', items: flattenMenu(PR_MENU) },
-];
-
 export default function Footer() {
   return (
     <footer className="footer footer-navy">
@@ -38,27 +31,62 @@ export default function Footer() {
           </div>
         </div>
 
-        {FOOTER_CATEGORIES.map((cat) => (
-          <div className="footer-col" key={cat.title}>
-            <h5>{cat.title}</h5>
-            <ul>
-              {cat.items.map((item) => (
-                <li key={item.link}>
-                  <Link to={item.link}>{item.name}</Link>
-                </li>
-              ))}
-              {cat.title === 'Citizenship' && (
+        <div className="footer-links-group">
+          {/* Column A: Residency & PR */}
+          <div className="footer-links-col">
+            <div className="footer-col footer-col-residency">
+              <h5>Residency</h5>
+              <ul>
+                {flattenMenu(RESIDENCY_MENU).map((item) => (
+                  <li key={item.link}>
+                    <Link to={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="footer-col footer-col-pr">
+              <h5>Permanent Residency (PR)</h5>
+              <ul>
+                {flattenMenu(PR_MENU).map((item) => (
+                  <li key={item.link}>
+                    <Link to={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column B: Citizenship & Real Estate */}
+          <div className="footer-links-col">
+            <div className="footer-col footer-col-citizenship">
+              <h5>Citizenship</h5>
+              <ul>
+                {flattenMenu(CITIZENSHIP_MENU).map((item) => (
+                  <li key={item.link}>
+                    <Link to={item.link}>{item.name}</Link>
+                  </li>
+                ))}
                 <li className="footer-licenses-item">
                   <Link to="/licenses" className="footer-licenses-link">
                     Licenses &amp; Accreditations
                   </Link>
                 </li>
-              )}
-            </ul>
+              </ul>
+            </div>
+            <div className="footer-col footer-col-realestate">
+              <h5>Real Estate</h5>
+              <ul>
+                {flattenMenu(REALESTATE_MENU).map((item) => (
+                  <li key={item.link}>
+                    <Link to={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        ))}
+        </div>
 
-        <div className="footer-col">
+        <div className="footer-col footer-contact-col">
           <h5>Contact Info</h5>
           <ul className="footer-contact">
             <li><Icon name="phone" size={13} /> {CONTACT.phone}</li>

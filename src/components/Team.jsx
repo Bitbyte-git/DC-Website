@@ -33,13 +33,17 @@ export default function Team() {
 
                 <div className="team-role-row">
                   <span className="team-role">{m.role}</span>
-                  <a
-                    href="#"
-                    className="team-linkedin"
-                    aria-label={`${m.name} on LinkedIn`}
-                  >
-                    <Icon name="linkedin" size={14} />
-                  </a>
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="team-linkedin"
+                      aria-label={`${m.name} on LinkedIn`}
+                    >
+                      <Icon name="linkedin" size={14} />
+                    </a>
+                  )}
                 </div>
 
                 <div className="team-tags-row">

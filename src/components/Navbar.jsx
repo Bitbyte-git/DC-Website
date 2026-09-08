@@ -143,9 +143,13 @@ export default function Navbar() {
             <a href="#" className="nav-circle linkedin" aria-label="LinkedIn">
               <Icon name="linkedin" size={16} />
             </a>
-                       <Link to="/contact" className="btn btn-primary nav-consult-btn">
+                       <button
+              type="button"
+              className="btn btn-primary nav-consult-btn"
+              onClick={() => setShowConsultation(true)}
+            >
               Book Free Consultation
-            </Link>
+            </button>
           </div>
         </div>
 
