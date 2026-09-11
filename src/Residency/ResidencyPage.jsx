@@ -702,7 +702,7 @@ export default function ResidencyPage() {
             </div>
             <div className="cta-buttons">
                            <Link to="/contact" className="btn btn-primary">
-                Book Free Consultation <Icon name="arrow" size={16} />
+                Book Consultation <Icon name="arrow" size={16} />
               </Link>
               <Link to="/" className="btn btn-outline">
                 Back to Home
@@ -720,7 +720,7 @@ export default function ResidencyPage() {
               {country.name}.
             </p>
                        <Link to="/contact" className="btn btn-light full">
-              Book Free Consultation <Icon name="arrow" size={15} />
+              Book Consultation <Icon name="arrow" size={15} />
             </Link>
             <a
               href={CONTACT.whatsapp}

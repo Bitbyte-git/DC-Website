@@ -326,7 +326,7 @@ export default function AboutPage() {
             </div>
             <div className="cta-buttons">
                            <Link to="/contact" className="btn btn-light">
-                Book Free Consultation <Icon name="arrow" size={16} />
+                Book Consultation <Icon name="arrow" size={16} />
               </Link>
               <Link to="/" className="btn btn-ghost">
                 Back to Home

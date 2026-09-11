@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Icon } from '../components/Icons.jsx';
 import { OTHERSERVICES_OVERVIEW_FAQ } from '../data.js';
 import FAQ from '../components/FAQ.jsx';
 import ConsultationModal from '../components/ConsultationModal.jsx';
@@ -16,7 +15,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Work Visas',
       tagline: 'Global Employment & Opportunity Cards',
-      badge: '💼 WORK PERMITS',
+      badge: 'WORK PERMITS',
       image: '/images/svc-work.webp',
       price: 'from 2–4 Weeks',
       time: 'Fast Processing',
@@ -31,7 +30,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Business Visas',
       tagline: 'Commercial Expansion & Entrepreneurship',
-      badge: '📈 GLOBAL BUSINESS',
+      badge: 'GLOBAL BUSINESS',
       image: '/images/svc-business.webp',
       price: 'from 1 Month',
       time: 'Priority Handling',
@@ -46,7 +45,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Study Visas',
       tagline: 'World-Class International Education',
-      badge: '🎓 HIGHER EDUCATION',
+      badge: 'HIGHER EDUCATION',
       image: '/images/svc-study.webp',
       price: 'from 3–6 Weeks',
       time: 'Seasonal Intakes',
@@ -61,7 +60,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Investor Visas',
       tagline: 'Direct Capital & Angel Investment Routes',
-      badge: '💎 HNWI IMMIGRATION',
+      badge: 'HNWI IMMIGRATION',
       image: '/images/svc-investor.webp',
       price: 'from 2 Months',
       time: 'Tailored Structuring',
@@ -76,7 +75,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Family & Spouse Visas',
       tagline: 'Reunite with Loved Ones Abroad',
-      badge: '👨‍👩‍👧‍👦 FAMILY SPONSORSHIP',
+      badge: 'FAMILY SPONSORSHIP',
       image: '/images/svc-family.webp',
       price: 'from 2–6 Months',
       time: 'Dedicated Care',
@@ -91,7 +90,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Company Setup',
       tagline: 'Offshore & Freezone Incorporation',
-      badge: '🏢 CORPORATE FORMATION',
+      badge: 'CORPORATE FORMATION',
       image: '/images/svc-company-setup.webp',
       price: 'from 5–7 Days',
       time: 'Turnkey Solution',
@@ -106,7 +105,7 @@ export default function OtherServiceOverview() {
     {
       name: 'Digital Nomad Visas',
       tagline: 'Live & Work Remotely Worldwide',
-      badge: '💻 REMOTE MOBILITY',
+      badge: 'REMOTE MOBILITY',
       image: '/images/svc-digital-nomad.webp',
       price: 'from 3–4 Weeks',
       time: '1–2 Year Renewable',
@@ -131,9 +130,7 @@ export default function OtherServiceOverview() {
             <em>Other Services</em>
           </nav>
 
-          <p className="ov-tag">
-            <Icon name="support" size={14} /> Comprehensive Mobility & Visa Solutions
-          </p>
+          <p className="ov-tag">Comprehensive Mobility & Visa Solutions</p>
 
           <h1>
             Full-Spectrum Visa, Business & <span>Migration Services</span>
@@ -144,18 +141,10 @@ export default function OtherServiceOverview() {
           </p>
 
           <div className="ov-trust-pills">
-            <div className="ov-trust-pill">
-              <Icon name="certificate" size={14} /> MARA Registered & Accredited
-            </div>
-            <div className="ov-trust-pill">
-              <Icon name="check" size={14} /> Turnkey Business & Visa Filing
-            </div>
-            <div className="ov-trust-pill">
-              <Icon name="lock" size={14} /> Complete Legal File Auditing
-            </div>
-            <div className="ov-trust-pill">
-              <Icon name="support" size={14} /> 24/7 Dedicated Support
-            </div>
+            <div className="ov-trust-pill">MARA Registered & Accredited</div>
+            <div className="ov-trust-pill">Turnkey Business & Visa Filing</div>
+            <div className="ov-trust-pill">Complete Legal File Auditing</div>
+            <div className="ov-trust-pill">24/7 Dedicated Support</div>
           </div>
         </div>
       </div>
@@ -188,24 +177,16 @@ export default function OtherServiceOverview() {
 
                 <ul className="ov-card-highlights">
                   {s.highlights.map((h, i) => (
-                    <li key={i}>
-                      <Icon name="check" size={14} /> {h}
-                    </li>
+                    <li key={i}>{h}</li>
                   ))}
                 </ul>
 
                 <div className="ov-card-meta-row">
-                  <span className="ov-card-meta-item">
-                    <Icon name="clock" size={13} /> {s.time}
-                  </span>
-                  <span className="ov-card-meta-item">
-                    <Icon name="certificate" size={13} /> Fully Certified
-                  </span>
+                  <span className="ov-card-meta-item">{s.time}</span>
+                  <span className="ov-card-meta-item">Fully Certified</span>
                 </div>
 
-                <span className="ov-card-btn">
-                  View Service Details <Icon name="arrow" size={13} />
-                </span>
+                <span className="ov-card-btn">View Service Details</span>
               </div>
             </Link>
           ))}
@@ -227,22 +208,18 @@ export default function OtherServiceOverview() {
 
           <div className="ov-why-grid">
             <div className="ov-why-card">
-              <div className="ov-why-icon"><Icon name="certificate" size={20} /></div>
               <h4>Error-Free Documentation</h4>
               <p>Triple-checked submission dossiers adhering strictly to current consular standards.</p>
             </div>
             <div className="ov-why-card">
-              <div className="ov-why-icon"><Icon name="lock" size={20} /></div>
               <h4>Direct Embassy Protocol</h4>
               <p>Up-to-date guidance on appointment slots, biometric capture, and interview preparation.</p>
             </div>
             <div className="ov-why-card">
-              <div className="ov-why-icon"><Icon name="support" size={20} /></div>
               <h4>Fast-Track Turnaround</h4>
               <p>Priority processing options for time-sensitive corporate travel and urgent job offers.</p>
             </div>
             <div className="ov-why-card">
-              <div className="ov-why-icon"><Icon name="globe" size={20} /></div>
               <h4>Global Jurisdiction Reach</h4>
               <p>Direct capability across Europe, GCC, North America, UK, Australia, and Asia-Pacific.</p>
             </div>
@@ -259,7 +236,7 @@ export default function OtherServiceOverview() {
               className="ov-cta-btn"
               style={{ border: 'none', cursor: 'pointer' }}
             >
-              Get Free Case Assessment <Icon name="arrow" size={14} />
+              Get Free Case Assessment
             </button>
           </div>
         </div>

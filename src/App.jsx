@@ -38,6 +38,60 @@ function ScrollToTop() {
   return null;
 }
 
+// Human-readable label from a URL slug, e.g. "united-arab-emirates" -> "United Arab Emirates"
+function titleFromSlug(slug) {
+  return slug
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+const STATIC_PAGE_TITLES = {
+  '/': 'Home',
+  '/about': 'About Us',
+  '/citizenship': 'Citizenship by Investment',
+  '/residency': 'Residency by Investment',
+  '/realestate': 'Real Estate Investment',
+  '/other-services': 'Other Services',
+  '/pr': 'Permanent Residency (PR)',
+  '/licenses': 'Licenses & Accreditations',
+  '/license': 'Licenses & Accreditations',
+  '/contact': 'Contact Us',
+};
+
+const DYNAMIC_PAGE_PREFIXES = [
+  { prefix: '/citizenship/', suffix: ' Citizenship by Investment' },
+  { prefix: '/residency/', suffix: ' Residency' },
+  { prefix: '/realestate/', suffix: ' Real Estate' },
+  { prefix: '/pr/', suffix: ' PR' },
+  { prefix: '/services/', suffix: '' },
+  { prefix: '/policies/', suffix: '' },
+];
+
+function pageTitleForPath(pathname) {
+  if (STATIC_PAGE_TITLES[pathname]) return STATIC_PAGE_TITLES[pathname];
+
+  for (const { prefix, suffix } of DYNAMIC_PAGE_PREFIXES) {
+    if (pathname.startsWith(prefix)) {
+      const slug = pathname.slice(prefix.length).replace(/\/$/, '');
+      if (slug) return `${titleFromSlug(slug)}${suffix}`;
+    }
+  }
+  return null;
+}
+
+// Keeps the browser tab title in sync with the current route.
+function PageTitle() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const page = pageTitleForPath(pathname);
+    document.title = page ? `${page} | Dream Country Visas` : 'Dream Country Visas';
+  }, [pathname]);
+
+  return null;
+}
+
 function Home() {
   const [showAutoPopup, setShowAutoPopup] = useState(false);
 
@@ -70,6 +124,7 @@ export default function App() {
   return (
         <BrowserRouter>
       <ScrollToTop />
+      <PageTitle />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

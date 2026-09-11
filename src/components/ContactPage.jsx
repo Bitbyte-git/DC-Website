@@ -454,7 +454,7 @@ export default function ContactPage() {
                     )}
                   </div>
                   <div className={`form-group ${errors.residence ? 'has-error' : ''}`}>
-                    <label className="field-label">Country you currently reside in*</label>
+                    <label className="field-label">Country of Residence*</label>
                     <CustomSelect
                       name="residence"
                       value={form.residence}

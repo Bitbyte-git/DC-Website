@@ -115,7 +115,7 @@ export default function Hero() {
             className="btn btn-outline hero-btn-secondary"
             onClick={() => setShowConsultation(true)}
           >
-            <Icon name="mail" size={15} /> Book Free Consultation
+            <Icon name="mail" size={15} /> Book Consultation
           </button>
         </div>
       </div>

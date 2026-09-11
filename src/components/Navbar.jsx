@@ -115,6 +115,19 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
+      <div className="navbar-topbar">
+        <div className="container navbar-topbar-inner">
+          <span className="topbar-link topbar-callback">
+            <Icon name="phone" size={13} /> Request a Callback
+          </span>
+          <a href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`} className="topbar-link">
+            <Icon name="phone" size={13} /> {CONTACT.phone}
+          </a>
+          <Link to="/contact" className="topbar-link topbar-offices">
+            <Icon name="globe" size={13} /> Our Offices
+          </Link>
+        </div>
+      </div>
       <div className="container navbar-inner">
         {/* Desktop — left of logo */}
         <nav className="nav-links">{renderLinks(NAV_LINKS_LEFT)}</nav>
@@ -148,7 +161,7 @@ export default function Navbar() {
               className="btn btn-primary nav-consult-btn"
               onClick={() => setShowConsultation(true)}
             >
-              Book Free Consultation
+              Book Consultation
             </button>
           </div>
         </div>

@@ -160,7 +160,7 @@ export default function CitizenshipOverview() {
               className="ov-cta-btn"
               style={{ border: 'none', cursor: 'pointer' }}
             >
-              Book Free Consultation <Icon name="arrow" size={14} />
+              Book Consultation <Icon name="arrow" size={14} />
             </button>
           </div>
         </div>

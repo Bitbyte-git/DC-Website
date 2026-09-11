@@ -59,7 +59,7 @@ const EMPTY_MAIN_FORM = {
 };
 
 // ---------------------------------------------------------------
-// Single consultation modal — the "Book Free Consultation" popup.
+// Single consultation modal — the "Book Consultation" popup.
 // Shows an extra "English Level" question only when the selected
 // program is Australia PR or Canada PR.
 // ---------------------------------------------------------------
@@ -163,7 +163,7 @@ export default function ConsultationModal({ open, onClose }) {
         </button>
 
         <div className="modal-title-row">
-          <h3>Book Your Free Consultation</h3>
+          <h3>Book Your Consultation</h3>
         </div>
         <p className="modal-sub">
           Tell us a bit about what you're looking for and our experts will
@@ -306,7 +306,7 @@ export default function ConsultationModal({ open, onClose }) {
               )}
             </div>
             <div className={`form-group ${errors.residence ? 'has-error' : ''}`}>
-              <label className="field-label">Country you currently reside in*</label>
+              <label className="field-label">Country of Residence*</label>
               <CustomSelect
                 name="residence"
                 value={form.residence}
