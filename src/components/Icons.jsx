@@ -171,6 +171,21 @@ export function Icon({ name, size = 22 }) {
           <path d="M20 6 9 17l-5-5" strokeWidth="2.2" />
         </svg>
       );
+    case 'eye':
+      return (
+        <svg {...p}>
+          <path d="M2 12s3.8-7 10-7 10 7 10 7-3.8 7-10 7-10-7-10-7Z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      );
+    case 'eye-off':
+      return (
+        <svg {...p}>
+          <path d="M3 3l18 18" />
+          <path d="M10.6 5.2A10.6 10.6 0 0 1 12 5c6.2 0 10 7 10 7a17.7 17.7 0 0 1-3.4 4.3M6.3 6.5C3.9 8 2 12 2 12s3.8 7 10 7c1.4 0 2.7-.3 3.8-.8" />
+          <path d="M9.5 9.8A3 3 0 0 0 12 15a3 3 0 0 0 2.2-.9" />
+        </svg>
+      );
     case 'search':
       return (
         <svg {...p}>

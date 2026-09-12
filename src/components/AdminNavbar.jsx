@@ -7,10 +7,12 @@ export default function AdminNavbar() {
   return (
     <header className="admin-navbar">
       <div className="admin-navbar-inner">
-        <Link to="/admin" className="admin-navbar-brand">
-          <img src="/landing-img/DC-log.webp" alt="Dream Country Visas" />
+        <div className="admin-navbar-brand">
+          <Link to="/">
+            <img src="/landing-img/DC-log.webp" alt="Dream Country Visas" />
+          </Link>
           <span>Admin Panel</span>
-        </Link>
+        </div>
 
         <Link to="/" className="admin-navbar-back">
           <Icon name="chevron-left" size={14} /> Back to Website
