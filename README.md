@@ -52,3 +52,6 @@ All text, prices, phone number, testimonials, team names etc. are in
 
 `src/components/Contact.jsx` → `handleSubmit()` has a `TODO` — connect it
 to your backend (Django REST endpoint / EmailJS / Formspree).
+
+
+HI
