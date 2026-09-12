@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'dev-only-secret-change-me';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error(
+    'JWT_SECRET is not set in .env — refusing to start with an insecure default secret.'
+  );
+}
 
 export function signAdminToken(email) {
   return jwt.sign({ email, role: 'admin' }, JWT_SECRET, { expiresIn: '12h' });

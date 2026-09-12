@@ -2,9 +2,22 @@ import { Router } from 'express';
 import sgMail from '@sendgrid/mail';
 import dns from 'dns';
 import { pool } from '../db.js';
+import { contactLimiter } from '../middleware/rateLimit.js';
 
 const dnsPromises = dns.promises;
 const router = Router();
+
+// Escapes user-supplied text before it's interpolated into the email HTML —
+// without this, a submitted name/program containing HTML would be injected
+// straight into the outbound email body.
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -38,7 +51,7 @@ async function checkEmailDomainMX(email) {
 
 // ── POST /api/contact ─────────────────────────────────────────────────────────
 // Receives form data from the Contact / Consultation forms, saves it, and emails it.
-router.post('/', async (req, res) => {
+router.post('/', contactLimiter, async (req, res) => {
   try {
     const d = req.body;
 
@@ -75,6 +88,21 @@ router.post('/', async (req, res) => {
       ]
     );
 
+    // Everything below is escaped before going into the HTML email — raw
+    // `d.*` values are user input and must never be interpolated directly.
+    const safe = {
+      program: escapeHtml(d.program) || '—',
+      englishLevel: escapeHtml(d.englishLevel),
+      salutation: escapeHtml(d.salutation),
+      firstName: escapeHtml(d.firstName),
+      lastName: escapeHtml(d.lastName),
+      phoneCode: escapeHtml(d.phoneCode),
+      phone: escapeHtml(d.phone) || '—',
+      email: escapeHtml(d.email) || '—',
+      nationality: escapeHtml(d.nationality) || '—',
+      residence: escapeHtml(d.residence) || '—',
+    };
+
     const html = `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
         <div style="background:#0A1032;padding:24px;border-radius:12px 12px 0 0">
@@ -85,39 +113,39 @@ router.post('/', async (req, res) => {
 
           <table style="width:100%;border-collapse:collapse">
             <tr><td colspan="2" style="padding:8px 0;font-size:14px;color:#555;border-bottom:1px solid #ddd"><strong style="color:#0A1032">Program of Interest</strong></td></tr>
-            <tr><td colspan="2" style="padding:8px 0 16px;font-size:15px">${d.program || '—'}</td></tr>
+            <tr><td colspan="2" style="padding:8px 0 16px;font-size:15px">${safe.program}</td></tr>
 
-            ${d.englishLevel ? `
+            ${safe.englishLevel ? `
             <tr><td colspan="2" style="padding:8px 0;font-size:14px;color:#555;border-bottom:1px solid #ddd"><strong style="color:#0A1032">English Level</strong></td></tr>
-            <tr><td colspan="2" style="padding:8px 0 16px;font-size:15px">${d.englishLevel}</td></tr>
+            <tr><td colspan="2" style="padding:8px 0 16px;font-size:15px">${safe.englishLevel}</td></tr>
             ` : ''}
 
             <tr>
               <td style="padding:8px 12px 8px 0;width:50%;font-size:14px">
                 <div style="color:#555;margin-bottom:4px"><strong>Name</strong></div>
-                <div style="font-size:15px">${d.salutation || ''} ${d.firstName || ''} ${d.lastName || ''}</div>
+                <div style="font-size:15px">${safe.salutation} ${safe.firstName} ${safe.lastName}</div>
               </td>
               <td style="padding:8px 0;width:50%;font-size:14px">
                 <div style="color:#555;margin-bottom:4px"><strong>Phone</strong></div>
-                <div style="font-size:15px">${d.phoneCode || ''} ${d.phone || '—'}</div>
+                <div style="font-size:15px">${safe.phoneCode} ${safe.phone}</div>
               </td>
             </tr>
 
             <tr>
               <td style="padding:16px 12px 8px 0;width:50%;font-size:14px">
                 <div style="color:#555;margin-bottom:4px"><strong>Email</strong></div>
-                <div style="font-size:15px"><a href="mailto:${d.email}" style="color:#0A1032">${d.email || '—'}</a></div>
+                <div style="font-size:15px"><a href="mailto:${safe.email}" style="color:#0A1032">${safe.email}</a></div>
               </td>
               <td style="padding:16px 0 8px;width:50%;font-size:14px">
                 <div style="color:#555;margin-bottom:4px"><strong>Nationality</strong></div>
-                <div style="font-size:15px">${d.nationality || '—'}</div>
+                <div style="font-size:15px">${safe.nationality}</div>
               </td>
             </tr>
 
             <tr>
               <td colspan="2" style="padding:16px 0 8px;font-size:14px">
                 <div style="color:#555;margin-bottom:4px"><strong>Currently Residing In</strong></div>
-                <div style="font-size:15px">${d.residence || '—'}</div>
+                <div style="font-size:15px">${safe.residence}</div>
               </td>
             </tr>
 
@@ -138,11 +166,16 @@ router.post('/', async (req, res) => {
       </div>
     `;
 
+    // Strip any CR/LF from subject fields — defense in depth against
+    // email-header injection via the API even though SendGrid's API
+    // (not raw SMTP) already isn't vulnerable to it in the usual way.
+    const stripNewlines = (v) => String(v ?? '').replace(/[\r\n]+/g, ' ');
+
     const msg = {
       to: TO_EMAILS.length === 1 ? TO_EMAILS[0] : TO_EMAILS,
       from: FROM_EMAIL,
-      replyTo: d.email,
-      subject: `New Enquiry – ${d.salutation || ''} ${d.firstName || ''} ${d.lastName || ''} | ${d.program || 'General'}`,
+      replyTo: stripNewlines(d.email),
+      subject: `New Enquiry – ${stripNewlines(d.salutation)} ${stripNewlines(d.firstName)} ${stripNewlines(d.lastName)} | ${stripNewlines(d.program) || 'General'}`,
       html,
     };
 
