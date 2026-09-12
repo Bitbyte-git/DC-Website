@@ -171,6 +171,13 @@ export function Icon({ name, size = 22 }) {
           <path d="M20 6 9 17l-5-5" strokeWidth="2.2" />
         </svg>
       );
+    case 'search':
+      return (
+        <svg {...p}>
+          <circle cx="11" cy="11" r="7" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      );
     case 'youtube':
       return (
         <svg {...p}>

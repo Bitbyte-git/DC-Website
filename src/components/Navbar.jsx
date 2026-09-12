@@ -126,6 +126,9 @@ export default function Navbar() {
           <Link to="/contact" className="topbar-link topbar-offices">
             <Icon name="globe" size={13} /> Our Offices
           </Link>
+          <Link to="/login" className="topbar-link topbar-login">
+            <Icon name="lock" size={13} /> Login
+          </Link>
         </div>
       </div>
       <div className="container navbar-inner">

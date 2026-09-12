@@ -26,6 +26,9 @@ import PROverview from './PR/PROverview.jsx';
 import RealEstateOverview from './Real Estate/RealEstateOverview.jsx';
 import ResidencyOverview from './Residency/ResidencyOverview.jsx';
 import OtherServiceOverview from './OtherService/OtherServiceOverview.jsx';
+import LoginPage from './components/LoginPage.jsx';
+import AdminPanel from './components/AdminPanel.jsx';
+import AdminNavbar from './components/AdminNavbar.jsx';
 
 
 function ScrollToTop() {
@@ -57,6 +60,8 @@ const STATIC_PAGE_TITLES = {
   '/licenses': 'Licenses & Accreditations',
   '/license': 'Licenses & Accreditations',
   '/contact': 'Contact Us',
+  '/login': 'Admin Login',
+  '/admin': 'Admin Dashboard',
 };
 
 const DYNAMIC_PAGE_PREFIXES = [
@@ -92,6 +97,21 @@ function PageTitle() {
   return null;
 }
 
+// /login and /admin get their own minimal navbar and no footer —
+// the rest of the site keeps the full marketing Navbar + Footer.
+function Chrome({ children }) {
+  const { pathname } = useLocation();
+  const isAdminArea = pathname === '/login' || pathname.startsWith('/admin');
+
+  return (
+    <>
+      {isAdminArea ? <AdminNavbar /> : <Navbar />}
+      {children}
+      {!isAdminArea && <Footer />}
+    </>
+  );
+}
+
 function Home() {
   const [showAutoPopup, setShowAutoPopup] = useState(false);
 
@@ -125,27 +145,28 @@ export default function App() {
         <BrowserRouter>
       <ScrollToTop />
       <PageTitle />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/citizenship/:slug" element={<CountryPage />} />
-        <Route path="/citizenship" element={<CitizenshipOverview />} />
-        <Route path="/residency/:slug" element={<ResidencyPage />} />
-        <Route path="/residency" element={<ResidencyOverview />} />
-        <Route path="/realestate/:slug" element={<RealEstatePage />} />
-        <Route path="/realestate" element={<RealEstateOverview />} />
-        <Route path="/services/:slug" element={<OtherservicePage />} />
-        <Route path="/other-services" element={<OtherServiceOverview />} />
-        <Route path="/pr/:slug" element={<PRPage />} />
-        <Route path="/pr" element={<PROverview />} />
-        <Route path="/policies/:slug" element={<PolicyPage />} />
-        <Route path="/licenses" element={<LicensePage />} />
-        <Route path="/license" element={<LicensePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-
-      </Routes>
-      <Footer />
+      <Chrome>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/citizenship/:slug" element={<CountryPage />} />
+          <Route path="/citizenship" element={<CitizenshipOverview />} />
+          <Route path="/residency/:slug" element={<ResidencyPage />} />
+          <Route path="/residency" element={<ResidencyOverview />} />
+          <Route path="/realestate/:slug" element={<RealEstatePage />} />
+          <Route path="/realestate" element={<RealEstateOverview />} />
+          <Route path="/services/:slug" element={<OtherservicePage />} />
+          <Route path="/other-services" element={<OtherServiceOverview />} />
+          <Route path="/pr/:slug" element={<PRPage />} />
+          <Route path="/pr" element={<PROverview />} />
+          <Route path="/policies/:slug" element={<PolicyPage />} />
+          <Route path="/licenses" element={<LicensePage />} />
+          <Route path="/license" element={<LicensePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin" element={<AdminPanel />} />
+        </Routes>
+      </Chrome>
     </BrowserRouter>
   );
 }
